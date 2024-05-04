@@ -11,7 +11,7 @@ const SlidingHeroContainer = ({ heroData }) => {
   console.log("SlidingHeroContainer-heroData", heroData, "STYLE MODULE",  SlidingHeroContainer)
 
   return (
-    <div id="NEW_CONTAINER" className={classNames(styles.SlidingHeroContainer, "w-full relative mt-44")}>
+    <div id="NEW_CONTAINER" className={classNames(styles.SlidingHeroContainer, "w-full relative mt-[11em] sm:mt-[9em]")}>
       <div className={classNames(styles.positioner__kzf41dxdl, "")} data-test="positioner">
         <div className={classNames(styles.block__kzf41dxdl, "Block_subDiv__vTPjd no_high_contrast")} data-test="block" data-testid="_kzf41dxdl" data-blocktype="Container" data-subtype="SlidingHero" id="Haute_Horlogerie">
           <div className={styles.ForwardLink_root__EtbqJ}>
@@ -28,52 +28,19 @@ const SlidingHeroContainer = ({ heroData }) => {
                       <img id="_7bgmoenc6_main" src={mobileImageSrc} alt={imageAlt}  className='bg-cover w-screen bg-cover aspect-[3/2] '/>
                     </picture>
                   </div>
-                 <div className="absolute inset-x-6 max-[687px]:bottom-10 sm:top-10  lg:w-1/2 bottom-8rem  px-8 pb-16 lg:p-16">
-              {/*    <div class="absolute inset-0">
-                      
-                        <video class="vid-full object-cover h-full" autoplay="" loop="" muted="" playsinline="" width="100%" poster="files/HP_Maria.png">
-                        <source src="https://cdn.shopify.com/videos/c/o/v/b711ddfe21b04d19a399fa338201928d.mp4" type="video/mp4" id="template--17781350269181__hero"/>
-                        </video>
-                    
-                </div> */}
-                <h1 class="relative  text-center flex flex-col text-lg md:text-2xl  text-white overlayed-text overlayed-text-shadow">
-                    <span class="uppercase text-lable-anouncer ">Introducing</span>
-                    <span class="text-h2 text-white overlayed-text overlayed-text-shadow">Cashmere Peel Gentle Exfoliating AHA + PHA Toner</span>
+                 <div className="absolute inset-x-6 max-[687px]:bottom-10 sm:top-[43em]  lg:w-1/2 bottom-8rem  px-4 pb-16 lg:p-16">
+         
+                <h1 class="relative !text-left flex flex-col text-lg md:text-2xl  text-white overlayed-text overlayed-text-shadow">
+                    <span class="uppercase massi-anouncer text-white">Introducing</span>
+                    <span class="text-h2 text-white overlayed-text overlayed-text-shadow" style={{"letterSpacing": "normal"}}>MASSI  - <span className='text-h3' style={{fontFamily:'var(--hh-font-family-primary)', 'fontSize': '0rem !important'}}>Mindful 🪷 Beauty </span> <br></br></span>
+                    <h3 className='' > NYC Haircare Specialist</h3>
                 </h1> 
-                <div className={classNames("flex justify-center")}>
-                  <Button className={"CTA_root__6tC4C CTA_button__4KFtO CTA_primary-white__tAPK0 puls-background-white puls-border-none puls-fake-black no_high_contrast bg-white hover:!bg-gray-700 main-text-color hover:text-white"} 
-                         href="/get-started" color="white" shape="roundedSm">See More </Button>
+                <div className={classNames("justify-center")}>
+                  <Button className={"themeBtn bg-black !text-white no_high_contrast  hover:!bg-gray-700 hover:text-white"} 
+                         href="/get-started" color="white" shape="roundedSm"><span>Seee More </span></Button>
                   </div>
             </div>
-                 
-                  {/* <div className={classNames(styles.Layout_root__WCgpP, "puls-noRowMargin absolute bottom-0 inset-x-0")} data-test="layout">
-                    <div className={classNames(styles.positioner__vedzmbe2y, "Block_root__nWdeU puls-noColPadding Positioner_root__N1-aO puls-bottom-center")} data-test="positioner">
-                      <div className={classNames(styles.block__vedzmbe2y, "Block_subDiv__vTPjd")} data-test="block" data-testid="_vedzmbe2y" data-blocktype="Container" id="_vedzmbe2y">
-                        <div className={styles.ForwardLink_root__EtbqJ}>
-                          <div className={classNames(styles.Layout_root__WCgpP, "layout__vedzmbe2y puls-noRowMargin")} data-test="layout">
-                            <div className={classNames(styles.positioner__jsg4oq2s3, "Block_root__nWdeU puls-noColPadding Positioner_root__N1-aO Positioner_inCol__k77-j")} data-test="positioner">
-                              <div className={classNames(styles.block__jsg4oq2s3, "Block_subDiv__vTPjd")} data-test="block" data-testid="_jsg4oq2s3" data-blocktype="Text" id="_jsg4oq2s3">
-                                <h2 className={classNames(styles.Text_root__GCOQp, "Text_subtitle__7INGD puls-white")} data-testid="text" id="_jsg4oq2s3_main">
-                                  <span className={classNames(styles.Text_root__GCOQp, "Text_subtitle__7INGD")} role="presentation">{title}</span>
-                                  <span className={classNames(styles.Text_root__GCOQp, "Text_srOnly__GqaDE")}> </span><br />
-                                  <span className={classNames(styles.Text_root__GCOQp, "Text_heading2__vEE5O")} role="presentation">{subtitle}</span>
-                                </h2>
-                              </div>
-                            </div>
-                            <div className={classNames(styles.positioner__gi2ge9yln, "Block_root__nWdeU puls-noColPadding Positioner_root__N1-aO Positioner_inCol__k77-j")} data-test="positioner">
-                              <div className={classNames(styles.block__gi2ge9yln, "Block_subDiv__vTPjd")} data-test="block" data-testid="_gi2ge9yln" data-blocktype="CTA" id="_gi2ge9yln">
-                                <p aria-describedby="">
-                                  <a className={classNames(styles.CTA_root__6tC4C, "CTA_button__4KFtO CTA_primary-white__tAPK0 puls-background-white puls-border-none puls-fake-black no_high_contrast")} id="_gi2ge9yln_main_link" target="_self" title={buttonLabel} href={buttonLink}>
-                                    <span className={styles.CTA_cta__JpHCe} data-testid="text" id="_gi2ge9yln_main_text">{buttonLabel}</span>
-                                  </a>
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div> */}
+
                 </div>
               </div>
             </div>
@@ -81,6 +48,7 @@ const SlidingHeroContainer = ({ heroData }) => {
         </div>
       </div>
     </div>
+    
   );
 };
 // const SlidingHeroContainer = ({ heroData }) => {
@@ -135,6 +103,7 @@ const SlidingHeroContainer = ({ heroData }) => {
 //         </div>
 //       </div>
 //     </div>
+
 //   );
 // };
 

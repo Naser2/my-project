@@ -230,12 +230,12 @@ export function MobileMenuLinks({categories}) {
     
   </Tab.Group>
   {/* <div className="prose prose-sm mb-4 text-gray-500 text-left"><ul role="list"><li>Only the best materials</li><li>Ethically and locally made</li><li>Pre-washed and pre-shrunk</li><li>Machine wash cold with similar colors</li></ul></div> */}
-  <div className="group w-full py-4 my-6 bg-gray-200 border-t border-gray-200 px-8 border-y-4 divide-y divide-slate-700  border-indigo-500 ">
+  <div className="group w-full py-4 my-6 bg-gray-200 dark:bg-[var(--blackTheme)] border-t border-gray-200 px-8 border-y-4 divide-y divide-slate-700  border-indigo-500 ">
      {navigation.pages.map((page) => (
       <div key={page.name} className="group has-border hover:bg-gray-200 flow-root border-t-1 border-b border-slate-200 py-2">
         <a
             href={page.href}
-            className=" max-w-xl  -m-2 block text-[1.5em] px-3 font-medium text-left dark:text-white hover:main-text-color-1 font-base"
+            className=" max-w-xl  -m-2 block text-[1.5em] px-3 font-medium text-left dark:text-white hover:main-text-color-1  dark:hover:text-black font-base"
           >
             {page.name}
           </a>
@@ -259,7 +259,7 @@ export const LinkMapper = ({links}) => {
     <ul className="group has-border is-hidden-l js-header-contact mobile-nav-bottom-links" >
       {links.map((link, index) => (
         <li key={index} className={link.className}>
-          <a href={link.href} className="group__item text-[1.5em] text-left text-[#333] dark:text-white hover:bg-gray-200" data-event-label={link.dataEventLabel}
+          <a href={link.href} className="group__item text-[1.5em] text-left text-[#333] dark:text-white hover:bg-gray-200 dark:hover:text-black" data-event-label={link.dataEventLabel}
           //  style={{'color': '#333'}}
 
            >

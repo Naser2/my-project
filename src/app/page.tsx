@@ -14,13 +14,17 @@ import Header from '@/components/SephoHeader'; // Import the Header component
 import SlidingHeroContainer from '@/components/SlidingHeroContainer'; // Import the Header component
 import TestButton from '@/components/TestButton';
 import DispatchElements from '@/components/DispatchElements';
-import { allReviews, dispatchData, navigation, proucdtsTeaser, servicesReviews } from "@/data";
+import { allReviews, dispatchData, images, navigation, proucdtsTeaser, servicesReviews } from "@/data";
 import ImageHero from '@/components/ImageHero'
 import ProductCardDisplay from '@/components/ProductCardDisplay'
 import TestimonialSection from '@/components/TestimonialSection'
 import FadeInSection from '@/utils/FadeInSection'
 import { reviews } from "../components/data";
+import TalwindUiTest from "@/components/TalwindUiTest"
 import TestSliderComponent from '@/components/TestSliderComponent'
+import HeroGiff from '@/assets/images/ezgif-7-5ad70af6f1.gif'
+import  Products from '@/components/product/Products'
+import Slider from '@/components/slider/Slider'
 const items = [
   {
     id: 'account',
@@ -34,9 +38,11 @@ const heroImages = [
  {
   title: "La Haute Horlogerie de CHANEL",
   image: {
-      imageSrc: "https://www.chanel.com/puls-img/c_limit,w_3200/q_auto:good,dpr_auto,f_auto/1710838915277-onehpcorpodslidinghero2880x1260px51jpg_1260x2880.jpg",
+      imageSrc: HeroGiff.src,
+      // "https://www.chanel.com/puls-img/c_limit,w_3200/q_auto:good,dpr_auto,f_auto/1710838915277-onehpcorpodslidinghero2880x1260px51jpg_1260x2880.jpg",
       imageAlt: "Image of Haute Horlogerie",
-      mobileImageSrc:"https://www.chanel.com/puls-img/1710838915022-onehpcorpomslidinghero1125x1500px41jpg_1500x1125.jpg",
+      mobileImageSrc:HeroGiff.src,
+      // "https://www.chanel.com/puls-img/1710838915022-onehpcorpomslidinghero1125x1500px41jpg_1500x1125.jpg",
   },
 
   subtitle: "Haute Horlogerie",
@@ -64,47 +70,83 @@ const heroImages = [
 
 export default function HomePage() {
   return (
-    <main className="lg:max-w max-w-none overflow-hidden">
+    <div className="lg:max-w max-w-none overflow-hidden">
    
 
 
       {/* <div className="relative min-h-65 p-10 flex w-full SlidingHeroContainer_ForwardLink_root__EtbqJ__eBvMq pt-4"></div> */}
     {/* <TestButton>Hello Test</TestButton> */}
-      <section className="relative mt-14">
+      <section id="massi beauty" className="relative mt-14">
+        <h2 className="h-0 w-0">Introducing Wholesome beauty </h2>
         {heroImages.map((heroData, index) => (  <SlidingHeroContainer key={index} heroData={heroData}/> ))}
-        </section>
+       </section>
+
+    
+
+    <section id="mission" className=" bg-gray-300">
+        <h2 className="h-0 w-0">Mission</h2>
         <DispatchElements data={dispatchData} />
-        {/* TWO GRID HERE */}
-        {/* SERVIcES  */}
-       <img src="http://i.giphy.com/DzIXZlXmh61na.gif" alt=""  className="w-64"/>
-        {navigation.categories.map((assetsCategories, index) => {
-  const Services = assetsCategories.name =='Services' ? assetsCategories : null;
-  console.log("SERVICESssss " + Services)
-  //  const ServicesHero = Services.hero
-  if (Services) {
-    const { hero } = Services;
-    if (hero) {
-      return (
-        <ImageHero
-          imageSrcDesktop={hero.desktop.srcSet}
-          imageSrcMobile={hero.mobile.srcSet}
-          title={hero.title}
-          subtitle={hero.subtitle}
-          href={hero.href}
-          alt={hero.alt}
-          sizes="(min-width: 601px) 640px, 100vw"
-          key={index}
-          cta={hero.cta}
-        />
-      );
-    } else {
-      return (
-        <h1 key={index}>Missing Services Image to display</h1>
-      );
-    }
-  }
-})}
- <div className="content relative">
+        
+    </section>
+    <section id="mission" className="bg-gray-300">
+        <h2 className="h-0 w-0">Mission</h2>
+        <CocoChanel property={null}/>
+    </section>
+
+       {/* <img src="http://i.giphy.com/DzIXZlXmh61na.gif" alt=""  className="w-64"/> */}
+      <section id="services"  className="bg-gray-200">
+        <h2 className="h-0 w-0">Services</h2>
+      {navigation.categories.map((assetsCategories, index) => {
+        const Services = assetsCategories.name =='Services' ? assetsCategories : null;
+        if (Services) {
+          const { hero } = Services;
+          if (hero) {
+            return (
+              <ImageHero
+                imageSrcDesktop={hero.desktop.srcSet}
+                imageSrcMobile={hero.mobile.srcSet}
+                title={hero.title}
+                subtitle={hero.subtitle}
+                href={hero.href}
+                alt={hero.alt}
+                sizes="(min-width: 601px) 640px, 100vw"
+                key={index}
+                cta={hero.cta}
+              />
+            );
+            } else {
+              return (
+                <h1 key={index}>Missing Services Image to display</h1>
+              );
+            }
+          }
+      })} 
+      </section>
+     <section id="products" className="bg-gray-300">
+          <h2 className="h-0 w-0 sr-only">Products</h2>
+          <FadeInSection>
+                       <div class="absolute bottom-full left-0 right-0"><div class="relative h-full w-full"><div class="flex flex-col gap-3.5 pb-3.5 pt-2"><div><div class="h-full flex ml-1 md:w-full md:m-auto gap-0 md:gap-2 justify-center"><div class="grow"><div class="absolute bottom-full left-0 mb-4 flex w-full grow gap-2 px-1 pb-1 sm:px-2 sm:pb-0 md:static md:mb-0 md:max-w-none"><div class="grid w-full grid-flow-row grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-2"><div class="flex flex-col gap-2"><span style={{"opacity": 1, "transform": "none"}}><button class="btn relative btn-neutral group w-full whitespace-nowrap rounded-xl px-4 py-3 text-left text-token-text-primary md:whitespace-normal" as="button"><div class="flex w-full gap-2 items-center justify-center"><div class="flex w-full items-center justify-between"><div class="flex flex-col overflow-hidden"><div class="truncate">Explain nostalgia</div><div class="truncate font-normal opacity-50">to a kindergartener</div></div><div class="absolute bottom-0 right-0 top-0 flex items-center rounded-xl bg-gradient-to-l from-token-main-surface-secondary pl-6 pr-4 text-token-text-secondary opacity-0 can-hover:group-hover:opacity-100"><span class="" data-state="closed"><div class="rounded-lg bg-token-main-surface-primary p-1 shadow-xxs dark:shadow-none"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="icon-sm text-token-text-primary"><path d="M7 11L12 6L17 11M12 18V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></span></div></div></div></button></span><span style={{"opacity": 1, "transform": "none"}}><button class="btn relative btn-neutral group w-full whitespace-nowrap rounded-xl px-4 py-3 text-left text-token-text-primary md:whitespace-normal" as="button"><div class="flex w-full gap-2 items-center justify-center"><div class="flex w-full items-center justify-between"><div class="flex flex-col overflow-hidden"><div class="truncate">Design a programming game</div><div class="truncate font-normal opacity-50">teach basics in a fun way</div></div><div class="absolute bottom-0 right-0 top-0 flex items-center rounded-xl bg-gradient-to-l from-token-main-surface-secondary pl-6 pr-4 text-token-text-secondary opacity-0 can-hover:group-hover:opacity-100"><span class="" data-state="closed"><div class="rounded-lg bg-token-main-surface-primary p-1 shadow-xxs dark:shadow-none"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="icon-sm text-token-text-primary"><path d="M7 11L12 6L17 11M12 18V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></span></div></div></div></button></span></div><div class="flex flex-col gap-2"><span style={{"opacity": 1, "transform": "none"}}><button class="btn relative btn-neutral group w-full whitespace-nowrap rounded-xl px-4 py-3 text-left text-token-text-primary md:whitespace-normal" as="button"><div class="flex w-full gap-2 items-center justify-center"><div class="flex w-full items-center justify-between"><div class="flex flex-col overflow-hidden"><div class="truncate">Write a message</div><div class="truncate font-normal opacity-50">that goes with a kitten gif for a friend on a rough day</div></div><div class="absolute bottom-0 right-0 top-0 flex items-center rounded-xl bg-gradient-to-l from-token-main-surface-secondary pl-6 pr-4 text-token-text-secondary opacity-0 can-hover:group-hover:opacity-100"><span class="" data-state="closed"><div class="rounded-lg bg-token-main-surface-primary p-1 shadow-xxs dark:shadow-none"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="icon-sm text-token-text-primary"><path d="M7 11L12 6L17 11M12 18V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></span></div></div></div></button></span><span style={{"opacity": 1, "transform": "none"}}><button class="btn relative btn-neutral group w-full whitespace-nowrap rounded-xl px-4 py-3 text-left text-token-text-primary md:whitespace-normal" as="button"><div class="flex w-full gap-2 items-center justify-center"><div class="flex w-full items-center justify-between"><div class="flex flex-col overflow-hidden"><div class="truncate">Make me a personal webpage</div><div class="truncate font-normal opacity-50">after asking me three questions</div></div><div class="absolute bottom-0 right-0 top-0 flex items-center rounded-xl bg-gradient-to-l from-token-main-surface-secondary pl-6 pr-4 text-token-text-secondary opacity-0 can-hover:group-hover:opacity-100"><span class="" data-state="closed"><div class="rounded-lg bg-token-main-surface-primary p-1 shadow-xxs dark:shadow-none"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="icon-sm text-token-text-primary"><path d="M7 11L12 6L17 11M12 18V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></span></div></div></div></button></span></div></div></div></div></div></div></div></div></div>
+           <Slider images={images}/>
+
+          <Products />
+          <ProductCardDisplay productsSample={proucdtsTeaser} />
+        </FadeInSection> 
+     </section>
+
+       <section id="about" className="">
+          <h2 className="h-0 w-0 sr-only">About Us</h2>
+          <AboutSection  property={null}/>    
+        </section>
+        
+  
+         <section id="testimonials" className="">
+          <h2 className="h-0 w-0 sr-only">Testimonials</h2>
+          <TestimonialSection reviews={allReviews}/>
+        </section>
+        
+
+    {/* <TalwindUiTest /> */}
+ {/* <div className="content relative">
         <p>
           <b>This example demonstrates how to hide a navbar when the user starts to scroll the page.</b>
         </p>
@@ -124,32 +166,28 @@ export default function HomePage() {
           nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
           id est laborum.
         </p>
-      </div>
-       <section id="section1" className="h-[30vh] bg-orange-500">
-          <h2 className="px-8 text-h2 text-white overlayed-text overlayed-text-shadow">Section 1</h2>
-          <p>Content of section 1 goes here...</p>
-        </section>
-        
-        <section id="section2"  className="h-[30vh]">
-          <h2>Section 2</h2>
+      </div> */}
+      
+        <section id="section2"  className="h-[30vh] bg-gray-200">
+          <h2>Testimonials</h2>
           <p>Content of section 2 goes here...</p>
         </section>
         
-        <section id="section3"   className="h-[30vh]">
-          <h2>Section 3</h2>
+        <section id="About"   className="h-[30vh]">
+          <h2>About Us</h2>
           <p>Content of section 3 goes here...</p>
         </section>
         
        
-   <div className="max-w-lg 3xl:max-w-xl">
+  <div className="max-w-lg 3xl:max-w-xl">
   <h1 className="font-display text-4xl">
     Data to <span className="text-neon-cyan">enrich</span> your online business
   </h1>
 </div> 
-  <TestSliderComponent />
+  {/* <TestSliderComponent /> */}
 {/* <Header items={items} /> */}
 
-<div class="StyledWidgetMenu--hkf06h jnSKfE"><a class="StyledWidgetLink--4kybrr jKGdSQ"><div class="StyledWidgetIcon--eypg5o dKiKfO"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M9 1.688a7.313 7.313 0 110 14.625A7.313 7.313 0 019 1.688zm0 1.218a6.094 6.094 0 100 12.188A6.094 6.094 0 009 2.906zm0 2.438a.61.61 0 110 1.218.61.61 0 010-1.218zm.61 6.703a.61.61 0 01-1.22 0v-3.7a.61.61 0 111.22 0v3.7z" transform="translate(3 3)" fill-rule="evenodd"></path></svg></div><span class="StyledSpan--1x62xq3 cUibYJ">Learn more</span></a><button class="StyledWidgetButton--mwhbzw djuuNz"><div class="StyledWidgetIcon--eypg5o dKiKfO"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M5.812 19.138a.663.663 0 01-.943 0 .666.666 0 010-.943l2.054-2.054C4.744 14.741 4 12.805 4 12c0-1.741 2.803-6 8-6 2.001 0 3.263.607 3.961 1.103l2.242-2.241a.666.666 0 11.942.942L5.812 19.138zm4.396-6.282l2.653-2.652A1.994 1.994 0 0012 10c-1.103 0-2 .898-2 2 0 .3.08.589.208.856zM12 7.333c-4.523 0-6.667 3.744-6.667 4.667 0 .297.476 1.954 2.562 3.168l1.359-1.358c-.047-.043-.101-.075-.135-.133A3.337 3.337 0 0112 8.667c.66 0 1.293.202 1.835.562l1.162-1.161c-.55-.34-1.502-.735-2.997-.735zm0 8A.667.667 0 0111.956 14 2.198 2.198 0 0014 11.956a.666.666 0 111.33.087 3.537 3.537 0 01-3.288 3.289H12zm-1.84 1.113c.582.146 1.201.22 1.84.22 4.523 0 6.667-3.743 6.667-4.666 0-.279-.289-1.185-1.182-2.204a.667.667 0 111.004-.878C19.407 9.966 20 11.176 20 12c0 1.74-2.803 6-8 6a8.871 8.871 0 01-2.165-.262.667.667 0 11.326-1.292z" fill-rule="evenodd"></path></svg></div><span class="StyledSpan--1x62xq3 cUibYJ">Hide Brave Rewards</span></button></div>
+{/* <div class="StyledWidgetMenu--hkf06h jnSKfE"><a class="StyledWidgetLink--4kybrr jKGdSQ"><div class="StyledWidgetIcon--eypg5o dKiKfO"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M9 1.688a7.313 7.313 0 110 14.625A7.313 7.313 0 019 1.688zm0 1.218a6.094 6.094 0 100 12.188A6.094 6.094 0 009 2.906zm0 2.438a.61.61 0 110 1.218.61.61 0 010-1.218zm.61 6.703a.61.61 0 01-1.22 0v-3.7a.61.61 0 111.22 0v3.7z" transform="translate(3 3)" fill-rule="evenodd"></path></svg></div><span class="StyledSpan--1x62xq3 cUibYJ">Learn more</span></a><button class="StyledWidgetButton--mwhbzw djuuNz"><div class="StyledWidgetIcon--eypg5o dKiKfO"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M5.812 19.138a.663.663 0 01-.943 0 .666.666 0 010-.943l2.054-2.054C4.744 14.741 4 12.805 4 12c0-1.741 2.803-6 8-6 2.001 0 3.263.607 3.961 1.103l2.242-2.241a.666.666 0 11.942.942L5.812 19.138zm4.396-6.282l2.653-2.652A1.994 1.994 0 0012 10c-1.103 0-2 .898-2 2 0 .3.08.589.208.856zM12 7.333c-4.523 0-6.667 3.744-6.667 4.667 0 .297.476 1.954 2.562 3.168l1.359-1.358c-.047-.043-.101-.075-.135-.133A3.337 3.337 0 0112 8.667c.66 0 1.293.202 1.835.562l1.162-1.161c-.55-.34-1.502-.735-2.997-.735zm0 8A.667.667 0 0111.956 14 2.198 2.198 0 0014 11.956a.666.666 0 111.33.087 3.537 3.537 0 01-3.288 3.289H12zm-1.84 1.113c.582.146 1.201.22 1.84.22 4.523 0 6.667-3.743 6.667-4.666 0-.279-.289-1.185-1.182-2.204a.667.667 0 111.004-.878C19.407 9.966 20 11.176 20 12c0 1.74-2.803 6-8 6a8.871 8.871 0 01-2.165-.262.667.667 0 11.326-1.292z" fill-rule="evenodd"></path></svg></div><span class="StyledSpan--1x62xq3 cUibYJ">Hide Brave Rewards</span></button></div>
 
 <div className="StyledPage--fe902q khZTBp">
   <section className="GridItemStats--5i8f7y jLdpBh">
@@ -953,17 +991,11 @@ export default function HomePage() {
       </div>
     </div>
   </div>
-</div>
+</div> */}
 
-  <CocoChanel />
 
-  <FadeInSection>
-    <ProductCardDisplay productsSample={proucdtsTeaser} />
-  </FadeInSection>  
 
-    <TestimonialSection reviews={allReviews}/>
-     
-    <AboutSection />
+
 
      {/* <div id="welcome-screen-foreground">
       <div id="welcome-screen-logo">
@@ -1003,7 +1035,7 @@ export default function HomePage() {
 
     {/* <WelcomeScreen /> */}
     <section id="LEGACY-PRODUCT-INFO" className="flex-auto overflow-hidden relative mx-auto mt-16 grid  max-w-container grid-cols-1 px-4 sm:mt-20 sm:px-6 lg:px-8 xl:mt-32">
-      <div className="lg:grid lg:auto-rows-min lg:grid-cols-12 lg:gap-x-8 relative overflow-auto">
+      {/* <div className="lg:grid lg:auto-rows-min lg:grid-cols-12 lg:gap-x-8 relative overflow-auto">
         <div className="lg:col-span-5 lg:col-start-8">
           <ProductInfo />
         </div>
@@ -1017,10 +1049,10 @@ export default function HomePage() {
             <AddToCart  />
           </div>
 
-          {/* <ProductDetails /> */}
+          <ProductDetails />
           <Policies />
         </div>
-      </div>
+      </div> */}
 
       {/* <Reviews reviews={allReviews} /> */}
       <RelatedProducts />
@@ -1186,7 +1218,7 @@ export default function HomePage() {
   </div>
 </div>
 
-    </main>
+    </div>
   );
 }
 

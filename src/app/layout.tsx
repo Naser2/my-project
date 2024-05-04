@@ -12,7 +12,7 @@ import { MobileMenu } from "../components/nav/MobileMenuLinks";
 // import { Header } from "@/components/nav/Header";
 import { Footer } from "../components/nav/Footer";
 import Navbar from "@/components/Navbar";
-import Header from '@/components/SephoHeader'; //
+import Header, { MobileHeader } from '@/components/SephoHeader'; //
 import HideableNavbar from '@/components/HideableNavbar'; 
 import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
@@ -51,11 +51,11 @@ export default function RootLayout({
                 document.documentElement.classList.remove('dark')
               }
               `,
-            }}
-          />
+            }}>
+          </script>
         </head>
-         <body id="app" className={clsx(inter.className, "max-w-screen font-sans antialiased text-gray-600 min-h-full flex flex-col [overflow-anchor:none] dark:bg-black")} style={{"transition":" all 0.4s ease"}}> 
-          {/* <Header items={items} />  */}
+         <body id="app" className={clsx(inter.className, "max-w-screen font-sans antialiased text-gray-600 min-h-full flex flex-col [overflow-anchor:none] dark:bg-black")} style={{"transition":"all 0.4s ease !important"}}> 
+          {/* <Header   items={items}/>  */}
           <HideableNavbar/>
           <main className="relative -mt-[5.75rem] overflow-hidden  flex-auto">
           {/* pb-16 pt-[5.75rem] */}

@@ -1,98 +1,67 @@
 "use client"
-
-import { useState } from 'react';
+import clsx from 'clsx'
+import { useEffect, useState } from 'react';
 import { OverlayProvider, usePreventScroll } from 'react-aria';
 import MassiButton from './headless/MassiButton';
 import SlideOver from './headless/SlideOver';
 import HeadlessSlideOver from './headless/HeadlessSlideOver';
+import { VariableIcon } from '@heroicons/react/24/outline';
+import { NavTriggerComponent, OpenButton } from './HideableNavbar';
 
-function TestSliderComponent() {
+
+function TestSliderComponent({navigationOpen, handleSetNavigationIsOpen}) {
   const [isOpen, setIsOpen] = useState(false);
   const [isHeadlessOpen, setIsHeadlessOpen] = useState(false);
 
-  const handleOnClose = () => setIsOpen(false);
+  const handleOnClose = () =>{ 
+    // alert("handleOnClose")
+    setIsHeadlessOpen(false);
+  }
 
-  usePreventScroll({ isDisabled: !isOpen });
+// useEffect(() => {
+//   if(isHeadlessOpen){
+//     return () => setIsHeadlessOpen(true)
+//   } else () => setIsHeadlessOpen(false)
+// },[isHeadlessOpen])
+const handlesetIsHeadlessModal = (word) => {
+  // // const theme =  theme === 'dark' ? "dark" : "light"; 
+  // window.localStorage.setItem("theme", theme);
+  console.log("VARIABLE in FUNC", word)
+  setIsOpen(!isOpen)
+  setIsHeadlessOpen(!isHeadlessOpen);
+  console.log("VARIABLE-IN-STATE", isHeadlessOpen)
+  // localStorage.setItem("theme", theme);
+};
+
+  // usePreventScroll({ isDisabled: !isOpen });
 
   return (
-    <OverlayProvider>
-      <div className="bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
-        <div className="relative text-center py-3 max-w-full lg:max-w-xl lg:mx-auto">
-          <div className="absolute inset-0 bg-gradient-to-r from-indigo-400 to-indigo-700 shadow-lg transform -skew-y-3 lg:skew-y-0 lg:-rotate-3 lg:rounded-3xl"></div>
-          <div className="relative p-20 bg-white shadow-lg lg:rounded-3xl">
-            <div className="max-w-md mx-auto lg:max-w-2xl">
-              <MassiButton onClick={() => setIsOpen(true)}>Open (Custom)</MassiButton>
-              <MassiButton className="mx-2" onClick={() => setIsHeadlessOpen(true)}>
-                Open (Headless-UI)
-              </MassiButton>
-              <p className="p-4">
-                Ipsum dolore cillum labore anim eu voluptate sunt est ea
-                aliquip. Irure consequat eiusmod minim consectetur ut magna
-                nulla occaecat commodo. Eiusmod culpa amet pariatur non commodo
-                voluptate ipsum nisi duis.
-              </p>
-              <p className="p-4">
-                Ipsum dolore cillum labore anim eu voluptate sunt est ea
-                aliquip. Irure consequat eiusmod minim consectetur ut magna
-                nulla occaecat commodo. Eiusmod culpa amet pariatur non commodo
-                voluptate ipsum nisi duis.
-              </p>
-              <p className="p-4">
-                Ipsum dolore cillum labore anim eu voluptate sunt est ea
-                aliquip. Irure consequat eiusmod minim consectetur ut magna
-                nulla occaecat commodo. Eiusmod culpa amet pariatur non commodo
-                voluptate ipsum nisi duis.
-              </p>
-              <p className="p-4">
-                Ipsum dolore cillum labore anim eu voluptate sunt est ea
-                aliquip. Irure consequat eiusmod minim consectetur ut magna
-                nulla occaecat commodo. Eiusmod culpa amet pariatur non commodo
-                voluptate ipsum nisi duis.
-              </p>
-              <p className="p-4">
-                Ipsum dolore cillum labore anim eu voluptate sunt est ea
-                aliquip. Irure consequat eiusmod minim consectetur ut magna
-                nulla occaecat commodo. Eiusmod culpa amet pariatur non commodo
-                voluptate ipsum nisi duis.
-              </p>
-              <p className="p-4">
-                Ipsum dolore cillum labore anim eu voluptate sunt est ea
-                aliquip. Irure consequat eiusmod minim consectetur ut magna
-                nulla occaecat commodo. Eiusmod culpa amet pariatur non commodo
-                voluptate ipsum nisi duis.
-              </p>
-              <p className="p-4">
-                Ipsum dolore cillum labore anim eu voluptate sunt est ea
-                aliquip. Irure consequat eiusmod minim consectetur ut magna
-                nulla occaecat commodo. Eiusmod culpa amet pariatur non commodo
-                voluptate ipsum nisi duis.
-              </p>
-              {/* <SlideOver
-                isOpen={isOpen}
-                onClose={handleOnClose}
-                title="Item Details"
-              >
-                <div className="flex flex-col">
-                  <input type="text" className="border-gray-300 rounded-md" />
-                  <MassiButton className="mt-4" onClick={handleOnClose}>
-                    OK
-                  </MassiButton>
-                </div>
-              </SlideOver> */}
+    <OverlayProvider className="z-30">
+      <div className="">
+        <div className="relative text-center py-0 max-w-full lg:max-w-xl lg:mx-auto">
+
+          <div >
+            <div className="max-w-md mx-auto lg:max-w-2xl h-sfull">
+              <OpenButton 
+                 setOpen={handlesetIsHeadlessModal}
+                 isOpen={isHeadlessOpen} 
+                 handleOnClose={handleOnClose}/>
               <HeadlessSlideOver
                 open={isHeadlessOpen}
-                setOpen={setIsHeadlessOpen}
-                title="Item Details"
+                setOpen={handlesetIsHeadlessModal}
+                handleOnClose={handleOnClose}
+                title="Test Slide Component -"
               >
                 <div className="flex flex-col">
                   <input type="text" className="border-gray-300 rounded-md" />
                   <MassiButton
                     className="mt-4"
-                    onClick={() => setIsHeadlessOpen(false)}
+                    onClick={() => handlesetIsHeadlessModal(false)}
                   >
-                    OK
+                    OK Headless Slide
                   </MassiButton>
                 </div>
+                
               </HeadlessSlideOver>
             </div>
           </div>
@@ -103,3 +72,29 @@ function TestSliderComponent() {
 }
 
 export default TestSliderComponent;
+
+
+// export const OpenButton = ({isHeadlessOpen, handleOnClose, handlesetIsHeadlessModal}) => {
+//   console.log("Button-OPEN ? " , isHeadlessOpen)
+//   return (
+//     <>
+//     {/* <NavTriggerComponent /> */}
+//     <label onClick={isHeadlessOpen ? ()=>handleOnClose() : ()=>handlesetIsHeadlessModal(true)}
+//       // htmlFor="mobile-navigation"
+//       className="menu-togglee  ml-4 hover:shadow-xl z-50"
+//       id="menu-togglee">
+//       <span aria-label="Close menu"  
+//       id="menu-togglee" 
+//       htmlFor="mobile-navigation" 
+//       className={clsx(isHeadlessOpen ? 'z-50 flex  ring-[ring-[var(--google-grey-200)]] dark:bg-slate-800 dark:!text-white dark:hover:ring-white dark:ring-[var(--google-grey-500)]' : 'ring-[var(--google-grey-500)]', " dark:bg-slate-800 dark:!text-white dark:hover:ring-white navTrigger menu-toggle_menuToggle__6OaWw mobile-menu-button_indicator__mGvzn avatar-mobile-menu_button__YEcob hover:ring-1 hover:shadow-xl hover:ring-[#bdbdbd] sm:mr-1 mobile-search-magnifying-glass hover:bg-[#f2f2f2]  dark:bg-slate-800 dark:!text-white dark:hover:ring-white")}
+//       data-expanded="false" data-testid="mobile-menu/trigger" type="button">
+//         <div class="menu-toggle_bar__GUd1o dark:!bg-white" data-position="top"></div>
+//         <div class="menu-toggle_bar__GUd1o dark:bg-white" data-position="bottom"></div>
+//         <div class="menu-toggle_bar__tree" data-position="middle"></div>
+//     </span>
+//     </label>
+//     </>
+//    )
+// }
+
+

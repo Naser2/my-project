@@ -28,7 +28,7 @@ return <div className="blocks blocks--full-width">
         className="blocks__item__overlay"
       >
         <div>
-          <h4>Present Futures: Virtual and Augmented Reality in Art</h4>
+          <h4>Present Futures: About Massi</h4>
           <span className="btn btn-arrow">→</span>
         </div>
       </a>
@@ -53,7 +53,7 @@ return <div className="blocks blocks--full-width">
         className="blocks__item__overlay"
       >
         <div>
-          <h4>Mark Leckey</h4>
+          <h4>Read More</h4>
           <span className="btn btn-arrow">→</span>
         </div>
       </a>

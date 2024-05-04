@@ -6,7 +6,7 @@ import { classNames } from '@/utils';
 import React, { Fragment } from 'react';
 import { useState, useEffect } from 'react';
 import Button  from '@/components/headless/button'
-
+import clsx from 'clsx'
 import  LoggedInUserImage from '@/assets/images/profile.png'
 import  AuthenticatedUserImage from '@/assets/images/AuthenticatedUserImage.png'
 import FAQ from "./FAQ";
@@ -31,7 +31,8 @@ import { signIn, signOut, useSession, getProviders } from 'next-auth/react';
 import { MobileMenuLinks } from './nav/MobileMenuLinks';
 import DesktopSiteMapFlyout from './nav/DesktopSiteMapFlyout'
 import DesktopAccountLinksFlyout from './nav/DesktopAccountLinksFlyout'
-
+import ThemeSwitch from './ThemeSwitch';
+import ThemeSwitchModal from './themeSwhitcher/ThemeSwitchModal'
 const countries = [
     {
       name: "France",
@@ -826,42 +827,41 @@ export const ScrollHandlerComponent = () => {
 
 //   return null; // Since this is a utility component, it doesn't render any UI
 // };
-const Hamburger = (handleSetNavigationIsOpen) => {
-  return (
-    <>  
+// const Hamburger = (handleSetNavigationIsOpen) => {
+//   return (
+//     <>  
    
-      <NavTriggerComponent /> {/* Rendering the NavTriggerComponent */}
+//       <NavTriggerComponent /> {/* Rendering the NavTriggerComponent */}
    
-      <div className='menu-toggle_menuToggle__6OaWw mobile-menu-button_indicator__mGvzn avatar-mobile-menu_button__YEcob geist-show-on-tablet -mr-[0.5em]  flex'>
-        <label onClick={handleSetNavigationIsOpen}
-            htmlFor="mobile-navigation"
-            className="menu-togglee"
-            id="menu-togglee">
-                  <span className="navTrigger" onClick={handleSetNavigationIsOpen}>
-                  <div class="menu-toggle_bar__GUd1o" data-position="top"></div>
-                  <div class="menu-toggle_bar__GUd1o" data-position="bottom"></div>
-                  <div class="menu-toggle_bar__tree" data-position=""></div>
-                  </span>
-              </label>
-        </div>
+//       <div className='menu-toggle_menuToggle__6OaWw mobile-menu-button_indicator__mGvzn avatar-mobile-menu_button__YEcob geist-show-on-tablet -mr-[0.5em]  flex'>
+//         <label onClick={handleSetNavigationIsOpen}
+//             htmlFor="mobile-navigation"
+//             className="menu-togglee"
+//             id="menu-togglee">
+//                   <span className="navTrigger" onClick={handleSetNavigationIsOpen}>
+//                   <div class="menu-toggle_bar__GUd1o" data-position="top"></div>
+//                   <div class="menu-toggle_bar__GUd1o" data-position="bottom"></div>
+//                   <div class="menu-toggle_bar__tree" data-position=""></div>
+//                   </span>
+//               </label>
+//         </div>
       
-    </>
-  );
-}
+//     </>
+//   );
+// }
 export const MobileHeader = ({session, navigation, userSession, navigationOpen, handleSetNavigationIsOpen, profileImage, isProfileMenuOpen, setIsProfileMenuOpen,providers, advertissment}) => {
   console.log("MOBILE_HEAADER_SESSION-->", session, "MobileHeader-OPEN ??", navigationOpen, "ADVETISSEMENT", advertissment)
- return  <div
-  className={classNames(`${navigationOpen  && advertissment  && 'inset-x-0 z-40 animationTranfrom'} 
-    ${navigationOpen ? '!bg-white' : "bg-transparent" } 
-     mobile-header bg-white dark:bg-black`)}
+ return  (<div  id="SEPHORA-MOBILE-HEADER" className={classNames(`${navigationOpen  && advertissment  && 'inset-x-0 z-40 animationTranfrom'} 
+    ${navigationOpen ? '!bg-white  dark:!bg-black' : "bg-transparent" } 
+     mobile-header bg-white dark:bg-black z-50` )}
       style={{}}>
       {navigationOpen && <UserIcon navigationOpen={navigationOpen} session={session} isProfileMenuOpen={isProfileMenuOpen} profileImage={profileImage} setIsProfileMenuOpen={setIsProfileMenuOpen}/>}
-  <div className="flex justify-between h-full  center dark:bg-black px-4 pb-4 pr-2 sm:ml-[44vw] ">
-      <div className="top-left inline-flex">
+  <div className="flex justify-between h-full  center px-4 pb-4 pr-2 sm:ml-[44vw]">
+      <div className="top-left inline-flex ">
 
           <LogoMobile session={session} navigationOpen={navigationOpen} isProfileMenuOpen={isProfileMenuOpen}/>
-             {/* {navigationOpen && !session  &&  <> {
-                  <div className='flex md:block md:ml-6'>
+             {navigationOpen && !session  &&  <> {
+                  <div className='flex md:block md:ml-6 sm:absolute top-4 left-[5em]'>
                     <div className='flex items-center'>
                       
                       { providers && navigationOpen && 
@@ -880,17 +880,19 @@ export const MobileHeader = ({session, navigation, userSession, navigationOpen, 
                   </div>
                   }
               </>
-            } */}
+            }
         </div>
    
-     <div className="top-right sm:my-2 justify-center flex inline-flex grid grid-cols-3 py-2 sm:mr-4">
-     <div className='absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0'> </div> <div className='absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0'>
+     <div className="top-right py-[1em]  sm:my-2 justify-center flex inline-flex grid grid-cols-3 sm:py-2 sm:mr-4">
+      <ThemeSwitchModal />
+     {/* <ThemeSwitch/> */}
+     <div className='absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto  md:pr-0'> </div> <div className='absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0'>
     { userSession ? <Link href='/messages' className='relative group '>
           <button
             type='button'
             className='bell_btn__yil2q  mr-4 relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none ring-ds-gray-alpha focus:ring-2 focus:!ring-white focus:ring-offset-2 focus:ring-offset-gray-800'
           >
-            <span className='absolute -inset-1.5'></span>
+            <span className='absolute -inset-1.5 '></span>
             <span className='sr-only'>View notifications</span>
             <svg
               className='small-svg'
@@ -909,38 +911,44 @@ export const MobileHeader = ({session, navigation, userSession, navigationOpen, 
             </svg>
           </button>
           <UnreadMessageCount session={userSession} />
-        </Link>: <div className='UNAUTHENTICATED-MESSAGE-BUTTON'>
-        <Link
-        href="mailto:soma@leelanyc.com"
-        className="mt-2 flex max-h-12 items-center rounded-md bg-white py-[0.4375rem] px-2 pr-2 text-sm  font-semibold shadow md:mt-1 lg:pr-3 xl:-mt-1 "
-        id="headlessui-tabs-tab-2"
-        aria-selected="true"
-        tabindex="0"
-        data-headlessui-state="selected"
-        aria-controls="headlessui-tabs-panel-4"
-      >
-        <img
-          class="h-5 w-5 flex-none fill-sky-500 stroke-sky-500 text-sky-500 md:h-6  md:w-6 "
-          src="https://static.xx.fbcdn.net/rsrc.php/v3/yH/r/7nNmS7JFpjU.png"
-          alt=""
-          height="16"
-          width="16"
-          fill="fill-sky-500"
-        ></img>
-        <span className="px-2  text-slate-800 hover:text-blue-500 lg:mx-2 lg:text-lg">
-          Message
-        </span>
-      </Link>
-          </div>}
-            </div>
+        </Link>: 
+          <div className='UNAUTHENTICATED-MESSAGE-BUTTON'>
+            <Link
+              href="mailto:soma@leelanyc.com"
+              className="sm:mx-[2em] dark:mx-2 mt-2 flex max-h-12  w-8 items-center rounded-md bg-white py-[0.4375rem]
+               px-2 pr-2 dark:pr-0 text-sm  font-semibold shadow md:mt-1 dark:!lg:pr-0 lg:pr-3 xl:-mt-0 
+                text-slate-800 hover:bg-[#f2f2f2]  dark:bg-transparent dark:hover:bg-slate-900 dark:!text-white dark:hover:ring-1 dark:hover:ring-white hover:dark:rounded-full dark:hover:shadow-xl"
+              id="headlessui-tabs-tab-2"
+              aria-selected="true"
+              tabindex="0"
+              data-headlessui-state="selected"
+              aria-controls="headlessui-tabs-panel-4"
+          >
+            <img
+              className="h-5 w-5 flex-none fill-sky-500 stroke-sky-500 text-sky-500 md:h-6  md:w-6 dark:shadow-xl dark:!fill-white dark:bg-slate-200 dark:hover:bg-white rounded-full"
+              src="https://static.xx.fbcdn.net/rsrc.php/v3/yH/r/7nNmS7JFpjU.png "
+              alt=""
+              height="16"
+              width="16"
+              fill="white"
+            ></img>
+            <span className="px-2 invisible hover:visible  hover:text-blue-500 lg:mx-2 lg:text-lg" >
+              Message
+            </span>
+          </Link>
+        </div>}
+      </div>
+     
        <SeachIcon session={session}/>
-      { session &&  <BellIcon handleSetNavigationIsOpen={handleSetNavigationIsOpen}/> }
-        <CartMobile handleSetNavigationIsOpen={handleSetNavigationIsOpen}/> 
+      { session &&  <BellIcon/> }
+        <CartMobile /> 
+        
         <OpenButton handleSetNavigationIsOpen={handleSetNavigationIsOpen}/>
+        {/* <TestSliderComponent /> */}
     </div>
   </div>
   <input id="mobile-search-checkbox" type="checkbox" className="hide" />
-</div>
+</div>)
 }
 
 
@@ -949,15 +957,14 @@ export const SeachIcon = ({session}) => {
   className="load-algolia center"
   data-fake-searchbar-needed="false"
 >
-  <button className={classNames(!session && "w-[26px] h-[26px] sm:w-[32px] sm:h-[32px] mt-[0.26em] sm:mt-0 hover:ring-1 hover:shadow-xl hover:ring-[#bdbdbd] sm:mr-1 mobile-search-magnifying-glass hover:bg-[#f2f2f2] ")}>
+  <button className={classNames(!session && "w-[26px]  h-[26px] sm:w-[32px] sm:h-[32px] mt-[0.26em] mx-2 sm:mt-0 hover:ring-1 hover:shadow-xl hover:ring-[#bdbdbd] sm:mr-1 mobile-search-magnifying-glass hover:bg-[#f2f2f2]  dark:bg-slate-800 dark:!text-white dark:hover:ring-white")}>
     <svg
-      className="svg-inline search-icon w-[16px] h-[16px]"
+      className="svg-inline search-icon w-[16px] h-[16px] dark:!fill-white dark:stroke-white px-2"
       xmlns="http://www.w3.org/2000/svg"
       width={21}
       height={21}
       viewBox="0 0 18 18"
     >
-      {" "}
       <path
         fill="none"
         fillRule="evenodd"
@@ -965,10 +972,32 @@ export const SeachIcon = ({session}) => {
         strokeLinejoin="round"
         strokeWidth={2}
         d="M19.35 19.35l-5.68-5.68 5.68 5.68zM8.31 15.618A7.31 7.31 0 1 1 8.31 1a7.31 7.31 0 0 1 0 14.619z"
-      />{" "}
+      />
     </svg>
   </button>
 </div>
+}
+
+export const OpenButton = ({navigationOpen, handleSetNavigationIsOpen}) => {
+  return (
+    <>
+    {/* <NavTriggerComponent /> */}
+    <label onClick={handleSetNavigationIsOpen}
+      // htmlFor="mobile-navigation"
+      className="menu-togglee  ml-4 hover:shadow-xl z-50"
+      id="menu-togglee">
+      <span aria-label="Close menu"  
+      id="menu-togglee" 
+      htmlFor="mobile-navigation" 
+      className={classNames(navigationOpen ? 'flex  ring-[ring-[var(--google-grey-200)]] dark:bg-slate-800 dark:!text-white dark:hover:ring-white dark:ring-[var(--google-grey-500)]' : 'ring-[var(--google-grey-500)]', " dark:bg-slate-800 dark:!text-white dark:hover:ring-white navTrigger menu-toggle_menuToggle__6OaWw mobile-menu-button_indicator__mGvzn avatar-mobile-menu_button__YEcob hover:ring-1 hover:shadow-xl hover:ring-[#bdbdbd] sm:mr-1 mobile-search-magnifying-glass hover:bg-[#f2f2f2]  dark:bg-slate-800 dark:!text-white dark:hover:ring-white")}
+      data-expanded="false" data-testid="mobile-menu/trigger" type="button">
+        <div class="menu-toggle_bar__GUd1o dark:!bg-white" data-position="top"></div>
+        <div class="menu-toggle_bar__GUd1o dark:bg-white" data-position="bottom"></div>
+        <div class="menu-toggle_bar__tree" data-position="middle"></div>
+    </span>
+    </label>
+    </>
+   )
 }
 
 
@@ -1085,7 +1114,7 @@ function trackActiveSection() {
     window.removeEventListener('scroll', scrollHandler);
   };
 }
-const Header = ({ items }) => {
+export const Header = ({ items }) => {
     const [countryPickerIsOpen, setCountryPickerIsOpen] = useState(false);
     const [navigationOpen, setNavigationOpen] = useState(false);
     const [userSession, setUserSession] = useState(null);
@@ -1192,6 +1221,7 @@ useEffect(() =>{
   
       <div id="MOBIL-NAV-HEADER" className='h-[3em] dark:bg-black z-40'> 
          <ScrollHandlerComponent/>
+         {/* <NavTriggerComponent /> */}
       <nav className=" z-40 h-[3.5em] sm:h-[4em] dark:bg-black ">
         <div id="wrapper" className="pt_account_login newsubscription-wrapper">
           {/* <SectionLoader countryPickerIsOpen={countryPickerIsOpen} handleCountryPickerIsOpen={handleCountryPickerIsOpen}/> */}
@@ -1663,12 +1693,12 @@ const UserIcon = ({session, navigationOpen, profileImage, isProfileMenuOpen, set
 
 //  const  session = true 
   return <>{ navigationOpen  &&
-      <div id ="USER-AVATAR" class="mt-[0.5em] mx-4 sm:!my-[1em] !absolute top-0 inset-left-0  mb-1 block flex items-center gap-2 lg:mt-6 lg:px-4 lg:px-4">
+      <div id ="USER-AVATAR" class="mt-[1.2em] sm:mt-[0.5em] mx-4 sm:!my-[1em] !absolute top-0 inset-left-0  mb-1 block flex items-center gap-2 lg:mt-6  xl:top-[0.5em] lg:px-4 lg:px-4 ">
     
            <div>
              <button
                type='button'
-               className='relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'
+               className='dark:bg-gray-600 p-1 ring-2 dark:ring-gray-500 elative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 ring-offset-gray-300 focus:ring-offset-gray-800'
                id='user-menu-button'
                aria-expanded={isProfileMenuOpen}
                aria-haspopup='true'
@@ -1676,22 +1706,37 @@ const UserIcon = ({session, navigationOpen, profileImage, isProfileMenuOpen, set
              >
                <span className='absolute -inset-1.5'></span>
                <span className='sr-only'>Open user menu</span>
-              {session ? <Image
+              {!session ? 
+ <svg className='fill-state-gray-400 dark:fill-state-gray-600  h-6 w-6 ' width="17" height="21" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+ <path fill-rule="evenodd" clip-rule="evenodd" d="M20 22.0741C20 23.1377 19.1046 24 18 24L2 24C1.46957 24 0.960859 23.7971 0.585787 23.4359C0.210714 23.0747 0 22.5849 0 22.0741C0 20.6616 0.243014 19.2573 0.720548 17.9389C1.19805 16.6207 1.90459 15.404 2.81332 14.3648C3.72252 13.3251 4.82059 12.4792 6.05578 11.8941C7.29265 11.3083 8.63412 11 10 11C11.3659 11 12.7073 11.3083 13.9442 11.8941C15.1794 12.4792 16.2775 13.3251 17.1867 14.3648C18.0954 15.404 18.8019 16.6207 19.2795 17.9389C19.757 19.2573 20 20.6616 20 22.0741ZM2.17929 20.1481C2.2805 19.6107 2.42411 19.0836 2.60896 18.5732C3.011 17.4633 3.60028 16.4548 4.34315 15.6054C5.08601 14.7559 5.96793 14.082 6.93853 13.6223C7.90914 13.1625 8.94942 12.9259 10 12.9259C11.0506 12.9259 12.0909 13.1625 13.0615 13.6223C14.0321 14.082 14.914 14.7559 15.6569 15.6054C16.3997 16.4548 16.989 17.4633 17.391 18.5732C17.5759 19.0836 17.7195 19.6107 17.8207 20.1481C17.9396 20.7796 18 21.4251 18 22.0741L2 22.0741C2 21.4251 2.06039 20.7796 2.17929 20.1481Z" fill="currentColor">
+   
+ </path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M10 8C11.6569 8 13 6.65685 13 5C13 3.34315 11.6569 2 10 2C8.34315 2 7 3.34315 7 5C7 6.65685 8.34315 8 10 8ZM10 10C12.7614 10 15 7.76142 15 5C15 2.23858 12.7614 0 10 0C7.23858 0 5 2.23858 5 5C5 7.76142 7.23858 10 10 10Z" fill="currentColor"></path>
+</svg>
+               :
+               
+               <div id="header-link header-link-account"
+               class="ring-1 rounded-full p-1.5 px-2 ring-black bg-[#eca57a]">
+                <Image
                 className={classNames(session ?  "ring-orange-300" : "ring-gray-400", "h-9 w-9 sm:w-12 sm:w-12 rounded-full object-cover ring-2")}
                 src={profileImage || profileDefault}
                 alt="user icon"
                 width={64}
                 height={64}
-              /> :<div id="header-link header-link-account"
-               class="ring-1 rounded-full p-1.5 px-2 ring-black bg-[#eca57a]">
+              />
                 {/* <span class="header-link-text" data-cs-mask="">My Account</span> */}
-                <span id="USER-ICON" class="header-link-icon">
-                  <svg width="17" height="21" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20 22.0741C20 23.1377 19.1046 24 18 24L2 24C1.46957 24 0.960859 23.7971 0.585787 23.4359C0.210714 23.0747 0 22.5849 0 22.0741C0 20.6616 0.243014 19.2573 0.720548 17.9389C1.19805 16.6207 1.90459 15.404 2.81332 14.3648C3.72252 13.3251 4.82059 12.4792 6.05578 11.8941C7.29265 11.3083 8.63412 11 10 11C11.3659 11 12.7073 11.3083 13.9442 11.8941C15.1794 12.4792 16.2775 13.3251 17.1867 14.3648C18.0954 15.404 18.8019 16.6207 19.2795 17.9389C19.757 19.2573 20 20.6616 20 22.0741ZM2.17929 20.1481C2.2805 19.6107 2.42411 19.0836 2.60896 18.5732C3.011 17.4633 3.60028 16.4548 4.34315 15.6054C5.08601 14.7559 5.96793 14.082 6.93853 13.6223C7.90914 13.1625 8.94942 12.9259 10 12.9259C11.0506 12.9259 12.0909 13.1625 13.0615 13.6223C14.0321 14.082 14.914 14.7559 15.6569 15.6054C16.3997 16.4548 16.989 17.4633 17.391 18.5732C17.5759 19.0836 17.7195 19.6107 17.8207 20.1481C17.9396 20.7796 18 21.4251 18 22.0741L2 22.0741C2 21.4251 2.06039 20.7796 2.17929 20.1481Z" fill="black"></path>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M10 8C11.6569 8 13 6.65685 13 5C13 3.34315 11.6569 2 10 2C8.34315 2 7 3.34315 7 5C7 6.65685 8.34315 8 10 8ZM10 10C12.7614 10 15 7.76142 15 5C15 2.23858 12.7614 0 10 0C7.23858 0 5 2.23858 5 5C5 7.76142 7.23858 10 10 10Z" fill="black"></path></svg>
+                {/* <span id="USER-ICON" class="header-link-icon">
+                  <svg width="17" height="21" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M20 22.0741C20 23.1377 19.1046 24 18 24L2 24C1.46957 24 0.960859 23.7971 0.585787 23.4359C0.210714 23.0747 0 22.5849 0 22.0741C0 20.6616 0.243014 19.2573 0.720548 17.9389C1.19805 16.6207 1.90459 15.404 2.81332 14.3648C3.72252 13.3251 4.82059 12.4792 6.05578 11.8941C7.29265 11.3083 8.63412 11 10 11C11.3659 11 12.7073 11.3083 13.9442 11.8941C15.1794 12.4792 16.2775 13.3251 17.1867 14.3648C18.0954 15.404 18.8019 16.6207 19.2795 17.9389C19.757 19.2573 20 20.6616 20 22.0741ZM2.17929 20.1481C2.2805 19.6107 2.42411 19.0836 2.60896 18.5732C3.011 17.4633 3.60028 16.4548 4.34315 15.6054C5.08601 14.7559 5.96793 14.082 6.93853 13.6223C7.90914 13.1625 8.94942 12.9259 10 12.9259C11.0506 12.9259 12.0909 13.1625 13.0615 13.6223C14.0321 14.082 14.914 14.7559 15.6569 15.6054C16.3997 16.4548 16.989 17.4633 17.391 18.5732C17.5759 19.0836 17.7195 19.6107 17.8207 20.1481C17.9396 20.7796 18 21.4251 18 22.0741L2 22.0741C2 21.4251 2.06039 20.7796 2.17929 20.1481Z" fill="black">
+                      
+                    </path>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M10 8C11.6569 8 13 6.65685 13 5C13 3.34315 11.6569 2 10 2C8.34315 2 7 3.34315 7 5C7 6.65685 8.34315 8 10 8ZM10 10C12.7614 10 15 7.76142 15 5C15 2.23858 12.7614 0 10 0C7.23858 0 5 2.23858 5 5C5 7.76142 7.23858 10 10 10Z" fill="black"></path>
+                </svg> */}
                 {/* <div class="tooltip-container-login hide">
                 <span class="tooltip-text">Profitez de vos offres et <span >vos bons plans</span></span>
-                <span class="tooltip-close"></span></div> */}
-                </span></div>
+                <span class="tooltip-close"></span></div> 
+                </span>*/}
+                </div>
 }
               
              </button>
@@ -1704,31 +1749,10 @@ const UserIcon = ({session, navigationOpen, profileImage, isProfileMenuOpen, set
 
  
 
-function Example() {
-    return <Button href="/get-started" color="dark" shape="roundedFull" iconName={"addIcon"}/>
-  }
+// function Example() {
+//     return <Button href="/get-started" color="dark" shape="roundedFull" iconName={"addIcon"}/>
+//   }
 
-const OpenButton = ({navigationOpen, handleSetNavigationIsOpen}) => {
-  return (
-    <>
-    <NavTriggerComponent />
-    <label onClick={handleSetNavigationIsOpen}
-      htmlFor="mobile-navigation"
-      className="menu-togglee  ml-4 sm:bg-white hover:shadow-xl"
-      id="menu-togglee">
-      <span aria-label="Close menu"  
-      id="menu-togglee" 
-      htmlFor="mobile-navigation" 
-      className={classNames(navigationOpen ? 'flex  ring-[ring-[var(--google-grey-200)]] dark:ring-[var(--google-grey-500)]' : 'ring-[var(--google-grey-500)]', "navTrigger menu-toggle_menuToggle__6OaWw mobile-menu-button_indicator__mGvzn avatar-mobile-menu_button__YEcob rounded-full ring-1  hover:hover:ring-black")}
-      data-expanded="false" data-testid="mobile-menu/trigger" type="button">
-        <div class="menu-toggle_bar__GUd1o" data-position="top"></div>
-        <div class="menu-toggle_bar__GUd1o" data-position="bottom"></div>
-        <div class="menu-toggle_bar__tree" data-position="middle"></div>
-    </span>
-    </label>
-    </>
-   )
-}
 
 
 export const HeaderNavigationLinks = ({ dataToMap }) => {
@@ -1754,8 +1778,9 @@ export const HeaderNavigationLinks = ({ dataToMap }) => {
 
 // export default HeaderNavigationLinks;
 
+// translate-x-fullnav-menu-mobile   ${navigationOpen ? 'translate-x-0 transition duration-150 ease-in-out': 'translate-x-full'}
 export const MobileSideNavigation = ({sessiopn,navigationOpen,handleSetNavigationIsOpen,  handleCountryPickerIsOpen}) => {
-    return   ( <nav id="RIGHT-SIDE-VAV-HEADER" className="nav-menu-mobile !top-[1em] mt-[2.50em] sm:mt-[3.5em] dark:bg-black" role="navigation">
+    return   ( <nav id="mobile-navigation" className={clsx(`nav-menu-mobile  !top-[1em] mt-[2.50em] sm:mt-[3.5em] dark:bg-black`)} role="navigation">
                 <div className="nav-content">
                   <div className="language-select-wrapper country-language-wrapper">
                 
@@ -1765,7 +1790,7 @@ export const MobileSideNavigation = ({sessiopn,navigationOpen,handleSetNavigatio
                   <HeaderNavigationLinks  dataToMap={navigation}/>
                   {/* <FancyLoader /> */}
                   <div className='menu-wrapper'>
-                    <FAQ />
+                    {/* <FAQ /> */}
                   </div>
                 </div>
             
@@ -1833,12 +1858,12 @@ const NavbarHeaderUserFlyoutComponentLinks = [
 ]
 export const NavbarHeaderUserFlyoutComponent =({session})=> {
     return  ( 
-      <Fragment>   
+      <div className="flex z-20 bg-[whitesmoke]">   
         <DesktopSiteMapFlyout resources={paradigm} latestBlogs={latestBlogs}/>
         <DesktopAccountLinksFlyout resources={UserFlyoutLinks} latestBlogs={latestBlogs} session={session}/>
         {/* <DesktopSectionFlyout resources={UserFlyoutLinks}/> */}
     
-         </Fragment>)
+         </div>)
 }
 
 // const LogoMobile = ({navigationOpen, user}) => {
@@ -1874,8 +1899,18 @@ export  const LogoMobile = ({ navigationOpen, session }) => {
 // nav-center xl::w-[88vw]
   return (
   <> { !navigationOpen && <div className=' -ml-4 justify-center nav-item '>
-    <div className="logo-mobile sm:pt-4">
-      <text
+    <div className="logo-mobile mt-[1em] sm:pt-0 sm:mt-0">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122 32" fill="none" class="w1">
+  <g>
+    <path d="M4.46748 22.876C3.01762 22.1257 1.9119 21.0604 1.14714 19.671C0.382381 18.2847 0 16.6637 0 14.808C0 12.9524 0.385567 11.3314 1.15989 9.94504C1.93421 8.5587 3.05586 7.49039 4.53121 6.7401C6.00657 5.98981 7.77189 5.61621 9.82719 5.61621C10.6875 5.61621 11.5352 5.69649 12.37 5.86013C13.2049 6.02069 13.9537 6.26461 14.6229 6.58881V9.70421H14.5177C13.8486 9.33061 13.1252 9.04963 12.3445 8.86129C11.5638 8.67295 10.8214 8.58032 10.1172 8.58032C8.11604 8.58032 6.53871 9.11756 5.38838 10.189C4.23806 11.2604 3.6613 12.8011 3.6613 14.8111C3.6613 16.8212 4.22212 18.3341 5.34696 19.4086C6.4718 20.48 8.00769 21.0172 9.95784 21.0172C10.713 21.0172 11.481 20.903 12.2649 20.6714C13.0456 20.4429 13.7976 20.1125 14.5177 19.6895H14.6229V22.8296C13.2176 23.6139 11.567 24.0029 9.66786 24.0029C7.64762 24.0029 5.91416 23.6293 4.4643 22.879L4.46748 22.876Z" fill="currentColor"></path>
+    <path d="M26.4843 8.88615V13.3292H34.39V16.1112H26.4843V20.7333H34.97V23.6943H23.0078V5.92513H34.97V8.88615H26.4843ZM30.4356 0H34.441L30.7255 3.72675H27.6952L30.4356 0Z" fill="currentColor"></path>
+    <path d="M46.5417 22.876C45.0918 22.1257 43.9861 21.0604 43.2214 19.671C42.4566 18.2847 42.0742 16.6637 42.0742 14.808C42.0742 12.9524 42.4598 11.3314 43.2341 9.94504C44.0084 8.5587 45.1301 7.49039 46.6054 6.7401C48.0808 5.98981 49.8461 5.61621 51.9014 5.61621C52.7618 5.61621 53.6094 5.69649 54.4442 5.86013C55.2791 6.02069 56.0279 6.26461 56.6971 6.58881V9.70421H56.592C55.9228 9.33061 55.1994 9.04963 54.4188 8.86129C53.6381 8.67295 52.8956 8.58032 52.1914 8.58032C50.1903 8.58032 48.6129 9.11756 47.4626 10.189C46.3123 11.2604 45.7355 12.8011 45.7355 14.8111C45.7355 16.8212 46.2963 18.3341 47.4212 19.4086C48.546 20.48 50.0819 21.0172 52.0321 21.0172C52.7873 21.0172 53.5552 20.903 54.3391 20.6714C55.1198 20.4429 55.8718 20.1125 56.592 19.6895H56.6971V22.8296C55.2919 23.6139 53.6412 24.0029 51.7421 24.0029C49.7218 24.0029 47.9884 23.6293 46.5385 22.879L46.5417 22.876Z" fill="currentColor"></path>
+    <path d="M89.6601 8.88582V13.3289H97.5658V16.1108H89.6601V20.733H98.1457V23.694H86.1836V5.9248H98.1457V8.88582H89.6601Z" fill="currentColor"></path>
+    <path d="M117.317 7.00856C118.668 7.73106 119.697 8.76232 120.398 10.0993C121.099 11.4362 121.453 13.0047 121.453 14.8109C121.453 16.6172 121.102 18.1857 120.398 19.5226C119.694 20.8596 118.668 21.8877 117.317 22.6133C115.962 23.3358 114.347 23.6971 112.467 23.6971H105.695V5.9248H112.467C114.347 5.9248 115.962 6.28606 117.317 7.00856ZM116.38 19.2015C117.32 18.1981 117.788 16.7345 117.788 14.8109C117.788 12.8874 117.317 11.4238 116.38 10.4204C115.44 9.41689 114.136 8.91361 112.467 8.91361H109.172V20.7083H112.467C114.136 20.7083 115.44 20.205 116.38 19.2015Z" fill="currentColor"></path>
+    <path d="M74.9229 16.4165C76.0636 15.9904 76.924 15.3451 77.5039 14.4775C78.0839 13.6099 78.3739 12.5539 78.3739 11.3127C78.3739 9.55892 77.7844 8.22199 76.6085 7.30497C75.4327 6.38486 73.6578 5.9248 71.2871 5.9248H64.6719V23.694H68.1515V18.831L71.7587 17.5435L75.1587 23.6909H78.9793L74.9229 16.4134V16.4165ZM68.1515 13.9526V8.91052H71.2871C72.482 8.91052 73.3519 9.09887 73.8968 9.47247C74.4417 9.84607 74.7126 10.4852 74.7126 11.3868C74.7126 11.8808 74.6297 12.4242 74.3557 12.8627C74.0147 13.403 73.4029 13.6099 72.8166 13.8198L68.1515 15.484V13.9557V13.9526Z" fill="currentColor"></path>
+  </g>
+</svg>
+      {/* <text
         x="51%"
         y="50%"
         textAnchor="middle"
@@ -1884,7 +1919,7 @@ export  const LogoMobile = ({ navigationOpen, session }) => {
         className={classNames('LogoText', logoColor)}
       >
         MASSI
-      </text>
+      </text> */}
     </div></div>}</>
   );
 };

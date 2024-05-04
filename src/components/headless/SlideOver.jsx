@@ -9,7 +9,7 @@ export default function HeadlessSlideOver({ open, setOpen, title, children }) {
       <Dialog
         as="div"
         static
-        className="fixed inset-0 overflow-hidden"
+        className="fixed inset-0 overflow-hidden "
         open={open}
         onClose={setOpen}
       >
@@ -51,7 +51,7 @@ export default function HeadlessSlideOver({ open, setOpen, title, children }) {
                       onClick={() => setOpen(false)}
                     >
                       <span className="sr-only">Close panel</span>
-                      {/* <XIcon className="h-6 w-6" aria-hidden="true" /> */}
+                      <XIcon className="h-6 w-6" aria-hidden="true" />
                     </button>
                   </div>
                 </Transition.Child>

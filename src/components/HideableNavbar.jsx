@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from 'react';
-import { CountrySelector, LanguagePickerIcon, MobileHeader, NavbarHeaderUserFlyoutComponent } from './SephoHeader';
+import { CountrySelector, LanguagePickerIcon, LogoMobile, MobileSideNavigation, NavbarHeaderUserFlyoutComponent, SeachIcon } from './SephoHeader';
 import Link from 'next/link';
 import UnreadMessageCount from './UnreadMessageCount';
 import Image from 'next/image'
@@ -28,6 +28,11 @@ import DesktopAccountLinksFlyout from './nav/DesktopAccountLinksFlyout'
 
 import Button  from '@/components/headless/button'
 import { UserIcon } from '@heroicons/react/24/outline';
+import SlideOutSideNav from './nav/SlideOutSideNav';
+import TestSliderComponent from './TestSliderComponent';
+import ThemeSwitchModal from './themeSwhitcher/ThemeSwitchModal';
+
+
 
 function trackActiveSection() {
   const sections = document.querySelectorAll('section[id]');
@@ -57,6 +62,45 @@ function trackActiveSection() {
     window.removeEventListener('scroll', scrollHandler);
   };
 }
+
+
+export const NavTriggerComponent = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
+
+  useEffect(() => {
+    const handleClick = () => {
+      setIsMenuOpen(prevState => !prevState);
+      navTrigger.classList.toggle('active');
+    };
+
+    const navTrigger = document.querySelector('.navTrigger');
+
+    if (navTrigger) {
+      navTrigger.addEventListener('click', handleClick);
+    }
+
+    return () => {
+      if (navTrigger) {
+        navTrigger.removeEventListener('click', handleClick);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const mainListDiv = document.querySelector('#mainListDiv');
+    if (mainListDiv) {
+      if (isMenuOpen) {
+        mainListDiv.classList.add('show_list');
+        mainListDiv.style.display = 'block';
+      } else {
+        mainListDiv.classList.remove('show_list');
+        mainListDiv.style.display = 'none';
+      }
+    }
+  }, [isMenuOpen]);
+
+  return null; // Since this is a utility component, it doesn't render any UI
+};
 
 
 const HideableNavbar = () => {
@@ -214,9 +258,11 @@ setUserSession(session)
           margin-top: 30px;
         }
       `}</style>
-      <div id="navbar">
-      <div className={classNames("sticky-top sticky-top-static sm:mb-0")}>
-              <div className=""  style={{ display: "block" }} ></div>
+      <div id="navbar" className='h-[4rem] z-50'>
+   
+      <div className={classNames("sticky-top sticky-top-static sm:mb-0 dark:!bg-black !z-50")}>
+              <div className=""  style={{ display: "block" }} ></div> 
+               <NavTriggerComponent/>
               <MobileHeader navigationOpen={navigationOpen} 
                   handleSetNavigationIsOpen={handleSetNavigationIsOpen} 
                   session={userSession} 
@@ -227,150 +273,61 @@ setUserSession(session)
                   providers={providers}/>
                  
             </ div>
-
+            <input
+            id="mobile-navigation"
+            type="checkbox"
+            className="hide"
+            autoComplete="off"
+          />
+            {/* <MobileSideNavigation handleSetNavigationIsOpen={handleSetNavigationIsOpen} 
+                  session={userSession} 
+                  advertissment={advertissment} 
+                  isProfileMenuOpen={isProfileMenuOpen}
+                  setIsProfileMenuOpen={setIsProfileMenuOpen}
+                  profileImage={profileImage}
+                  providers={providers} 
+                  navigationOpen={navigationOpen} 
+                  /> */}
+         
+          <label className="mobile-background" htmlFor="mobile-navigation" onClick={handleSetNavigationIsOpen} />
+            {/* <SlideOutSideNav  navigationOpen={navigationOpen} handleSetNavigationIsOpen={handleSetNavigationIsOpen}/> */}
+      
       </div>
-      <div id="SECONDARY-NAVBAR" className="nav row desktop-header show-for-mlarge align-justify w-full">
+      <div id="SECONDARY-NAVBAR" className="nav row header-sencond  bg-[var(--google-grey-50)] py-[0.4rem] px-[1rem] desktop-header show-for-mlarge align-justify w-full dark:bg-black dark:shadow-xl dark:border-t border-gray-400">
           <div className={`${isSlideIn ? 'slide-in' : ''} flex`}>
-            <h2 id="current-section" className="px-12 py-2 text-h2 text-white overlayed-text overlayed-text-shadow "></h2> 
-            <div className='absolute right-0 inline-flex flex-end pr-[2em]'>  
+            <h2 id="current-section" className="px-12 py-2 text-black overlayed-text section-anouncer-text-h2"></h2> 
+          <div className='absolute right-0 inline-flex flex-end pr-[2em]'>  
+           
+           {/* <div className='flex inline-flex'> <hh-button theme="none" class="header__utility-item" href="/account/login">
+              <span class="visually-hidden">log in</span>
+              <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="presentation" class="icon icon-account" viewBox="0 0 10 12" fill="none">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M6.89311 2.89386C6.89311 3.93981 6.0452 4.78772 4.99925 4.78772C3.9533 4.78772 3.10539 3.93981 3.10539 2.89386C3.10539 1.84791 3.9533 1 4.99925 1C6.0452 1 6.89311 1.84791 6.89311 2.89386ZM6.2447 5.50674C7.21957 5.04123 7.89311 4.0462 7.89311 2.89386C7.89311 1.29562 6.59748 0 4.99925 0C3.40101 0 2.10539 1.29562 2.10539 2.89386C2.10539 4.0462 2.77893 5.04123 3.7538 5.50675C1.84418 6.17148 0.37927 8.32898 0.0835895 11.0018C0.022864 11.5508 0.476609 12 1.02889 12H8.96962C9.52191 12 9.97565 11.5508 9.91493 11.0018C9.61924 8.32898 8.15433 6.17147 6.2447 5.50674ZM4.99926 6.2945C6.73931 6.2945 8.54541 8.08644 8.90786 11H1.09066C1.4531 8.08644 3.25921 6.2945 4.99926 6.2945Z" fill="currentColor"></path>
+            </svg>
+            </hh-button>
+            <hh-button class="header__utility-item header__utility-item--cart" theme="none" href="#cart" onClick="toggleCart" data-rerender="">
+                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="presentation" class="icon icon-cart" viewBox="0 0 12 13" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.1614 3.1545C4.1614 2.10753 5.01014 1.25879 6.05711 1.25879C7.10408 1.25879 7.95281 2.10753 7.95281 3.1545V3.69447H4.1614V3.1545ZM3.1614 4.69447V5.61573H4.1614V4.69447H7.95281V5.61573H8.95281V4.69447H10.1099V11.4921H1.88672V4.69447H3.1614ZM3.1614 3.69447V3.1545C3.1614 1.55524 4.45785 0.258789 6.05711 0.258789C7.65636 0.258789 8.95281 1.55524 8.95281 3.1545V3.69447H10.1099H11.1099V4.69447V11.4921V12.4921H10.1099H1.88672H0.886719V11.4921V4.69447V3.69447H1.88672H3.1614Z" fill="currentColor"></path>
+               </svg>
+              </hh-button></div> */}
              <NavbarHeaderUserFlyoutComponent/>
              {/* <span className="background-overlay" />  */}  
-              <div className="language-search-wrapper">
-            <div className="header-item header-layer header-item-change-site show-for-mlarge">
-              <LanguagePickerIcon handleCountryPickerIsOpen={handleCountryPickerIsOpen}/> 
-              <CountrySelector countryPickerIsOpen={countryPickerIsOpen} handleCountryPickerIsOpen={handleCountryPickerIsOpen}/>
-              
-            </div>
-            <nav id="USER_RESOURCES_NAV" class="" role="navigation" aria-label="navigation principale">
-            </nav>
-            {/* <DesktopSearchInput /> */} 
+          <div className="language-search-wrapper">
+              <div className="header-item header-layer header-item-change-site show-for-mlarge">
+                {/* <LanguagePickerIcon handleCountryPickerIsOpen={handleCountryPickerIsOpen}/>  */}
+                {/* <CountrySelector countryPickerIsOpen={countryPickerIsOpen} handleCountryPickerIsOpen={handleCountryPickerIsOpen}/> */}
+              </div>
+              <nav id="USER_RESOURCES_NAV" class="" role="navigation" aria-label="navigation principale">
+              </nav>
+              {/* <DesktopSearchInput /> */} 
                   
           </div>
-          </div>
-           </div> 
+         </div>
+       </div> 
           
           
        
           
-        <div className="flex sm:inline-flex ">
-     
-            { !userSession ? 
-            <> 
-              {!userSession && (
-              <div className='flex md:block md:ml-6'>
-              <div className='flex items-center'>
-                
-                 { providers &&
-                  Object.values(providers).map((provider, index) => (
-                    <button
-                      onClick={() => signIn(provider.id)}
-                      key={index}
-                      className='flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2'
-                    >
-                      <FaGoogle className='text-white mr-2' />
-                      <span>Login or Register</span>
-                    </button>
-                  ))}
-
-              </div>
-            </div>
-            )}
-            <a  href="#" className=" text-gray-400 dark:text-white hover:text-gray-500 lg:!ml-4">
-                  <span className="sr-only">
-                    Account
-                  </span>
-                 <UserIcon className="h-6 w-6 pr-24" aria-hidden="true" />
-                </a>  
-            </>
-             : 
-         <>
-            <div className='absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0'>
-              <Link href='/messages' className='relative group '>
-                <button
-                  type='button'
-                  className='bell_btn__yil2q  mr-4 relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none ring-ds-gray-alpha focus:ring-2 focus:!ring-white focus:ring-offset-2 focus:ring-offset-gray-800'
-                >
-                  <span className='absolute -inset-1.5'></span>
-                  <span className='sr-only'>View notifications</span>
-                  <svg
-                    className='small-svg'
-                     style={{ "color": "var(--ds-gray-900)"}}
-                    fill='none'
-                    viewBox='0 0 24 24'
-                    strokeWidth='1.5'
-                    stroke='currentColor'
-                    aria-hidden='true'
-                  >
-                    <path
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      d='M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0'
-                    />
-                  </svg>
-                </button>
-                <UnreadMessageCount session={userSession} />
-              </Link>
-            </div>
-            <div className='relative ml-3'>
-           
-           {/* {isProfileMenuOpen && (
-             <div
-               id='user-menu'
-               className='absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'
-               role='menu'
-               aria-orientation='vertical'
-               aria-labelledby='user-menu-button'
-               tabIndex='-1'
-             >
-               <Link
-                 href='/profile'
-                 className='block px-4 py-2 text-sm text-gray-700'
-                 role='menuitem'
-                 tabIndex='-1'
-                 id='user-menu-item-0'
-                 onClick={() => {
-                   setIsProfileMenuOpen(false);
-                 }}
-               >
-                 Your Profile
-               </Link>
-               <Link
-                 href='/properties/saved'
-                 className='block px-4 py-2 text-sm text-gray-700'
-                 role='menuitem'
-                 tabIndex='-1'
-                 id='user-menu-item-2'
-                 onClick={() => {
-                   setIsProfileMenuOpen(false);
-                 }}
-               >
-                 Saved Properties
-               </Link>
-               <button
-                 onClick={() => {
-                   setIsProfileMenuOpen(false);
-                   signOut();
-                 }}
-                 className='block px-4 py-2 text-sm text-gray-700'
-                 role='menuitem'
-                 tabIndex='-1'
-                 id='user-menu-item-2'
-               >
-                 Sign Out
-               </button>
-             </div>
-           )} */}
-          </div>
-             </> 
-         
-            }
-            
-        
-         
-              
-             
-               
-              </div>
+        <div className="flex sm:inline-flex ">  </div>
             </div>
       {/* Rest of your content */}
     </>
@@ -378,3 +335,149 @@ setUserSession(session)
 };
 
 export default HideableNavbar;
+
+
+
+
+
+export const MobileHeader = ({session, navigation, userSession, navigationOpen, handleSetNavigationIsOpen, profileImage, isProfileMenuOpen, setIsProfileMenuOpen,providers, advertissment}) => {
+  console.log("MOBILE_HEAADER_SESSION-->", session, "MobileHeader-OPEN ??", navigationOpen, "ADVETISSEMENT", advertissment)
+ return  (<div  id="SEPHORA-MOBILE-HEADER" className={classNames(`${navigationOpen  && advertissment  && 'inset-x-0 z-40 animationTranfrom'} 
+    ${navigationOpen ? '!bg-white  dark:!bg-black' : "bg-transparent" } 
+     mobile-header bg-white dark:bg-black z-50` )}
+      style={{}}>
+      {/* {navigationOpen && <UserIcon navigationOpen={navigationOpen} session={session} isProfileMenuOpen={isProfileMenuOpen} profileImage={profileImage} setIsProfileMenuOpen={setIsProfileMenuOpen}/>} */}
+  <div className="flex justify-between h-full  center px-4  pr-2 sm:ml-[2vw]">
+      <div className="top-left inline-flex ">
+
+          <LogoMobile session={session} navigationOpen={navigationOpen} isProfileMenuOpen={isProfileMenuOpen}/>
+             {navigationOpen && !session  &&  <> {
+                  <div className='flex md:block md:ml-6 sm:absolute top-4 left-[5em]'>
+                    <div className='flex items-center'>
+                      
+                      { providers && navigationOpen && 
+                        Object.values(providers).map((provider, index) => (
+                          <button
+                            onClick={() => signIn(provider.id)}
+                            key={index}
+                            className='flex items-center text-white sm:bg-black sm:dark:bg-white sm:dark:text-black hover:bg-gray-900 sm:hover:text-white sm:dark:hover:bg-[var(--google-blue-400)] sm:dark:hover:text-white rounded-sm px-3 py-2'
+                          >
+                            <FaGoogle className='hidden sm:flex text-white mr-2 bg-black rounded-full px-2 py-1.5' />
+                            <span className='flex  text-black'>Login for Offers</span>
+                          </button>
+                        ))}
+
+                    </div>
+                  </div>
+                  }
+              </>
+            }
+        </div>
+   
+     <div className="top-right py-[1em] w-4xl justify-center flex inline-flex grid sm:grid-cols-5 sm:mr-4">
+      <ThemeSwitchModal />
+     {/* <ThemeSwitch/> */}
+     <div className='absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0'>
+    { userSession ? <Link href='/messages' className='relative group '>
+          <button
+            type='button'
+            className='bell_btn__yil2q  mr-4 relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none ring-ds-gray-alpha focus:ring-2 focus:!ring-white focus:ring-offset-2 focus:ring-offset-gray-800'
+          >
+            <span className='absolute -inset-1.5 '></span>
+            <span className='sr-only'>View notifications</span>
+            <svg
+              className='small-svg'
+                style={{ "color": "var(--ds-gray-900)"}}
+              fill='none'
+              viewBox='0 0 24 24'
+              strokeWidth='1.5'
+              stroke='currentColor'
+              aria-hidden='true'
+            >
+              <path
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                d='M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0'
+              />
+            </svg>
+          </button>
+          <UnreadMessageCount session={userSession} />
+        </Link>: 
+          <div className='UNAUTHENTICATED-MESSAGE-BUTTON'>
+            {/*   <Link
+              href="mailto:soma@leelanyc.com"
+              className="sm:mx-[2em] dark:mx-2 mt-2 flex max-h-12  w-8 items-center rounded-md bg-white py-[0.4375rem]
+               px-2 pr-2 dark:pr-0 text-sm  font-semibold shadow md:mt-1 dark:!lg:pr-0 lg:pr-3 xl:-mt-0 
+                text-slate-800 hover:bg-[#f2f2f2]  dark:bg-transparent dark:hover:bg-slate-900 dark:!text-white dark:hover:ring-1 dark:hover:ring-white hover:dark:rounded-full dark:hover:shadow-xl"
+              id="headlessui-tabs-tab-2"
+              aria-selected="true"
+              tabindex="0"
+              data-headlessui-state="selected"
+              aria-controls="headlessui-tabs-panel-4"
+          >
+          <img
+              className="h-5 w-5 flex-none fill-sky-500 stroke-sky-500 text-sky-500 md:h-6  md:w-6 dark:shadow-xl dark:!fill-white dark:bg-slate-200 dark:hover:bg-white rounded-full"
+              src="https://static.xx.fbcdn.net/rsrc.php/v3/yH/r/7nNmS7JFpjU.png "
+              alt=""
+              height="16"
+              width="16"
+              fill="white"
+            ></img> 
+         
+        
+          </Link>*/}
+        </div>}
+      </div>
+      <div className='flex-none  inline-flex'>
+             <button class="inline-flex items-center gap-x-1 header__primary__button dark:bg-black linkText" type="button" aria-expanded="false" data-headlessui-state="" id="headlessui-popover-button-:r0:"><span className="dark:text-white">Our Story</span></button>
+          <button className="inline-flex items-center gap-x-1 header__primary__button dark:bg-black linkText flex" type="button" aria-expanded="false" data-headlessui-state="" id="headlessui-popover-button-:r0:"><span className="dark:text-white">Shop</span></button>
+          <button className="inline-flex items-center gap-x-1 header__primary__button dark:bg-black linkText" type="button" aria-expanded="false" data-headlessui-state="" id="headlessui-popover-button-:r0:"><span className="dark:text-white">Message</span>  </button>
+          </div>
+
+       {/* <SeachIcon session={session}/> */}
+      {/* { session &&  <BellIcon/> } */}
+        <CartMobile /> 
+        
+        {/* <OpenButton handleSetNavigationIsOpen={handleSetNavigationIsOpen}/> */}
+        <TestSliderComponent  navigationOpen={navigationOpen} handleSetNavigationIsOpen={handleSetNavigationIsOpen}/>
+        {/* <TestSliderComponent /> */}
+    </div>
+  </div>
+  <input id="mobile-search-checkbox" type="checkbox" className="hide" />
+</div>)
+}
+
+
+export const OpenButton = ({isOpen, handleOnClose, setOpen}) => {
+  const handleButton = () => {
+    console.log("HANDLE --OPEN BUTT " )
+    if(isOpen){
+     return   handleOnClose(false) 
+    } else{
+     return setOpen(true)
+    } 
+  }
+  return (
+    <>
+    {/* <NavTriggerComponent /> */}
+    <label onClick={handleButton}
+      // htmlFor="mobile-navigation"
+      className="menu-togglee  ml-4 z-50 sm:mr-1"
+      id="menu-togglee">
+      <span aria-label="Close menu"  
+      id="menu-togglee" 
+      htmlFor="mobile-navigation" 
+      className={classNames(isOpen ? "flex k sm:mr-1 mobile-search-magnifying-glass hover:bg-[--lightGrey]  ring-[ring-[var(--google-grey-200)]] dark:bg-slate-800 dark:!text-white dark:hover:ring-white dark:ring-[var(--google-grey-500)]" : "ring-[var(--google-grey-500)]",
+       "dark:bg-slate-800 dark:!text-white dark:hover:ring-white navTrigger menu-toggle_menuToggle__6OaWw mobile-menu-button_indicator__mGvzn avatar-mobile-menu_button__YEcob hover:ring-1 hover:shadow-xl hover:ring-[#bdbdbd] sm:mr-1 mobile-search-magnifying-glass dark:bg-slate-800 dark:!text-white dark:hover:ring-white")}
+      data-expanded="false" data-testid="mobile-menu/trigger" type="button">
+        <div className="menu-toggle_bar__GUd1o dark:!bg-white" data-position="top"></div>
+        <div className="menu-toggle_bar__GUd1o dark:bg-white" data-position="bottom"></div>
+        <div className="menu-toggle_bar__tree" data-position="middle"></div>
+    </span>
+    </label>
+    </>
+   )
+}
+
+
+

@@ -24,7 +24,7 @@ const ProductCardDisplay = ({ productsSample }) => {
   return (
     <div className='relative py-12 '>
       <div className="px-4 sm:px-6 lg:px-12">      
-        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl multiline-text .DispatchElement_dispatch-element__WGi9u .dispatch-element__title" id="title-1">Our Products</h2>
+        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl multiline-text .DispatchElement_dispatch-element__WGi9u .dispatch-element__title pb-10 " id="title-1">Our Products</h2>
       </div>
       <div className={`underbanners-wrapper fullwidth py-6 xl:grid ${isMobile ? 'grid-cols-1 space-y-4 space-x-2' : 'grid-cols-2 space-y-6 space-x-4'}`}>
         {productsSample.slice(0, isMobile ? 2 : 4).map((banner, index) => (

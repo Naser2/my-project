@@ -13,7 +13,8 @@ import {
   VideoCameraIcon,
 } from "@heroicons/react/24/outline";
 
-
+import MassiFleures from '@/assets/images/landing-images/massi-fleures.jpg';
+import MassiFleuresRight from '@/assets/images/landing-images/massi-fleures-right.jpg';
 import massi_hero_part3_mobile from "./assets/images/heros/massi_hero_part3_mobile.png";
 import massi_hero_part3_desktop from "./assets/images/heros/massi_hero_part3_desktop.png";
 export const navigation = {
@@ -31,9 +32,9 @@ export const navigation = {
           sizes: '320px',
         },
          alt: 'Hero Image',
-         title: 'CHOCOLATE MADEMOISELLE',
-          subtitle: 'SERVICES ',
-          href: '/coco-mademoiselle',
+         title: 'Services',
+          subtitle: 'Natural | Currly | Straight',
+          href: '/services',
           cta:'Discover all'
         },
       featured:[ 
@@ -379,14 +380,14 @@ export const dispatchData = [
     title: "MODE & ACCESSOIRES",
     subtitle: "Commander",
     href: "/fr_fr/fashion",
-    src: "https://www.dior.com/couture/var/dior/storage/images/horizon/home-one-dior/dispatch-odd/cdc-dispatch/29493231-133-fre-FR/cdc-dispatch_1440_1200.jpg?imwidth=460",
+    src: MassiFleures.src,
     alt: ""
   },
   {
     title: "PARFUM & BEAUTÉ",
     subtitle: "Commander",
     href: "/fr_fr/beauty",
-    src: "https://www.dior.com/couture/var/dior/storage/images/horizon/home-one-dior/dispatch-odd/pcd-dispatch/40468986-25-fre-FR/pcd-dispatch_1440_1200.jpg?imwidth=460",
+    src:MassiFleuresRight.src,
     alt: ""
   }
 ];
@@ -770,3 +771,47 @@ export const UserFlyoutLinks= {
 //     }
 //   ];
   
+
+export const images = [
+  {
+    id: 0,
+    src: "/massi_hero_part3_desktop.png",
+    title: "All our services",
+    sideDescription: false,
+    desc: "Black coffee is a beverage made from roasted coffee beans. The beans are ground and soaked in water, which releases their flavor, color, caffeine content, and nutrients. ",
+  },
+   { id: 1,
+    src: "/services-init-0.jpeg",
+    title: "Black Coffee",
+    sideDescription: true,
+    desc: "Black coffee is a beverage made from roasted coffee beans. The beans are ground and soaked in water, which releases their flavor, color, caffeine content, and nutrients. ",
+  },
+  {
+    id: 2,
+    src: "/services-init-1.jpeg",
+    title: "Cappuccino",
+    sideDescription: true,
+    desc: "A cappuccino is an espresso-based coffee drink that is traditionally prepared with steamed milk foam (microfoam). Cappuccino. Type, Hot.",
+  },
+  {
+    id: 3,
+    src: "/service-1.jpeg",
+    title: "Espresso",
+    sideDescription: true,
+    desc: "Espresso is a concentrated form of coffee, served in shots. It's made of two ingredients - finely ground, 100% coffee, and hot water.",
+  },
+  {
+    id: 4,
+    src: "/service-2.jpeg",
+    title: "Latte",
+    sideDescription: true,
+    desc: "A latte or caffè latte is a milk coffee that boasts a silky layer of foam as a real highlight to the drink. A true latte will be made up of one or two shots of espresso, steamed milk and a final, thin layer of frothed milk on top",
+  },
+  {
+    id: 5,
+    src: "/service-3.jpeg",
+    title: "Macchiato",
+    sideDescription: true,
+    desc: "Caffè macchiato, sometimes called espresso macchiato, is an espresso coffee drink with a small amount of milk, usually foamed. ",
+  },
+];
