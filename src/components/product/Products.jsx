@@ -144,7 +144,7 @@ const products = [
                       {product.price}
                      </time>
                 </div>
-              <div className="hidden sm:flex flex-block ml-1 items-center gap-x-4">
+              <div className="hidden sm:flex !flex-block ml-1 items-center gap-x-4" >
                 <div className="sr-only flex gap-x-2.5 text-gray-500">
                     {product.subtitle}
                 </div>

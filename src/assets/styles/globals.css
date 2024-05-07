@@ -2245,7 +2245,13 @@ label>span{line-height:1.266;-webkit-box-flex:1;flex:1 1 auto;}
 }
 input[type=checkbox]{position:absolute;overflow:hidden;clip:rect(0,0,0,0);width:.0625rem;}
 [type=email]{text-overflow:ellipsis;overflow:hidden;white-space:nowrap;}
-[type=email]{font-size:.9375rem;font-weight:500;letter-spacing:.5px;line-height:1;width:100%;position:relative;z-index:0;height:40px;color:#000;padding:18px 0 0;background-color:transparent;outline:0;border:0 solid #979797;border-bottom-width:2px;margin:0;border-radius:0;-webkit-appearance:none;-moz-appearance:none;appearance:none;}
+[type=email]{font-size:.9375rem;font-weight:500;letter-spacing:.5px;line-height:1;width:100%;position:relative;z-index:0;
+  /* height:40px; */
+  color:#000;
+  /* padding:18px 0 0; */
+  background-color:transparent;outline:0;
+  /* border:0 solid #979797;border-bottom-width:2px;margin:0;border-radius:0; */
+  -webkit-appearance:none;-moz-appearance:none;appearance:none;}
 .ui-autocomplete{margin:0;padding:10px 0 0;background:#fff;z-index:2000;list-style:none;overflow:auto;position:absolute!important;max-height:50vh;}
 .checkout-login .form-row:not(.form-email-registration):not(.gender-form):not(.label-inline) .field-wrapper:not(.with-preinput){background:#f2f2f2;}
 .checkout-login .form-row:not(.form-email-registration):not(.gender-form):not(.label-inline) .field-wrapper:not(.with-preinput) label{top:7px;}
@@ -2514,7 +2520,10 @@ html.no-touch .button.secondary-button-revamp:hover:not(.disabled):not(:disabled
   min-width:140px;
   /* max-width:455px;overflow-y:scroll; */
   overflow-x:hidden;
-  position:fixed;background:#f2f2f2;top:0;left:0;
+  position:fixed;
+  background:#f2f2f2;
+  top:0;
+  left:0;
   bottom:0;
   z-index:13;
   -webkit-transition:-webkit-transform .4s ease;
@@ -2638,27 +2647,38 @@ html.no-touch .button.secondary-button-revamp:hover:not(.disabled):not(:disabled
       -webkit-touch-callout: none;
     }
     
-.nav-menu-mobile .nav-content .burger-menu-entry{font-size:1rem;font-weight:600;}
+.nav-menu-mobile .nav-content .burger-menu-entry{
+  font-size:1rem;font-weight:600
+  ;}
 .nav-menu-mobile .nav-content .burger-menu-entry{
   display:-webkit-box;display:flex;
   -webkit-box-align:center;
-  align-items:center;width:100%;height:56px;position:relative;
-margin-bottom:4px;padding-left:16px;
+  align-items:center;
+  width:100%;
+  height:56px;position:relative;
+margin-bottom:4px;
+padding-left:16px;
 }
+
 @media screen and (-ms-high-contrast:active),screen and (-ms-high-contrast:none){
 #navigation.row{display:block;}
 }
 .mobile-background{background:#000;position:fixed;
   /* top:0em; */
-  left:0;width:100%;height:100%;-webkit-transition:opacity .4s;transition:opacity .4s;display:none;}
+  left:0;width:100%;
+  height:100%;
+  -webkit-transition:opacity .4s;transition:opacity .4s;display:none;}
 #fetch-header-menu-mobile{-webkit-box-align:center;align-items:center;display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;}
 #mobile-navigation+.nav-menu-mobile{-webkit-transform:translate3d(-100%,0,0);transform:translate3d(-100%,0,0);}
 
-#mobile-navigation+.nav-menu-mobile+.mobile-background{opacity:0;z-index:-1;}
+#mobile-navigation+.nav-menu-mobile+.mobile-background{
+  opacity:0;z-index:-1;}
 
-#mobile-navigation:checked+.nav-menu-mobile{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);}
+#mobile-navigation:checked+.nav-menu-mobile{
+  -webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);}
 
-#mobile-navigation:checked+.nav-menu-mobile+.mobile-background{opacity:.8;z-index:11;display:block;}
+#mobile-navigation:checked+.nav-menu-mobile+.mobile-background{
+  opacity:.8;z-index:11;display:block;}
 @media screen and (min-width:80em){
 /* #mobile-navigation:checked+.nav-menu-mobile+.mobile-background{display:none;} */
 }
@@ -2683,8 +2703,11 @@ margin-bottom:4px;padding-left:16px;
 .desktop-header .language-select-wrapper .language-selector-arrow::after{position:static;margin-left:7px;}
 .desktop-header .language-select-wrapper .custom-language-selector-arrow::after{left:28px;}
 .nav-menu-mobile .country-language-wrapper{position:relative;}
-.nav-menu-mobile .language-select-wrapper .language-selector-arrow{cursor:pointer;padding:0 0 0 16px;}
-.nav-menu-mobile .language-select-wrapper .language-selector-arrow .country-selector-image{width:17px;margin:0 15px 0 4px;}
+.nav-menu-mobile .language-select-wrapper .language-selector-arrow{
+  cursor:pointer;
+  padding:0 0 0 16px;}
+.nav-menu-mobile .language-select-wrapper .language-selector-arrow .country-selector-image{
+  width:17px;margin:0 15px 0 4px;}
 .nav-menu-mobile .language-select-wrapper .dropdown-with-arrow::after{display:none;}
 #languages-dialog-container .divider-line{height:1px;background:#979797;margin:10px 0;}
 #languages-dialog-container .show-languages-list{list-style-type:none;margin:10px 0;}
@@ -4134,7 +4157,9 @@ img{max-width:100%;height:auto;}
    
     /*! CSS Used from: Embedded */
     #_7bgmoenc6_main_parallax_media_main{margin-left:0px;}
-    #_7bgmoenc6_main{height:74vh;}
+    #_7bgmoenc6_main{
+      height:74vh;
+    }
     @media (min-width:601px){
     #_7bgmoenc6_main{height:70vh;}
     }
@@ -4206,15 +4231,25 @@ img{max-width:100%;height:auto;}
        height: 72vh;
    }
    }
-   @media (min-width: 601px){
+   /* @media (min-width: 601px){
    #_7bgmoenc6_main {
        height: 70vh;
    }
-   }
+   } */
    #_7bgmoenc6_main {
-  
+
       height: 99vh;
    }
+   /* @media (min-width: 601px){
+    #_7bgmoenc6_main {
+        height: 70vh;
+    }
+    } */
+    @media (max-width: 786px){
+      #_7bgmoenc6_main {
+          height: 76vh;
+      }
+      }
    /* ----- BEYONCE  */
    .mobile-menu__menu-item {
     border-bottom: 1px solid var(--hh-color-grey-mineral);
@@ -4970,10 +5005,10 @@ h3:not(.banner-title){
           background: linear-gradient(135deg,rgba(0,112,243,.3),rgba(248,28,229,.3)) !important;
       } */
       .h1-text-black{
-      color: black;
+      /* color: black; */
     }
     
-    .gro
+    .group
       .parent:hover .testimonial_figure__LeL_Y {
           background: linear-gradient(135deg, rgba(0, 112, 243, .3), rgba(248, 28, 229, .3)) 
         }
@@ -5115,6 +5150,7 @@ h3:not(.banner-title){
    #fillChild {
           position: relative;
           overflow: hidden;
+       
         }
         
         #fillChild::before {
@@ -5127,8 +5163,8 @@ h3:not(.banner-title){
           background-color: rgb(231, 224, 194);
           animation-duration: 1.5s;
           animation-fill-mode: forwards;
-          z-index: 0.5;
-          opacity: 0.7
+          z-index: 0.2;
+          opacity: 0.4
         }
         
         #fillChild:hover::before {

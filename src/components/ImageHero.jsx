@@ -12,7 +12,7 @@ const ImageHero = ({ imageSrcMobile, imageSrcDesktop, title, subtitle, href, alt
       <div className="blocks__item__image blocks__item__image--news-size-3">
      <picture id="_7bgmoenc6_main" className={classNames(styles.picture)}>
       <source id="_7bgmoenc6_main" media="(min-width: 601px)" srcSet={imageSrcDesktop} className='desktop bg-cover w-screen bg-cover aspect-[6/4]'/>
-      <img id="_7bgmoenc6_main" src={imageSrcMobile} alt={alt} className="bg-cover w-screen bg-cover h-screen  aspect-[6/4] entered lazyloaded" />
+      <img id="_7bgmoenc6_main" src={imageSrcMobile} alt={alt} className="bg-cover w-screen !bg-contain h-screen  aspect-[5/4] entered lazyloaded " />
      </picture> 
    
     

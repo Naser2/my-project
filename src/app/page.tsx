@@ -14,7 +14,7 @@ import Header from '@/components/SephoHeader'; // Import the Header component
 import SlidingHeroContainer from '@/components/SlidingHeroContainer'; // Import the Header component
 import TestButton from '@/components/TestButton';
 import DispatchElements from '@/components/DispatchElements';
-import { allReviews, dispatchData, images, navigation, proucdtsTeaser, servicesReviews } from "@/data";
+import { aboutData, allReviews, dispatchData, images, navigation, proucdtsTeaser, servicesReviews, team } from "@/data";
 import ImageHero from '@/components/ImageHero'
 import ProductCardDisplay from '@/components/ProductCardDisplay'
 import TestimonialSection from '@/components/TestimonialSection'
@@ -25,6 +25,10 @@ import TestSliderComponent from '@/components/TestSliderComponent'
 import HeroGiff from '@/assets/images/ezgif-7-5ad70af6f1.gif'
 import  Products from '@/components/product/Products'
 import Slider from '@/components/slider/Slider'
+import ContactSection from '@/components/ContactSection'
+import Porfolio from '@/components/Porfolio'
+import massiElevateHero from '@/assets/images/massi-elevate-hero.jpeg'
+
 const items = [
   {
     id: 'account',
@@ -68,6 +72,7 @@ const heroImages = [
 // }
 ]
 
+
 export default function HomePage() {
   return (
     <div className="lg:max-w max-w-none overflow-hidden">
@@ -103,8 +108,8 @@ export default function HomePage() {
           if (hero) {
             return (
               <ImageHero
-                imageSrcDesktop={hero.desktop.srcSet}
-                imageSrcMobile={hero.mobile.srcSet}
+                imageSrcDesktop={massiElevateHero.src}
+                imageSrcMobile={massiElevateHero.src}
                 title={hero.title}
                 subtitle={hero.subtitle}
                 href={hero.href}
@@ -123,33 +128,47 @@ export default function HomePage() {
       })} 
       </section>
 
-      <section id="services" className="bg-gray-300">
+      <section id="services" className="bg-gray-300 h-screen sm:h-full">
           <h2 className="h-0 w-0 sr-only">Services List</h2>
           <FadeInSection>
-              <div className="absolute bottom-full  top-[-30em] left-0 right-0"><div className="relative h-full w-full"><div className="flex flex-col gap-3.5 pb-3.5 pt-2"><div><div className="h-full flex ml-1 md:w-full md:m-auto gap-0 md:gap-2 justify-center"><div className="grow"><div className="absolute bottom-full left-0 mb-4 flex w-full grow gap-2 px-1 pb-1 sm:px-2 sm:pb-0 md:static md:mb-0 md:max-w-none"><div className="grid w-full grid-flow-row grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-2"><div className="flex flex-col gap-2 max-w-[12em]"><span style={{"opacity": 1, "transform": "none"}}><button className="btn relative btn-neutral group w-full whitespace-nowrap rounded-xl px-4 py-3 text-left text-token-text-primary md:whitespace-normal" as="button"><div className="flex w-full gap-2 items-center justify-center"><div className="flex w-full items-center justify-between"><div className="flex flex-col overflow-hidden"><div className="truncate">Explain nostalgia</div><div className="truncate font-normal opacity-50">to a kindergartener</div></div><div className="absolute bottom-0 right-0 top-0 flex items-center rounded-xl bg-gradient-to-l from-token-main-surface-secondary pl-6 pr-4 text-token-text-secondary opacity-0 can-hover:group-hover:opacity-100"><span className="" data-state="closed"><div className="rounded-lg bg-token-main-surface-primary p-1 shadow-xxs dark:shadow-none"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="icon-sm text-token-text-primary"><path d="M7 11L12 6L17 11M12 18V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></span></div></div></div></button></span><span style={{"opacity": 1, "transform": "none"}}><button className="btn relative btn-neutral group w-full whitespace-nowrap rounded-xl px-4 py-3 text-left text-token-text-primary md:whitespace-normal" as="button"><div className="flex w-full gap-2 items-center justify-center"><div className="flex w-full items-center justify-between"><div className="flex flex-col overflow-hidden"><div className="truncate">Design a programming game</div><div className="truncate font-normal opacity-50">teach basics in a fun way</div></div><div className="absolute bottom-0 right-0 top-0 flex items-center rounded-xl bg-gradient-to-l from-token-main-surface-secondary pl-6 pr-4 text-token-text-secondary opacity-0 can-hover:group-hover:opacity-100"><span className="" data-state="closed"><div className="rounded-lg bg-token-main-surface-primary p-1 shadow-xxs dark:shadow-none"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="icon-sm text-token-text-primary"><path d="M7 11L12 6L17 11M12 18V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></span></div></div></div></button></span></div><div className="flex flex-col gap-2 max-w-[12em]"><span style={{"opacity": 1, "transform": "none"}}><button className="btn relative btn-neutral group w-full whitespace-nowrap rounded-xl px-4 py-3 text-left text-token-text-primary md:whitespace-normal" as="button"><div className="flex w-full gap-2 items-center justify-center"><div className="flex w-full items-center justify-between"><div className="flex flex-col overflow-hidden"><div className="truncate">Write a message</div><div className="truncate font-normal opacity-50">that goes with a kitten gif for a friend on a rough day</div></div><div className="absolute bottom-0 right-0 top-0 flex items-center rounded-xl bg-gradient-to-l from-token-main-surface-secondary pl-6 pr-4 text-token-text-secondary opacity-0 can-hover:group-hover:opacity-100"><span className="" data-state="closed"><div className="rounded-lg bg-token-main-surface-primary p-1 shadow-xxs dark:shadow-none"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="icon-sm text-token-text-primary"><path d="M7 11L12 6L17 11M12 18V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></span></div></div></div></button></span><span style={{"opacity": 1, "transform": "none"}}><button className="btn relative btn-neutral group w-full whitespace-nowrap rounded-xl px-4 py-3 text-left text-token-text-primary md:whitespace-normal" as="button"><div className="flex w-full gap-2 items-center justify-center"><div className="flex w-full items-center justify-between"><div className="flex flex-col overflow-hidden"><div className="truncate">Make me a personal webpage</div><div className="truncate font-normal opacity-50">after asking me three questions</div></div><div className="absolute bottom-0 right-0 top-0 flex items-center rounded-xl bg-gradient-to-l from-token-main-surface-secondary pl-6 pr-4 text-token-text-secondary opacity-0 can-hover:group-hover:opacity-100"><span className="" data-state="closed"><div className="rounded-lg bg-token-main-surface-primary p-1 shadow-xxs dark:shadow-none"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="icon-sm text-token-text-primary"><path d="M7 11L12 6L17 11M12 18V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></span></div></div></div></button></span></div></div></div></div></div></div></div></div></div>
+              <div className="absolute bottom-full  top-[-30em] left-0 right-0">
+                <div className="relative h-screen sm:h-full w-full">
+                  <div className="flex flex-col gap-3.5 pb-3.5 pt-2"><div><div className="h-full flex ml-1 md:w-full md:m-auto gap-0 md:gap-2 justify-center"><div className="grow"><div className="absolute bottom-full left-0 mb-4 flex w-full grow gap-2 px-1 pb-1 sm:px-2 sm:pb-0 md:static md:mb-0 md:max-w-none"><div className="grid w-full grid-flow-row grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-2"><div className="flex flex-col gap-2 max-w-[12em]"><span style={{"opacity": 1, "transform": "none"}}><button className="btn relative btn-neutral group w-full whitespace-nowrap rounded-xl px-4 py-3 text-left text-token-text-primary md:whitespace-normal" as="button"><div className="flex w-full gap-2 items-center justify-center"><div className="flex w-full items-center justify-between"><div className="flex flex-col overflow-hidden"><div className="truncate">Explain nostalgia</div><div className="truncate font-normal opacity-50">to a kindergartener</div></div><div className="absolute bottom-0 right-0 top-0 flex items-center rounded-xl bg-gradient-to-l from-token-main-surface-secondary pl-6 pr-4 text-token-text-secondary opacity-0 can-hover:group-hover:opacity-100"><span className="" data-state="closed"><div className="rounded-lg bg-token-main-surface-primary p-1 shadow-xxs dark:shadow-none"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="icon-sm text-token-text-primary"><path d="M7 11L12 6L17 11M12 18V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></span></div></div></div></button></span><span style={{"opacity": 1, "transform": "none"}}><button className="btn relative btn-neutral group w-full whitespace-nowrap rounded-xl px-4 py-3 text-left text-token-text-primary md:whitespace-normal" as="button"><div className="flex w-full gap-2 items-center justify-center"><div className="flex w-full items-center justify-between"><div className="flex flex-col overflow-hidden"><div className="truncate">Design a programming game</div><div className="truncate font-normal opacity-50">teach basics in a fun way</div></div><div className="absolute bottom-0 right-0 top-0 flex items-center rounded-xl bg-gradient-to-l from-token-main-surface-secondary pl-6 pr-4 text-token-text-secondary opacity-0 can-hover:group-hover:opacity-100"><span className="" data-state="closed"><div className="rounded-lg bg-token-main-surface-primary p-1 shadow-xxs dark:shadow-none"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="icon-sm text-token-text-primary"><path d="M7 11L12 6L17 11M12 18V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></span></div></div></div></button></span></div><div className="flex flex-col gap-2 max-w-[12em]"><span style={{"opacity": 1, "transform": "none"}}><button className="btn relative btn-neutral group w-full whitespace-nowrap rounded-xl px-4 py-3 text-left text-token-text-primary md:whitespace-normal" as="button"><div className="flex w-full gap-2 items-center justify-center"><div className="flex w-full items-center justify-between"><div className="flex flex-col overflow-hidden"><div className="truncate">Write a message</div><div className="truncate font-normal opacity-50">that goes with a kitten gif for a friend on a rough day</div></div><div className="absolute bottom-0 right-0 top-0 flex items-center rounded-xl bg-gradient-to-l from-token-main-surface-secondary pl-6 pr-4 text-token-text-secondary opacity-0 can-hover:group-hover:opacity-100"><span className="" data-state="closed"><div className="rounded-lg bg-token-main-surface-primary p-1 shadow-xxs dark:shadow-none"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="icon-sm text-token-text-primary"><path d="M7 11L12 6L17 11M12 18V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></span></div></div></div></button></span><span style={{"opacity": 1, "transform": "none"}}><button className="btn relative btn-neutral group w-full whitespace-nowrap rounded-xl px-4 py-3 text-left text-token-text-primary md:whitespace-normal" as="button"><div className="flex w-full gap-2 items-center justify-center"><div className="flex w-full items-center justify-between"><div className="flex flex-col overflow-hidden"><div className="truncate">Make me a personal webpage</div><div className="truncate font-normal opacity-50">after asking me three questions</div></div><div className="absolute bottom-0 right-0 top-0 flex items-center rounded-xl bg-gradient-to-l from-token-main-surface-secondary pl-6 pr-4 text-token-text-secondary opacity-0 can-hover:group-hover:opacity-100"><span className="" data-state="closed"><div className="rounded-lg bg-token-main-surface-primary p-1 shadow-xxs dark:shadow-none"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="icon-sm text-token-text-primary"><path d="M7 11L12 6L17 11M12 18V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></span></div></div></div></button></span></div></div></div></div></div></div></div></div></div>
            <Slider images={images}/>
         </FadeInSection> 
      </section>
 
-     <section id="products" className="bg[var(--hh-color-sundrenched-stone)]">
+     <section id="products" className="bg[var(--hh-color-sundrenched-stone)] !relative">
           <h2 className="h-0 w-0 sr-only">Products</h2>
           <FadeInSection>
           <Products />
-          <ProductCardDisplay productsSample={proucdtsTeaser} />
         </FadeInSection> 
      </section>
 
-       <section id="about" className="">
-          <h2 className="h-0 w-0 sr-only">About Us</h2>
-          <AboutSection  property={null}/>    
-        </section>
-        
-  
          <section id="testimonials" className="">
           <h2 className="h-0 w-0 sr-only">Testimonials</h2>
           <TestimonialSection reviews={allReviews}/>
         </section>
+       <section id="about" className="">
+          <h2 className="h-0 w-0 sr-only">About Us</h2>
+          <AboutSection  aboutData={aboutData}/>    
+        </section>
         
+        <section id="porfolio"  className="bg-gray-200 ">
+          <h2 className="h-0 w-0 sr-only"> PORTFOLIO</h2>
+          <Porfolio team={team} />
+        </section>
+        
+
+        <section id="CONTACT" className="!relative ">
+          <h2 className="h-0 w-0 sr-only">CONTACT</h2>
+          <ContactSection />
+        </section>
+      
+        <section id="SIGNUP" className="">
+          <h2 className="h-0 w-0 sr-only">SIGNUP</h2>
+          <ContactSection />
+        </section>
 
     {/* <TalwindUiTest /> */}
  {/* <div className="content relative">
@@ -173,7 +192,7 @@ export default function HomePage() {
           id est laborum.
         </p>
       </div> */}
-      
+        <ProductCardDisplay productsSample={proucdtsTeaser} />
         <section id="section2"  className="h-[30vh] bg-gray-200">
           <h2>Testimonials</h2>
           <p>Content of section 2 goes here...</p>

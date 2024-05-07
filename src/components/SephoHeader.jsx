@@ -978,27 +978,27 @@ export const SeachIcon = ({session}) => {
 </div>
 }
 
-export const OpenButton = ({navigationOpen, handleSetNavigationIsOpen}) => {
-  return (
-    <>
-    {/* <NavTriggerComponent /> */}
-    <label onClick={handleSetNavigationIsOpen}
-      // htmlFor="mobile-navigation"
-      className="menu-togglee  ml-4 hover:shadow-xl z-50"
-      id="menu-togglee">
-      <span aria-label="Close menu"  
-      id="menu-togglee" 
-      htmlFor="mobile-navigation" 
-      className={classNames(navigationOpen ? 'flex bg-[var(--google-grey-200)] ring-[var(--google-grey-200)] dark:bg-slate-800 dark:!text-white dark:hover:ring-white dark:ring-[var(--google-grey-500)]' : 'ring-[var(--google-grey-500)]', " dark:bg-slate-800 dark:!text-white dark:hover:ring-white navTrigger menu-toggle_menuToggle__6OaWw mobile-menu-button_indicator__mGvzn avatar-mobile-menu_button__YEcob hover:ring-1 hover:shadow-xl hover:ring-[#bdbdbd] sm:mr-1 mobile-search-magnifying-glass hover:bg-[#f2f2f2]  dark:bg-slate-800 dark:!text-white dark:hover:ring-white")}
-      data-expanded="false" data-testid="mobile-menu/trigger" type="button">
-        <div class="menu-toggle_bar__GUd1o dark:!bg-white" data-position="top"></div>
-        <div class="menu-toggle_bar__GUd1o dark:bg-white" data-position="bottom"></div>
-        <div class="menu-toggle_bar__tree" data-position="middle"></div>
-    </span>
-    </label>
-    </>
-   )
-}
+// export const OpenButton = ({navigationOpen, handleSetNavigationIsOpen}) => {
+//   return (
+//     <>
+//     {/* <NavTriggerComponent /> */}
+//     <label onClick={handleSetNavigationIsOpen}
+//       // htmlFor="mobile-navigation"
+//       className="menu-togglee  ml-4 hover:shadow-xl z-50"
+//       id="menu-togglee">
+//       <span aria-label="Close menu"  
+//       id="menu-togglee" 
+//       htmlFor="mobile-navigation" 
+//       className={classNames(navigationOpen ? 'flex bg-[var(--google-grey-200)] ring-[var(--google-grey-200)] dark:bg-slate-800 dark:!text-white dark:hover:ring-white dark:ring-[var(--google-grey-500)]' : 'ring-[var(--google-grey-500)]', " dark:bg-slate-800 dark:!text-white dark:hover:ring-white navTrigger menu-toggle_menuToggle__6OaWw mobile-menu-button_indicator__mGvzn avatar-mobile-menu_button__YEcob hover:ring-1 hover:shadow-xl hover:ring-[#bdbdbd] sm:mr-1 mobile-search-magnifying-glass hover:bg-[#f2f2f2]  dark:bg-slate-800 dark:!text-white dark:hover:ring-white")}
+//       data-expanded="false" data-testid="mobile-menu/trigger" type="button">
+//         <div class="menu-toggle_bar__GUd1o dark:!bg-white" data-position="top"></div>
+//         <div class="menu-toggle_bar__GUd1o dark:bg-white" data-position="bottom"></div>
+//         <div class="menu-toggle_bar__tree" data-position="middle"></div>
+//     </span>
+//     </label>
+//     </>
+//    )
+// }
 
 
 // function trackActiveSection() {
@@ -1780,9 +1780,9 @@ export const HeaderNavigationLinks = ({ dataToMap, navigationOpen, session }) =>
 // export default HeaderNavigationLinks;
 
 // translate-x-fullnav-menu-mobile   ${navigationOpen ? 'translate-x-0 transition duration-150 ease-in-out': 'translate-x-full'}
-export const MobileSideNavigation = ({session, navigationOpen, handleSetNavigationIsOpen,  handleCountryPickerIsOpen}) => {
+export const MobileSideNavigation = ({session, navigationOpen,handlesetIsHeadlessModal,  handleSetNavigationIsOpen,  handleCountryPickerIsOpen}) => {
 
-    return   ( <nav id="mobile-navigation" className={clsx(`${navigationOpen ? '!mt-[0em]  sm:mt-[44em] transform transition ease-in-out duration-500 sm:duration-700  sm:w-[33em] overflow-scroll' :'top-[0em] sm:!top-[0em] transform transition ease-in-out duration-500 sm:duration-700'} nav-menu-mobile  !bg-white bg-[var(--massi-grey-3)] dark:bg-black`)} role="navigation">
+    return   ( <nav id="mobile-navigation" className={clsx(`${navigationOpen ? '!mt-[0em]   transform transition ease-in-out duration-500 sm:duration-700  sm:w-[33em] !overflow-scroll' :'top-[0em] sm:!top-[0em] transform transition ease-in-out duration-500 sm:duration-700'} nav-menu-mobile  !bg-white bg-[var(--massi-grey-3)] dark:bg-black`)} role="navigation">
                 <div id="NAV-CONTENT" className="nav-content">
                
                   {/* <div className="language-select-wrapper country-language-wrapper">
@@ -1792,7 +1792,8 @@ export const MobileSideNavigation = ({session, navigationOpen, handleSetNavigati
                   {/* <div className=" p-[1em] w-full">
                   <LogoMobile session={session} navigationOpen={navigationOpen}/>
                 </div> */}
-                  <HeaderNavigationLinks  dataToMap={navigation} navigationOpen={navigationOpen} session={session}/>
+                  {/* <HeaderNavigationLinks  dataToMap={navigation} navigationOpen={navigationOpen} session={session}/> */}
+                  <MobileMenuLinks categories={navigation}  session={session} navigationOpen={navigationOpen}  handlesetIsHeadlessModal={handlesetIsHeadlessModal}/> 
                   {/* <FancyLoader /> */}
                   <div className='menu-wrapper'>
                     {/* <FAQ /> */}

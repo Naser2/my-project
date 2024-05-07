@@ -55,17 +55,11 @@ export default function HeadlessSlideOver({ open, setOpen,  handleOnClose, handl
                     setOpen={setOpen}
                     isOpen={open} 
                     handlesetIsHeadlessModal={handlesetIsHeadlessModal}/>
-                    {/* <button
-                      className="rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
-                      onClick={() => setOpen(false)}
-                    >
-                      <span className="sr-only">Close panel</span>
-                   
-                    </button> */}
+                    
                   </div>
                 </Transition.Child>
                 
-                <MobileSideNavigation navigationOpen={open}   />
+                <MobileSideNavigation session={session} navigationOpen={open}   handlesetIsHeadlessModal={handlesetIsHeadlessModal} />
                 {/* <div className={classNames(open ? "absolute top-0 right-24 z-50" : "h-full flex flex-col py-6 bg-white shadow-xl overflow-y-scroll !mt-[10em] z-40")}>
                    <OpenButton  isOepn={open} />
                   <div className="px-4 sm:px-6">

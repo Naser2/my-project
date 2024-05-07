@@ -44,7 +44,7 @@ const handlesetIsHeadlessModal = () => {
         <div className="relative text-center py-0 max-w-full lg:max-w-xl lg:mx-auto">
 
           <div >
-            <div className="max-w-md mx-auto lg:max-w-2xl h-sfull">
+            <div className="max-w-md mx-auto lg:max-w-2xl h-full">
               <OpenButton 
                  handlesetIsHeadlessModal={handlesetIsHeadlessModal}
                  isOpen={isHeadlessOpen} 

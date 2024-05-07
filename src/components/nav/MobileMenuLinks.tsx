@@ -9,6 +9,7 @@ import { useMenuOpen } from "@/state";
 import { useState,useEffect } from 'react';
 import ThemeSwitch from "@/components/ThemeSwitch"
 import { LogoMobile } from "../SephoHeader";
+import { OpenButton } from "../HideableNavbar";
 const refinementData = [{
   name:"Cheveux", 
   categoryContent:[
@@ -170,13 +171,15 @@ const RefinementComponent = ({ column, sectionId }) => {
 
 export default RefinementComponent;
 
-export function MobileMenuLinks({categories, session,navigationOpen}) {
+export function MobileMenuLinks({categories, session,navigationOpen, handlesetIsHeadlessModal}) {
   console.log("CATEGORIES-IN-MobileLinks", categories)
   
   return ( <div className="relative w-full ">
-    <div className="px-[2em] ">
-         <LogoMobile session={session} navigationOpen={navigationOpen}/>
-                </div>
+    <div className="px-[2em] w-1/2 flex space-between transform ease-in-out duration-500"> 
+    <LogoMobile session={session} navigationOpen={navigationOpen}/> 
+    {/* <OpenButton navigationOpen={navigationOpen}  handlesetIsHeadlessModal={handlesetIsHeadlessModal}/> */}
+     </div>
+
     <Tab.Group as="div" className="w-full">
 
     <div className="border-b border border-gray-200 w-ful border-y-4 divide-y divide-slate-700  border-indigo-500 dark:border-t-1 dark:mt-6 dark:pr-6">
@@ -188,9 +191,9 @@ export function MobileMenuLinks({categories, session,navigationOpen}) {
               className={({ selected }) =>
                 classNames(
                   selected
-                    ? "bg-black border-cream-1 dark:bg-black text-white !ml-[-2em] text-black w-[4em]"
-                    : "border-transparent  text-black bg-[#e5e7eb9c] dark:bg-white dark:text-black  w-2/3",
-                  "flex-1 whitespace-nowrap py-2  !pb-2 text-lg font-medium "
+                    ? "bg-black border-cream-1 dark:bg-black text-white !ml-[-3em] !w-3/3 sm:!ml-[-3.5em] text-black w-[4em]"
+                    : "border-transparent  text-black  dark:bg-white dark:text-black  !ml-[-2.5em] sm:!ml-[-3.5em] ",
+                  "flex-1 whitespace-nowrap py-2  !pb-2 text-lg font-medium  w-3/3"
                 )
               } style={{"transition": "all 1s", "overflow":"hidden"}}
             >
@@ -233,22 +236,17 @@ export function MobileMenuLinks({categories, session,navigationOpen}) {
     </Tab.Panels> 
     
   </Tab.Group>
-  {/* <div className="prose prose-sm mb-4 text-gray-500 text-left"><ul role="list"><li>Only the best materials</li><li>Ethically and locally made</li><li>Pre-washed and pre-shrunk</li><li>Machine wash cold with similar colors</li></ul></div> */}
-  <div className="group w-full py-4 my-6 bg-gray-200 dark:bg-[var(--blackTheme)] border-t border-gray-200 px-8 border-y-4 divide-y divide-slate-700  border-indigo-500 ">
-     {navigation.pages.map((page) => (
-      <div key={page.name} className="group has-border hover:bg-gray-200 flow-root border-t-1 border-b border-slate-200 py-2">
-        <a
-            href={page.href}
-            className=" max-w-xl  -m-2 block text-[1.5em] px-3 font-medium text-left dark:text-white hover:main-text-color-1  dark:hover:text-black font-base"
-          >
-            {page.name}
-          </a>
-        </div>
-        ))}
-      </div>
-    <p className="header__shop js-header-shop prose-sm px-8 pt-2 text-[1.2em] px-8" id="available_online_divisions">Site Pages</p>
-    <CorporateMenu />
+  <div className="prose prose-sm mb-4 text-gray-500 text-left px-2">
+    {/* <ul role="list"><li>Only the best materials</li><li>Ethically and locally made</li><li>Pre-washed and pre-shrunk</li><li>Machine wash cold with similar colors</li></ul></div> */}
+
+   
+          <CorporateMenu pages={navigation["pages"]}/>
+        
+    </div> 
+    <div></div>
     <LinkMapper links={NabarfooterLinks} />
+    {/* <p className="header__shop js-header-shop prose-sm px-8 pt-2 text-[1.2em] px-8" id="available_online_divisions">Site Pages</p> */}
+  
     </div>
     );
   }
@@ -259,7 +257,7 @@ export function MobileMenuLinks({categories, session,navigationOpen}) {
 export const LinkMapper = ({links}) => {
 
   return (
-    <div className=" w-full bg-1  dark:bg-black">
+    <div className="px-2 w-full bg-1  dark:bg-black">
     <ul className="group has-border is-hidden-l js-header-contact mobile-nav-bottom-links" >
       {links.map((link, index) => (
         <li key={index} className={link.className}>
@@ -290,19 +288,14 @@ export const LinkMapper = ({links}) => {
   );
 };
 
-export const CorporateMenu = () => {
-  const menuItems = [
-    { name: "Services", href: "/services" },
-    { name: "Products", href: "/products" },
-    { name: "Porfolio", href: "/portfolio" },
-    { name: "About", href: "/about" },
-    { name: "Blog", href: "/blog" },
-  ];
-
+export const CorporateMenu = ({pages}) => {
+  
+  console.log("PAPGES", pages)
   return (
-    <ul aria-labelledby="corporate_menu">
-      {menuItems.map((item, index) => (
-        <div key={index} className="js-header-entry list-outside text-left">
+    <ul aria-labelledby="corporate_menu ">
+      {pages && pages.map((item, index) => {
+        console.log("PAPGE", item)
+     return    <div key={index} className="js-header-entry list-outside text-left">
           <a
             href={item.href}
             id={`corporate-menu-item-${index}`}
@@ -392,7 +385,7 @@ export const CorporateMenu = () => {
             </div>
           </div>
         </div>
-      ))}
+      })}
     </ul>
   );
 };

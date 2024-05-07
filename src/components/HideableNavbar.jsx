@@ -196,7 +196,7 @@ setUserSession(session)
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollPos = window.pageYOffset;
+      const currentScrollPos = window.pageYOffSet || document.documentElement.scrollTop;
       const navbar = document.getElementById('navbar');
       const secondaryNavbar = document.getElementById('SECONDARY-NAVBAR');
 
@@ -247,7 +247,8 @@ setUserSession(session)
 
         #SECONDARY-NAVBAR {
           position: fixed;
-          top: 0;
+          // top: 0;
+          top: 62px;
           width: 100%;
           display: block;
           /*z-index: 9;  Ensure it's below primary navbar */
@@ -351,10 +352,11 @@ export const MobileHeader = ({session, navigation, userSession, navigationOpen, 
   console.log("MOBILE_HEAADER_SESSION-->", session, "MobileHeader-OPEN ??", navigationOpen, "ADVETISSEMENT", advertissment)
  return  (
   // ${navigationOpen  && advertissment  && 'inset-x-0 z-40 animationTranfrom'}
- <div  id="MAIN-NAVIGATION-HEADER" className={classNames(` ${navigationOpen ? '!hidden' :' mobile-header bg-white dark:bg-black z-50 !bg-white  dark:!bg-black'}`)}
+  // 
+ <div  id="MAIN-NAVIGATION-HEADER" className={classNames(` ${navigationOpen ? '!hidden' :'mobile-header '} bg-white dark:bg-black z-50 !bg-white  dark:!bg-black`)}
       style={{}}>
       {/* {navigationOpen && <UserIcon navigationOpen={navigationOpen} session={session} isProfileMenuOpen={isProfileMenuOpen} profileImage={profileImage} setIsProfileMenuOpen={setIsProfileMenuOpen}/>} */}
-     <div className="flex justify-between h-full  center px-4  pr-2 sm:ml-[2vw]">
+     <div className="flex justify-between center px-4  pr-2 sm:ml-[2vw]">
       <div className="top-left inline-flex ">
           <LogoMobile session={session} navigationOpen={navigationOpen} isProfileMenuOpen={isProfileMenuOpen}/>
              {navigationOpen && !session  &&  <> {

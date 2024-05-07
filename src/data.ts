@@ -18,6 +18,21 @@ import MassiFleuresRight from '@/assets/images/landing-images/massi-fleures-righ
 import massi_hero_part3_mobile from "./assets/images/heros/massi_hero_part3_mobile.png";
 import massi_hero_part3_desktop from "./assets/images/heros/massi_hero_part3_desktop.png";
 
+import massiLG from '@/assets/images/massi/massi_imageLG.jpeg'
+import massi from '@/assets/images/massi/massi_image.jpeg'
+import client1 from '@/assets/images/massi/client-1.png'
+import client2  from '@/assets/images/massi/client-2.jpeg'
+import client3 from '@/assets/images/massi/client-3.jpeg'
+import client4 from '@/assets/images/massi/client-4.jpeg'
+import client5 from '@/assets/images/massi/client-5.png'
+
+import Bessseller1 from '@/assets/images/massi/Bessseller-1.webp'
+import Bessseller2  from '@/assets/images/massi/Bessseller-2.webp'
+import Bessseller3 from '@/assets/images/massi/Bessseller-3.png'
+import imageAngelaFisher from '@/assets/images/team/angela-fisher.jpeg'
+import  massiAboutSection from '@/assets/images/massi-about-section.jpeg'
+import clsx from 'clsx'
+// import Intro from '@/components/Intro'
 
 export const navigation = {
   categories: [
@@ -158,11 +173,13 @@ export const navigation = {
     },
   ],
   pages: [
-    // { name: "Porfolio", href: "/portfolio" },
-    // { name: "About", href: "/about" },
-    // { name: "Blog", href: "/blog" },
+    { name: "Services", href: "/services" },
+    { name: "Products", href: "/products" },
+    { name: "Porfolio", href: "/portfolio" },
+    { name: "About", href: "/about" },
+    { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
-    { name: "Login", href: "/api/auth" },
+    { name: "Login", href: "/login" },
   ],
 };
 
@@ -440,16 +457,16 @@ export const allReviews = {
   servicesReviews: [
     {
       text: "Nas Design built some React Native mobile screen to be used in our mobile application. It was a smooth process and Nasser was willing to iterate as much to get the product we wanted. Really happy to have worked with NasDesign",
-      author: "Komal Kehar",
-      title: "CEO of Mira Project",
-      image: "https://images.ctfassets.net/e5382hct74si/7mlje7mNxEK4jvgqWKu507/bc064f44b3a0fc67695e354003fb3d1c/image.png",
+      author: "Zaina Marchovich",
+      title: "Model & Influencer",
+      image: client1.src,
       featured: true, // Default value
     },
     {
       text: "NasDesign built a great website for me. I am honestly pleased to have worked with them, Nasser made it very straightforward and easy as a process. Thank you",
-      author: "Amit",
-      title: "Director and Cinematographer - Film Maker",
-      image: "https://images.unsplash.com/photo-1507003211169-cbb51c65aaea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      author: "Ami Fisher",
+      title: "Director - Film Maker",
+      image: client2.src,
       featured: true, // Featured review
     },
     {
@@ -544,6 +561,96 @@ export const UserFlyoutLinks= {
   
   ]
 }
+
+export const aboutData = { 
+  title: "About MAssi Beauty",
+  description: "Meet Massi, your dedicated esthetician with a passion for holistic hair care. With years of experience and a deep understanding of natural remedies, Massi approaches hair treatments with a focus on overall wellness. Her gentle touch and personalized approach ensure that each client receives the care and attention they deserve. From nourishing scalp massages to customized herbal treatments, Massi believes in enhancing beauty from the inside out. Step into her sanctuary and experience the transformative power of holistic hair care with Massi today.",
+  href: "/about",
+  src: massiAboutSection.src,
+  alt: "massi_about_section photo",
+  ctaText: "Read more about Massi",
+}
+
+
+export const team = [{
+  title: 'Recent Clients',
+  people: [
+    {
+      name: ' Beautiful & blonde',
+      role: 'Wig Coloring & Frontal Installation ✨',
+      image: { src: client1 },
+    },
+    {
+      name: 'Color Me Blond ',
+      role: 'Coloring & Frontal Installation✨',
+      image: { src: imageAngelaFisher },
+    },
+
+    {
+      name: 'Once Blonde-Always blonde',
+      role: 'VP, Human Resources ✨',
+      image: { src: client5  },
+    },
+    {
+      name: 'Better in blond',
+      role: 'Double process color✨',
+      image: { src: client2 },
+    },
+    {
+      name: 'Client Calm',
+      role: 'Silk press & updo + Silk press & Ponytail ✨',
+      image: { src: client3 },
+    },
+    {
+      name: 'Better in blond',
+      role:  'Double process color✨',
+      image: { src: client4 },
+    },
+    {
+      name: 'Client Calm',
+      role: 'Silk press & updo + Silk press & Ponytail ✨',
+      image: { src: client3 },
+    },
+    {
+      name: 'Better in blond',
+      role:  'Double process color✨',
+      image: { src: client4 },
+    },
+   
+  ],
+},
+]
+const bestSellers = [
+{
+  title: 'Best Sellers',
+  people: [
+    {
+      name: '5x5 HD LACE CLOSURE',
+      role: '$220',
+      image: { src: Bessseller1 },
+      href: 'https://mbeautehair.glossgenius.com/services/5x5-hd-lace-closure'
+    },
+    {
+      name: 'No Slip | Wig Grip',
+      role: '$12',
+      image: { src: Bessseller2 },
+      href: 'https://mbeautehair.glossgenius.com/services/5x5-hd-lace-closure'
+    },
+    {
+      name: '5x5 | ‘PRE-LIGHTENED’',
+      role: '$520',
+      image: { src: Bessseller3 },
+      href: 'https://mbeautehair.glossgenius.com/services/5x5-hd-lace-closure'
+    },
+    {
+      name: '5x5 | ‘PRE-LIGHTENED’',
+      role: '$520',
+      image: { src: Bessseller3 },
+      href: 'https://mbeautehair.glossgenius.com/services/5x5-hd-lace-closure'
+    },
+  ],
+},
+]
   // "recentPosts": [
   //  {
   //    id: 1,
