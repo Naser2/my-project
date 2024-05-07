@@ -102,78 +102,78 @@ const products = [
     };
   
     return (
-      <div className="bg-[var(--massi-grey-4)] py-12 sm:py-32">
-        <div className="mx-auto max-w-8xl px-6 lg:px-8">
-            <div className='grid drid-cols-2 flex space-between'>
-               <div className="mx-auto max-w-7xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Products</h2>
-            <p className="mt-2 text-lg leading-8 text-gray-600">
-              Learn how to grow your business with our expert advice. 
-            </p>
-           
-             </div>  
-             <button
-                  className="image-with-text__cta themeBtn bg-black !text-white no_high_contrast  hover:!bg-gray-700 hover:text-white px-16 hidden sm:flex"
-                  width="full"
-                  theme="primary"
-                  href="/pages/science-technology"
-                >
-                 Shop NOW
+      <div className="bg-[var(--hh-color-sundrenched-stone)] pt-4 pb-12 sm:py-12 mx-auto max-w-[88vw]  sm:max-w-none px-6 lg:px-8 lg:px-[3vw]">
+        <div className="flex-block">
+            <div className='sm:grid grid-cols-2 space-between inline-flex py-8'>
+                <div className="text-left">
+                        <h2 className="text-[var(--hh-color-aged-black)]  text-left featured-product-grid__title">Products</h2>
+                        <p className="mt-2 text-lg leading-8 text-gray-600">
+                        A collection of grade a quality products offered by Massi. 
+                        </p>
+                </div>  
+                <div className="right massi-flex-end ">
+                   <button  className="!mt-[-4.6vh] image-with-text__cta themeBtn bg-black !text-white no_high_contrast  hover:!bg-gray-700 hover:text-white px-16 hidden sm:flex"
+                    width="full"
+                    theme="primary"
+                    href="/pages/science-technology"
+                    >
+                    Shop NOW
                 </button>
-            </div>
+                </div>
+               
+           </div>
          
-          <div className="overflow-x-scroll flex relative max-w-8xl mx-auto dark:bg-slate-800 dark:highlight-white/5 shadow-lg flex-inline divide-x dark:divide-slate-200/5">
+          <div className="overflow-x-scroll flex relative mx-auto dark:bg-slate-800 dark:highlight-white/5 shadow-lg flex-inline divide-x dark:divide-slate-200/5">
             {products.map((product, index) => (
               <article
                 key={product.id}
                 //  justify-end
                 // className="first:-pl-4 last:pr-6 !aspect-[16.8/31] w-[63vw] flex-none mx-2 sm:w-[34.4vw] xl:sm:w-[28.3vw] relative isolate flex flex-col overflow-hidden ease-in-out" data-carousel-item
-                className={`first:-pl-4 last:pr-6 !aspect-[16.8/31] w-[63vw] flex-none mx-2 sm:w-[34.4vw] xl:sm:w-[28.3vw] relative isolate flex flex-col overflow-hidden ease-in-out ${currentSlide === index ? 'slide-in' : ''}`}
+                className={`last:pr-6  w-[69vw] flex-none mr-2 sm:w-[34.4vw]  sm:!aspect-[25.8/31] relative isolate flex flex-col  ease-in-out ${currentSlide === index ? 'slide-in' : ''}`}
               >
                 <img src={product.imageUrl} alt="" className="-z-10 h-full w-full object-cover products-display-image" />
-                {/* <img src={product.imageUrl} alt="" className="image-element card-image__hover  absolute inset-0 -z-10 h-full w-full object-cover products-display-image" /> */}
-                {/* <div className="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40" /> */}
-                {/* <div className="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10" /> */}
-  
-                    <div className="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-300 pt-4">
-                    <div className='flex'><h3 className="text-lg font-semibold leading-6 text-[var(--massi-grey-0)] dark:text-white">
+                <div className="flex flex-wrap items-center gap-y-1  text-sm leading-6 text-gray-300 pt-4">
+                <div className='flex'>
+                    <h4 className="hover:underline text-lg leading-6 text-[var(--hh-color-aged-black)] dark:text-white upercase">
                     <a href={product.href}>
-                        <span className="" />
-                        {product.title}
+                     <span className="" />
+                     {product.title}
                     </a>
-                    </h3>
-                        <time dateTime={product.datetime} className="pl-4 text-black">
-                        {product.price}
-                        </time></div>
-                    <div className="flex-block -mt-0 items-center gap-x-4">
-                        <div className="flex gap-x-2.5 text-gray-500">
-                            {product.subtitle}
-                        </div>
-                <div className="mt-0">
-                <h2 className="sr-only">Reviews</h2>
-                <div className="flex items-center">
-                  <p className="text-sm text-gray-700">
-                    {product.rating}
-                    <span className="sr-only"> out of 5 stars</span>
-                  </p>
-                  <div className="ml-1 flex items-center">
+                    </h4>
+                     <time dateTime={product.datetime} className="pl-4 text-black">
+                      {product.price}
+                     </time>
+                </div>
+              <div className="hidden sm:flex flex-block ml-1 items-center gap-x-4">
+                <div className="sr-only flex gap-x-2.5 text-gray-500">
+                    {product.subtitle}
+                </div>
+                <div className="">
+                 <h2 className="sr-only">Reviews</h2>
+                 <div className="flex ">
+                   
+                  <div className="mx-2 flex -ml-0.5">
                     {[0, 1, 2, 3, 4].map((rating) => (
                       <StarIcon
                         key={rating}
                         className={classNames(
-                          product.rating > rating ? 'text-yellow-400' : 'text-gray-200',
+                          product.rating > rating ? 'text-[var(--agedBlack)]' : 'text-gray-200',
                           'h-5 w-5 flex-shrink-0'
                         )}
                         aria-hidden="true"
                       />
                     ))}
                   </div>
+                  <p className="text-sm text-gray-700 flex items-center justify-center center">
+                        {product.rating}
+                        <span className="sr-only"> out of 5 stars</span>
+                    </p>
                   <div aria-hidden="true" className="ml-4 text-sm text-gray-300">
                     ·
                   </div>
                     <div className="ml-4 flex hidden sm:flex">
-                        <a href="#" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
-                        All {product.reviewCount} reviews
+                        <a href="#" className="text-sm font-medium text-gray-500 hover:text-indigo-500">
+                       {product.reviewCount} reviews
                         </a>
                     </div>
                     </div>

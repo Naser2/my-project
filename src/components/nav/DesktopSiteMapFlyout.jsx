@@ -11,7 +11,7 @@ export default function DesktopSiteMapFlyout({resources, ...props}) {
    <Popover className="relative isolate z-40 shadow">
       <div className="bg-white py-0">
         <div className="mx-auto max-w-7xl mx-6 lg:pr-0">
-          <Popover.Button className="inline-flex items-center gap-x-1 header__primary__button dark:bg-black">
+          <Popover.Button className="inline-flex items-center gap-x-1 header__primary__button bg-white focus:bg-[var(--oke-border-color)] dark:bg-black">
            <span className='dark:text-white'> {resources.name}</span>
             <ChevronDownIcon className="h-5 w-5 arrow-spin dark:text-white" aria-hidden="true" />
           </Popover.Button>
@@ -29,7 +29,7 @@ export default function DesktopSiteMapFlyout({resources, ...props}) {
       >
 
        <Popover.Panel id={resources.name}   
-        as={Fragment} className="absolute inset-x-50 top-0 -z-10 bg-white pt-16 shadow-lg ring-1 ring-gray-900/5  w-screen left-[-63vw] ml-4 pl-16 dark:bg-black ">
+        as={Fragment} className="absolute inset-x-50 top-[3vh] -z-10 bg-white pt-16 shadow-lg ring-1 ring-gray-900/5  w-screen xl:left-[-63vw] ml-4 pl-16 dark:bg-black ">
           <div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 px-6 py-10 lg:grid-cols-2 lg:px-8">
             <div className="grid grid-cols-2 gap-x-6 sm:gap-x-8 ">
            {  resources.resources.map(data => {

@@ -51,6 +51,7 @@ function trackActiveSection() {
         scrollPosition <= sectionTop + sectionHeight
       ) {
         currentSection.textContent = section.querySelector('h2').textContent;
+        // currentSection.textContent.style= 'text-[var(--hh-color-aged-black)]';
       }
     });
   };
@@ -167,9 +168,11 @@ const HideableNavbar = () => {
   // }, [countryPickerIsOpen])
 
   const handleSetNavigationIsOpen = () => {
-    console.log("FIREDDD---> ", "handleSetNavigationIsOpen")
+    console.log("FIREDDD---> ", "handleSetNavigationIsOpen", navigationOpen)
     setNavigationOpen(!navigationOpen);
+    // console.log("IN-SATENAVIGATION-OPEB---> ", "handleSetNavigationIsOpen", navigationOpen)
 };
+
 
 useEffect(() =>{  
 // const user = session ? !null : "unathenticated"
@@ -220,8 +223,6 @@ setUserSession(session)
     <>
       <style jsx>{`
         #navbar {
-          background-color: #333;
-          position: fixed;
           top: 0; /* Ensure navbar is initially visible */
           width: 100%;
           display: block;
@@ -249,7 +250,7 @@ setUserSession(session)
           top: 0;
           width: 100%;
           display: block;
-          z-index: 9; /* Ensure it's below primary navbar */
+          /*z-index: 9;  Ensure it's below primary navbar */
         }
 
         .content {
@@ -258,20 +259,19 @@ setUserSession(session)
           margin-top: 30px;
         }
       `}</style>
-      <div id="navbar" className='h-[4rem] z-50'>
-   
-      <div className={classNames("sticky-top sticky-top-static sm:mb-0 dark:!bg-black !z-50")}>
-              <div className=""  style={{ display: "block" }} ></div> 
-               <NavTriggerComponent/>
-              <MobileHeader navigationOpen={navigationOpen} 
-                  handleSetNavigationIsOpen={handleSetNavigationIsOpen} 
-                  session={userSession} 
-                  advertissment={advertissment} 
-                  isProfileMenuOpen={isProfileMenuOpen}
-                  setIsProfileMenuOpen={setIsProfileMenuOpen}
-                  profileImage={profileImage}
-                  providers={providers}/>
-                 
+      <div id="navbar" className={classNames(navigationOpen ===true  ? 'hidden' : '!fixed h-[4rem] z-50')}>
+        <div className={classNames("sticky-top sticky-top-static sm:mb-0 dark:!bg-black !z-50")}>
+          <div className="" style={{ display: "block" }} ></div> 
+          <NavTriggerComponent/>
+          <MobileHeader navigationOpen={navigationOpen} 
+              handleSetNavigationIsOpen={handleSetNavigationIsOpen} 
+              session={userSession} 
+              advertissment={advertissment} 
+              isProfileMenuOpen={isProfileMenuOpen}
+              setIsProfileMenuOpen={setIsProfileMenuOpen}
+              profileImage={profileImage}
+              providers={providers}/>
+            
             </ div>
             <input
             id="mobile-navigation"
@@ -293,9 +293,9 @@ setUserSession(session)
             {/* <SlideOutSideNav  navigationOpen={navigationOpen} handleSetNavigationIsOpen={handleSetNavigationIsOpen}/> */}
       
       </div>
-      <div id="SECONDARY-NAVBAR" className="nav row header-sencond  bg-[var(--google-grey-50)] py-[0.4rem] px-[1rem] desktop-header show-for-mlarge align-justify w-full dark:bg-black dark:shadow-xl dark:border-t border-gray-400">
+      <div id="SECONDARY-NAVBAR" className={classNames(navigationOpen ? "hidden" : "!z-40 nav row header-sencond  bg-[var(--google-grey-50)] py-[0.4rem] px-[1rem] desktop-header show-for-mlarge align-justify w-full dark:bg-black dark:shadow-xl dark:border-t border-gray-400")}>
           <div className={`${isSlideIn ? 'slide-in' : ''} flex`}>
-            <h2 id="current-section" className="px-12 py-2 text-black overlayed-text section-anouncer-text-h2"></h2> 
+            <h2 id="current-section" className="px-12 py-2 overlayed-text section-anouncer-text-h2"></h2> 
           <div className='absolute right-0 inline-flex flex-end pr-[2em]'>  
            
            {/* <div className='flex inline-flex'> <hh-button theme="none" class="header__utility-item" href="/account/login">
@@ -341,15 +341,21 @@ export default HideableNavbar;
 
 
 export const MobileHeader = ({session, navigation, userSession, navigationOpen, handleSetNavigationIsOpen, profileImage, isProfileMenuOpen, setIsProfileMenuOpen,providers, advertissment}) => {
+ const [open, setOpen] = useState(null)
+ 
+  const toggleNavigation = () => {
+    handleSetNavigationIsOpen(); // Call the function to toggle navigation state
+    setIsProfileMenuOpen(!navigationOpen); // Close profile menu if open
+  };
+
   console.log("MOBILE_HEAADER_SESSION-->", session, "MobileHeader-OPEN ??", navigationOpen, "ADVETISSEMENT", advertissment)
- return  (<div  id="SEPHORA-MOBILE-HEADER" className={classNames(`${navigationOpen  && advertissment  && 'inset-x-0 z-40 animationTranfrom'} 
-    ${navigationOpen ? '!bg-white  dark:!bg-black' : "bg-transparent" } 
-     mobile-header bg-white dark:bg-black z-50` )}
+ return  (
+  // ${navigationOpen  && advertissment  && 'inset-x-0 z-40 animationTranfrom'}
+ <div  id="MAIN-NAVIGATION-HEADER" className={classNames(` ${navigationOpen ? '!hidden' :' mobile-header bg-white dark:bg-black z-50 !bg-white  dark:!bg-black'}`)}
       style={{}}>
       {/* {navigationOpen && <UserIcon navigationOpen={navigationOpen} session={session} isProfileMenuOpen={isProfileMenuOpen} profileImage={profileImage} setIsProfileMenuOpen={setIsProfileMenuOpen}/>} */}
-  <div className="flex justify-between h-full  center px-4  pr-2 sm:ml-[2vw]">
+     <div className="flex justify-between h-full  center px-4  pr-2 sm:ml-[2vw]">
       <div className="top-left inline-flex ">
-
           <LogoMobile session={session} navigationOpen={navigationOpen} isProfileMenuOpen={isProfileMenuOpen}/>
              {navigationOpen && !session  &&  <> {
                   <div className='flex md:block md:ml-6 sm:absolute top-4 left-[5em]'>
@@ -374,7 +380,7 @@ export const MobileHeader = ({session, navigation, userSession, navigationOpen, 
             }
         </div>
    
-     <div className="top-right py-[1em] w-4xl justify-center flex inline-flex grid sm:grid-cols-5 sm:mr-4">
+     <div className="top-right py-[1em] w-4xl justify-center  flex inline-flex grid sm:grid-cols-5 sm:mr-4">
       <ThemeSwitchModal />
      {/* <ThemeSwitch/> */}
      <div className='absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0'>
@@ -428,7 +434,7 @@ export const MobileHeader = ({session, navigation, userSession, navigationOpen, 
           </Link>*/}
         </div>}
       </div>
-      <div className='flex-none  inline-flex'>
+      <div className='hidden sm:flex-none  inline-flex'>
              <button class="inline-flex items-center gap-x-1 header__primary__button dark:bg-black linkText" type="button" aria-expanded="false" data-headlessui-state="" id="headlessui-popover-button-:r0:"><span className="dark:text-white">Our Story</span></button>
           <button className="inline-flex items-center gap-x-1 header__primary__button dark:bg-black linkText flex" type="button" aria-expanded="false" data-headlessui-state="" id="headlessui-popover-button-:r0:"><span className="dark:text-white">Shop</span></button>
           <button className="inline-flex items-center gap-x-1 header__primary__button dark:bg-black linkText" type="button" aria-expanded="false" data-headlessui-state="" id="headlessui-popover-button-:r0:"><span className="dark:text-white">Message</span>  </button>
@@ -439,7 +445,7 @@ export const MobileHeader = ({session, navigation, userSession, navigationOpen, 
         <CartMobile /> 
         
         {/* <OpenButton handleSetNavigationIsOpen={handleSetNavigationIsOpen}/> */}
-        <TestSliderComponent  navigationOpen={navigationOpen} handleSetNavigationIsOpen={handleSetNavigationIsOpen}/>
+        <TestSliderComponent  navigationOpen={navigationOpen} handleSetNavigationIsOpen={handleSetNavigationIsOpen} session={session}/>
         {/* <TestSliderComponent /> */}
     </div>
   </div>
@@ -448,26 +454,27 @@ export const MobileHeader = ({session, navigation, userSession, navigationOpen, 
 }
 
 
-export const OpenButton = ({isOpen, handleOnClose, setOpen}) => {
+export const OpenButton = ({isOpen, handleOnClose, handlesetIsHeadlessModal}) => {
   const handleButton = () => {
     console.log("HANDLE --OPEN BUTT " )
     if(isOpen){
-     return   handleOnClose(false) 
+     return  handlesetIsHeadlessModal()
     } else{
-     return setOpen(true)
+     return handlesetIsHeadlessModal()
     } 
   }
   return (
     <>
     {/* <NavTriggerComponent /> */}
-    <label onClick={handleButton}
+    <label onClick={()=>handlesetIsHeadlessModal()}
       // htmlFor="mobile-navigation"
       className="menu-togglee  ml-4 z-50 sm:mr-1"
       id="menu-togglee">
       <span aria-label="Close menu"  
       id="menu-togglee" 
       htmlFor="mobile-navigation" 
-      className={classNames(isOpen ? "flex k sm:mr-1 mobile-search-magnifying-glass hover:bg-[--lightGrey]  ring-[ring-[var(--google-grey-200)]] dark:bg-slate-800 dark:!text-white dark:hover:ring-white dark:ring-[var(--google-grey-500)]" : "ring-[var(--google-grey-500)]",
+      className={classNames(`${isOpen ? "!bg-[var(--google-grey-50)] shadow-gray-400 ring-1 shadow-2xl flex k sm:mr-1 mobile-search-magnifying-glass hover:bg-white ring-[var(--google-grey-400)] dark:bg-slate-800 dark:!text-white dark:hover:ring-white dark:ring-[var(--google-grey-500)]" :
+       "ring-[var(--google-grey-500)]"}`,
        "dark:bg-slate-800 dark:!text-white dark:hover:ring-white navTrigger menu-toggle_menuToggle__6OaWw mobile-menu-button_indicator__mGvzn avatar-mobile-menu_button__YEcob hover:ring-1 hover:shadow-xl hover:ring-[#bdbdbd] sm:mr-1 mobile-search-magnifying-glass dark:bg-slate-800 dark:!text-white dark:hover:ring-white")}
       data-expanded="false" data-testid="mobile-menu/trigger" type="button">
         <div className="menu-toggle_bar__GUd1o dark:!bg-white" data-position="top"></div>

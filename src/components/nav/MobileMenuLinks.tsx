@@ -8,6 +8,7 @@ import { classNames } from "@/utils";
 import { useMenuOpen } from "@/state";
 import { useState,useEffect } from 'react';
 import ThemeSwitch from "@/components/ThemeSwitch"
+import { LogoMobile } from "../SephoHeader";
 const refinementData = [{
   name:"Cheveux", 
   categoryContent:[
@@ -169,11 +170,14 @@ const RefinementComponent = ({ column, sectionId }) => {
 
 export default RefinementComponent;
 
-export function MobileMenuLinks({categories}) {
+export function MobileMenuLinks({categories, session,navigationOpen}) {
   console.log("CATEGORIES-IN-MobileLinks", categories)
   
-  return ( <>
-  <Tab.Group as="div" className="w-full">
+  return ( <div className="relative w-full ">
+    <div className="px-[2em] ">
+         <LogoMobile session={session} navigationOpen={navigationOpen}/>
+                </div>
+    <Tab.Group as="div" className="w-full">
 
     <div className="border-b border border-gray-200 w-ful border-y-4 divide-y divide-slate-700  border-indigo-500 dark:border-t-1 dark:mt-6 dark:pr-6">
       <Tab.List className="-mb-px   px-0 inline-flex  w-full shawdow-xl">
@@ -184,13 +188,13 @@ export function MobileMenuLinks({categories}) {
               className={({ selected }) =>
                 classNames(
                   selected
-                    ? "bg-black border-cream-1 dark:bg-black text-white text-black w-[4em]"
+                    ? "bg-black border-cream-1 dark:bg-black text-white !ml-[-2em] text-black w-[4em]"
                     : "border-transparent  text-black bg-[#e5e7eb9c] dark:bg-white dark:text-black  w-2/3",
                   "flex-1 whitespace-nowrap py-2  !pb-2 text-lg font-medium "
                 )
               } style={{"transition": "all 1s", "overflow":"hidden"}}
             >
-              {category.name.toUpperCase()}
+             <span>{category.name.toUpperCase()}</span> 
             </Tab>
         })}
           </Tab.List>
@@ -245,7 +249,7 @@ export function MobileMenuLinks({categories}) {
     <p className="header__shop js-header-shop prose-sm px-8 pt-2 text-[1.2em] px-8" id="available_online_divisions">Site Pages</p>
     <CorporateMenu />
     <LinkMapper links={NabarfooterLinks} />
-    </>
+    </div>
     );
   }
 

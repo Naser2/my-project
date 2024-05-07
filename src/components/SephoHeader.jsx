@@ -859,7 +859,7 @@ export const MobileHeader = ({session, navigation, userSession, navigationOpen, 
   <div className="flex justify-between h-full  center px-4 pb-4 pr-2 sm:ml-[44vw]">
       <div className="top-left inline-flex ">
 
-          <LogoMobile session={session} navigationOpen={navigationOpen} isProfileMenuOpen={isProfileMenuOpen}/>
+          <LogoMobile session={session} navigationOpen={navigationOpen}/>
              {navigationOpen && !session  &&  <> {
                   <div className='flex md:block md:ml-6 sm:absolute top-4 left-[5em]'>
                     <div className='flex items-center'>
@@ -911,10 +911,10 @@ export const MobileHeader = ({session, navigation, userSession, navigationOpen, 
             </svg>
           </button>
           <UnreadMessageCount session={userSession} />
-        </Link>: 
+        </Link> : 
           <div className='UNAUTHENTICATED-MESSAGE-BUTTON'>
             <Link
-              href="mailto:soma@leelanyc.com"
+              href="mailto:massi@beaute.com"
               className="sm:mx-[2em] dark:mx-2 mt-2 flex max-h-12  w-8 items-center rounded-md bg-white py-[0.4375rem]
                px-2 pr-2 dark:pr-0 text-sm  font-semibold shadow md:mt-1 dark:!lg:pr-0 lg:pr-3 xl:-mt-0 
                 text-slate-800 hover:bg-[#f2f2f2]  dark:bg-transparent dark:hover:bg-slate-900 dark:!text-white dark:hover:ring-1 dark:hover:ring-white hover:dark:rounded-full dark:hover:shadow-xl"
@@ -989,7 +989,7 @@ export const OpenButton = ({navigationOpen, handleSetNavigationIsOpen}) => {
       <span aria-label="Close menu"  
       id="menu-togglee" 
       htmlFor="mobile-navigation" 
-      className={classNames(navigationOpen ? 'flex  ring-[ring-[var(--google-grey-200)]] dark:bg-slate-800 dark:!text-white dark:hover:ring-white dark:ring-[var(--google-grey-500)]' : 'ring-[var(--google-grey-500)]', " dark:bg-slate-800 dark:!text-white dark:hover:ring-white navTrigger menu-toggle_menuToggle__6OaWw mobile-menu-button_indicator__mGvzn avatar-mobile-menu_button__YEcob hover:ring-1 hover:shadow-xl hover:ring-[#bdbdbd] sm:mr-1 mobile-search-magnifying-glass hover:bg-[#f2f2f2]  dark:bg-slate-800 dark:!text-white dark:hover:ring-white")}
+      className={classNames(navigationOpen ? 'flex bg-[var(--google-grey-200)] ring-[var(--google-grey-200)] dark:bg-slate-800 dark:!text-white dark:hover:ring-white dark:ring-[var(--google-grey-500)]' : 'ring-[var(--google-grey-500)]', " dark:bg-slate-800 dark:!text-white dark:hover:ring-white navTrigger menu-toggle_menuToggle__6OaWw mobile-menu-button_indicator__mGvzn avatar-mobile-menu_button__YEcob hover:ring-1 hover:shadow-xl hover:ring-[#bdbdbd] sm:mr-1 mobile-search-magnifying-glass hover:bg-[#f2f2f2]  dark:bg-slate-800 dark:!text-white dark:hover:ring-white")}
       data-expanded="false" data-testid="mobile-menu/trigger" type="button">
         <div class="menu-toggle_bar__GUd1o dark:!bg-white" data-position="top"></div>
         <div class="menu-toggle_bar__GUd1o dark:bg-white" data-position="bottom"></div>
@@ -1755,10 +1755,11 @@ const UserIcon = ({session, navigationOpen, profileImage, isProfileMenuOpen, set
 
 
 
-export const HeaderNavigationLinks = ({ dataToMap }) => {
+export const HeaderNavigationLinks = ({ dataToMap, navigationOpen, session }) => {
   console.log("HeaderNavigationLinks-dataToMap", dataToMap)
   return (
-    <div className=''>
+    <div className=' !overflow-scroll'>
+    
       <div className="nav-level-3 js-nav-3 active C304" data-cat-id="C304" data-default-active="true" data-tc-category-name="body and bath">
       </div>
       <div className="nav-top-category tc-top-category is-dropdown-submenu-parent opens-right" data-tc-category-name="hair" role="menuitem" aria-haspopup="true" aria-label="cheveux" data-is-click="false">
@@ -1766,8 +1767,8 @@ export const HeaderNavigationLinks = ({ dataToMap }) => {
           Cheveuxxxx
         </a> */}
         <ul className="top-category-menu menu-vertical menu submenu is-dropdown-submenu first-sub vertical fully-loaded" data-submenu role="menubar" style={{}}>
-          <div className="nav-level-3-wrapper">
-          <MobileMenuLinks categories={navigation}  /> 
+          <div className="nav-level-3-wrapper  !overflow-scroll">
+          <MobileMenuLinks categories={navigation}  session={session} navigationOpen={navigationOpen} /> 
           </div>
         </ul>
       </div>
@@ -1779,15 +1780,19 @@ export const HeaderNavigationLinks = ({ dataToMap }) => {
 // export default HeaderNavigationLinks;
 
 // translate-x-fullnav-menu-mobile   ${navigationOpen ? 'translate-x-0 transition duration-150 ease-in-out': 'translate-x-full'}
-export const MobileSideNavigation = ({sessiopn,navigationOpen,handleSetNavigationIsOpen,  handleCountryPickerIsOpen}) => {
-    return   ( <nav id="mobile-navigation" className={clsx(`nav-menu-mobile  !top-[1em] mt-[2.50em] sm:mt-[3.5em] dark:bg-black`)} role="navigation">
-                <div className="nav-content">
-                  <div className="language-select-wrapper country-language-wrapper">
+export const MobileSideNavigation = ({session, navigationOpen, handleSetNavigationIsOpen,  handleCountryPickerIsOpen}) => {
+
+    return   ( <nav id="mobile-navigation" className={clsx(`${navigationOpen ? '!mt-[0em]  sm:mt-[44em] transform transition ease-in-out duration-500 sm:duration-700  sm:w-[33em] overflow-scroll' :'top-[0em] sm:!top-[0em] transform transition ease-in-out duration-500 sm:duration-700'} nav-menu-mobile  !bg-white bg-[var(--massi-grey-3)] dark:bg-black`)} role="navigation">
+                <div id="NAV-CONTENT" className="nav-content">
+               
+                  {/* <div className="language-select-wrapper country-language-wrapper">
                 
                     <div className="arrow show-for-mlarge" />
-                  </div>
-                  
-                  <HeaderNavigationLinks  dataToMap={navigation}/>
+                  </div> */}
+                  {/* <div className=" p-[1em] w-full">
+                  <LogoMobile session={session} navigationOpen={navigationOpen}/>
+                </div> */}
+                  <HeaderNavigationLinks  dataToMap={navigation} navigationOpen={navigationOpen} session={session}/>
                   {/* <FancyLoader /> */}
                   <div className='menu-wrapper'>
                     {/* <FAQ /> */}
@@ -1897,9 +1902,9 @@ export  const LogoMobile = ({ navigationOpen, session }) => {
     }
   }, [navigationOpen, session]);
 // nav-center xl::w-[88vw]
-  return (
-  <> { !navigationOpen && <div className=' -ml-4 justify-center nav-item '>
-    <div className="logo-mobile mt-[1em] sm:pt-0 sm:mt-0">
+  return ( <div className="relative z-50">
+    <div className={classNames(`${navigationOpen ? "justify-center  w-[10em] xl:mt-[1em] " : '-ml-4 justify-center flex'}  px-[0.5rem] py-[0.75em] justify-center min-w-[2.25rem]`)}>
+    <div className="logo-mobile sm:pt-0 sm:mt-0 ">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122 32" fill="none" class="w1">
   <g>
     <path d="M4.46748 22.876C3.01762 22.1257 1.9119 21.0604 1.14714 19.671C0.382381 18.2847 0 16.6637 0 14.808C0 12.9524 0.385567 11.3314 1.15989 9.94504C1.93421 8.5587 3.05586 7.49039 4.53121 6.7401C6.00657 5.98981 7.77189 5.61621 9.82719 5.61621C10.6875 5.61621 11.5352 5.69649 12.37 5.86013C13.2049 6.02069 13.9537 6.26461 14.6229 6.58881V9.70421H14.5177C13.8486 9.33061 13.1252 9.04963 12.3445 8.86129C11.5638 8.67295 10.8214 8.58032 10.1172 8.58032C8.11604 8.58032 6.53871 9.11756 5.38838 10.189C4.23806 11.2604 3.6613 12.8011 3.6613 14.8111C3.6613 16.8212 4.22212 18.3341 5.34696 19.4086C6.4718 20.48 8.00769 21.0172 9.95784 21.0172C10.713 21.0172 11.481 20.903 12.2649 20.6714C13.0456 20.4429 13.7976 20.1125 14.5177 19.6895H14.6229V22.8296C13.2176 23.6139 11.567 24.0029 9.66786 24.0029C7.64762 24.0029 5.91416 23.6293 4.4643 22.879L4.46748 22.876Z" fill="currentColor"></path>
@@ -1920,7 +1925,7 @@ export  const LogoMobile = ({ navigationOpen, session }) => {
       >
         MASSI
       </text> */}
-    </div></div>}</>
+    </div></div></div> 
   );
 };
 export default Header

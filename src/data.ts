@@ -17,6 +17,8 @@ import MassiFleures from '@/assets/images/landing-images/massi-fleures.jpg';
 import MassiFleuresRight from '@/assets/images/landing-images/massi-fleures-right.jpg';
 import massi_hero_part3_mobile from "./assets/images/heros/massi_hero_part3_mobile.png";
 import massi_hero_part3_desktop from "./assets/images/heros/massi_hero_part3_desktop.png";
+
+
 export const navigation = {
   categories: [
     {
@@ -772,46 +774,116 @@ export const UserFlyoutLinks= {
 //   ];
   
 
+
+
+
 export const images = [
   {
     id: 0,
-    src: "/massi_hero_part3_desktop.png",
-    title: "All our services",
+    src: "/service-massi.JPG",
+    title: "Shampooing, conditioning, and Scalp Treatments",
     sideDescription: false,
-    desc: "Black coffee is a beverage made from roasted coffee beans. The beans are ground and soaked in water, which releases their flavor, color, caffeine content, and nutrients. ",
+    imageTheme: { background: "bg-[rgb(48,38,39)]", text:"text-gray-200" },
+    desc: "Experience the ultimate hair care with our rejuvenating shampooing, and scalp treatments. Our luxurious treatments leave your hair feeling revitalized and your scalp refreshed."
   },
-   { id: 1,
-    src: "/services-init-0.jpeg",
-    title: "Black Coffee",
+  // public/service-massi-1.JPG public/service-massi-2.JPG
+  {
+    id: 0,
+    src: "/service-massi-2.JPG",
+    title: "Scalp Treatments",
+    sideDescription: false,
+    imageTheme: {background: "bg-[var(--massi-gray-2)]", text:"text-gray-500" },
+    desc: "Massi gets to the needy greedy of treating the problems left for decades of unsolvable conditioning, and scalp treatments. Our luxurious treatments leave your hair feeling revitalized and your scalp refreshed."
+  }, 
+  {
+    id: 11,
+    src: "/service-11.jpeg",
+    title: "Personalized  Wig Solutions for Your Unique Style",
     sideDescription: true,
-    desc: "Black coffee is a beverage made from roasted coffee beans. The beans are ground and soaked in water, which releases their flavor, color, caffeine content, and nutrients. ",
+    imageTheme: { background: "bg-[#f3d6c0]" },
+    desc: "MAssi goes hand on herself to personalized finely selected wig strains with care, then customize it to your unique preferences. Whether you're looking for a natural-looking wig or a bold and fashion-forward style, our expert team will create the perfect wig for you."
+  },
+  {
+    id: 1,
+    src: "/services-init-0.jpeg",
+    title: "Scalp Treatments ",
+    sideDescription: true,
+    imageTheme: { background: "bg-[var(---linkHoverColor)]", text: "text-rose-200" },
+    desc: "Say goodbye to split ends and indulge in luxurious scalp treatments for healthier, more vibrant hair. Our expert solutions nourish your scalp and restore your hair's natural beauty."
+  },
+  {
+    id: 1,
+    src: "/Massi-Service-model.JPG",
+    title: " Split Ends Solutions ",
+    sideDescription: true,
+    imageTheme: { background: "bg-[#b15b5b]", text: "text-rose-200" },
+    desc: "Say goodbye to split ends and indulge in luxurious scalp treatments for healthier, more vibrant hair. Our expert solutions nourish your scalp and restore your hair's natural beauty."
   },
   {
     id: 2,
     src: "/services-init-1.jpeg",
-    title: "Cappuccino",
+    title: "Hair Coloring: Highlights, Lowlights, and More",
     sideDescription: true,
-    desc: "A cappuccino is an espresso-based coffee drink that is traditionally prepared with steamed milk foam (microfoam). Cappuccino. Type, Hot.",
+    imageTheme: { background: "bg-[var(--brave-color-brandBraveLigh)]", text: "text-green-300]" },
+    desc: "Transform your look with our expert hair coloring services, including highlights, lowlights, and all-over color options. Whether you're seeking a subtle change or a bold new look, we have the perfect color for you."
+  },
+  {
+    id: 2,
+    src: "/massi-photo.JPG",
+    title: "Hair Coloring: Highlights, Lowlights, and More",
+    sideDescription: true,
+    imageTheme: { background: "bg-[var(--massi-grey-1)]", text: "text-green-200" },
+    desc: "Transform your look with our expert hair coloring services, including highlights, lowlights, and all-over color options. Whether you're seeking a subtle change or a bold new look, we have the perfect color for you."
   },
   {
     id: 3,
     src: "/service-1.jpeg",
-    title: "Espresso",
+    title: "Hair Styling: Regular and Formal Looks",
     sideDescription: true,
-    desc: "Espresso is a concentrated form of coffee, served in shots. It's made of two ingredients - finely ground, 100% coffee, and hot water.",
+    imageTheme: { background: "bg-[var(---linkHoverColor)]", text: "text-gray-100" },
+    desc: "Elevate your hairstyle with our professional styling services, from everyday looks to glamorous updos for special occasions. Our skilled stylists will create a look that perfectly complements your personality and lifestyle."
   },
   {
     id: 4,
     src: "/service-2.jpeg",
-    title: "Latte",
+    title: "Chemical Treatments:",
     sideDescription: true,
-    desc: "A latte or caffè latte is a milk coffee that boasts a silky layer of foam as a real highlight to the drink. A true latte will be made up of one or two shots of espresso, steamed milk and a final, thin layer of frothed milk on top",
+    imageTheme: { background: "bg-[var(--themeColor)]", text: "text-[var(--oke-button-textColor: #FAF9F8)]" },
+    desc: "Achieve your desired hair texture with our range of chemical treatments, including perms, relaxers, and keratin treatments. Our experienced stylists will customize a treatment plan to meet your unique needs and preferences."
+  },
+  {
+    id: 9,
+    src: "/rose-1.jpeg",
+    title: "Perms, Relaxers and More",
+    sideDescription: true,
+    imageTheme: { background: "bg-[var(--themeColor)]", text: "text-[var(--oke-button-textColor: #FAF9F8)]" },
+    desc: "Achieve your desired hair texture with our range of chemical treatments, including perms, relaxers, and keratin treatments. Our experienced stylists will customize a treatment plan to meet your unique needs and preferences."
   },
   {
     id: 5,
-    src: "/service-3.jpeg",
-    title: "Macchiato",
+    src: "/service-8.jpeg",
+    title: "Braids and More: Blowouts, Curling, Straightening, and Extensions",
     sideDescription: true,
-    desc: "Caffè macchiato, sometimes called espresso macchiato, is an espresso coffee drink with a small amount of milk, usually foamed. ",
+    imageTheme: { text: "text-[text-gray-500]" },
+    desc: "Treat yourself to flawless styling with our blowouts, curling, straightening, and extension services for picture-perfect hair. Whether you're looking for a sleek and polished look or beachy waves, our talented stylists have you covered."
   },
+  {
+    id: 6,
+    src: "/service-3.jpeg",
+    title: "Facials and Skin Care Treatments: Rejuvenate Your Skin",
+    sideDescription: true,
+    imageTheme:{
+      background: "bg-white", text:"text-[rgb(134,86,64)]",
+    },
+    desc: "Enhance your natural beauty with our comprehensive range of facials and skin care treatments for a radiant complexion. Our personalized treatments target specific skin concerns to leave your skin looking and feeling refreshed and revitalized."
+  },
+  {
+    id: 7,
+    src: "/custom-wig.jpeg",
+    title: "Custom Wigs: Personalized Solutions for Your Unique Style",
+    sideDescription: true,
+    imageTheme: { background: "bg-[#f3d6c0]" },
+    desc: "Explore the world of personalized hair solutions with our custom wig services, tailored to your unique style and preferences. Whether you're looking for a natural-looking wig or a bold and fashion-forward style, our expert team will create the perfect wig for you."
+  },
+ 
 ];

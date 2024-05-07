@@ -8,14 +8,14 @@ export default function DesktopAccountLinksFlyout({resources,session, ...props})
   return (
    <Popover className="relative isolate3z-30 shadow ">
   
-      <div className="themeBg py-0 dark:bg-black">
-        <div className="mx-auto max-w-7xl mx-2 lg:pr-4 pl-0">
-          <Popover.Button className={clsx('mt-0 inline-flex items-center gap-x-1 header__primary__button')}>
+      <div className="py-0 dark:bg-black">
+        <div className="mx-auto max-w-7xl mx-2 lg:mr-0 pl-0">
+          <Popover.Button className={clsx('mt-0 inline-flex items-center gap-x-1 header__primary__button bg-white focus:bg-[var(--oke-border-color)]')}>
           <div id="header-link header-link-account"
             className="header-link header-link-account js-tc-connect-account  header__primary__button !pr-2"
          
           >
-            <span className="header-link-text pr-2 dark:text-white " data-cs-mask="">
+            <span className="header-link-text focus:text-[#fff] pr-2 dark:text-white " data-cs-mask="">
                My Account
             </span>
             <span id="USER-ICON"  className="header__utility-item !pr-2">
@@ -64,7 +64,7 @@ export default function DesktopAccountLinksFlyout({resources,session, ...props})
       >
 
        <Popover.Panel id={resources.name}   
-        as={Fragment} className="absolute mt-8 dark:!text-white inset-x-50 top-0 -z-10
+        as={Fragment} className="absolute mt-8 dark:!text-white inset-x-50 top-0 -z-10 top-[0.86vh]
          bg-white pt-16 shadow-lg ring-1 ring-gray-900/5  w-screen left-[-78vw] ml-4 pl-16">
          <div className="dark:bg-black mx-auto grid max-w-7xl grid-cols-2 gap-x-8 gap-y-10 -mt-4 px-6 py-10 lg:grid-cols-2 lg:px-8  !w-[100vw]]">
           { !session &&  <div className="flex gap-10 sm:gap-8  dark:bg-zink-900">
@@ -86,14 +86,14 @@ export default function DesktopAccountLinksFlyout({resources,session, ...props})
                       </div>
                     </div> */}
 
-                    <div className="left-side  account-layer-image-bottom  mb-8 sm:my6 rounded-md">
+                    <div className="left-side bg-[#efefef] account-layer-image-bottom  mb-8 sm:my6 rounded-md">
                       <div className="wrapper-limited !mx-8  w-full max-w-4xl px-8 py-6 flex-block   dark:bg-slate-700 dark:hover:!bg-gray-900 dark:hover:text-white rounded-xl ">
                         <div className="header">Hello!</div>
                         <div className="description">
                         Log in or create an account to enjoy all the benefits of the Massi Beauty Accoun
                         </div>
                         <a  href="/api/auth/signin">
-                          <button className="btn-black-bg  dark:text-black dark:btn-black-bg button account-connect button-revamp dark:!text-black !max-w-[25em] ">
+                          <button className="themeBtn  dark:text-black  text-white button account-connect button-revamp dark:!text-black !max-w-[25em]">
                             login/ signup
                           </button>
                         </a>
@@ -132,7 +132,7 @@ export default function DesktopAccountLinksFlyout({resources,session, ...props})
                       src={post.imageUrl}
                       alt=""
                     />
-                    <div className="absolute inset-0 rounded-lg ring-1 ring-inset ring-gray-900/10" />
+                    <div className="absolute inset-x-0  rounded-lg ring-1 ring-inset ring-gray-900/10" />
                   </div>
                   <div>
                     <div className="flex items-center gap-x-4">

@@ -11,7 +11,7 @@ const SlidingHeroContainer = ({ heroData }) => {
   console.log("SlidingHeroContainer-heroData", heroData, "STYLE MODULE",  SlidingHeroContainer)
 
   return (
-    <div id="NEW_CONTAINER" className={classNames(styles.SlidingHeroContainer, "w-full relative mt-[11em] sm:mt-[9em]")}>
+    <div id="NEW_CONTAINER" className={classNames(styles.SlidingHeroContainer, "w-full relative")}>
       <div className={classNames(styles.positioner__kzf41dxdl, "")} data-test="positioner">
         <div className={classNames(styles.block__kzf41dxdl, "Block_subDiv__vTPjd no_high_contrast")} data-test="block" data-testid="_kzf41dxdl" data-blocktype="Container" data-subtype="SlidingHero" id="Haute_Horlogerie">
           <div className={styles.ForwardLink_root__EtbqJ}>

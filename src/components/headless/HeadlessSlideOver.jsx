@@ -5,18 +5,18 @@ import { MobileSideNavigation } from '../SephoHeader';
 import classNames from 'classnames';
 import { OpenButton } from '../HideableNavbar';
 import { set } from 'mongoose';
+import {LogoMobile} from '@/components/SephoHeader'
 
-
-export default function HeadlessSlideOver({ open, setOpen,  handleOnClose,title, children }) {
+export default function HeadlessSlideOver({ open, setOpen,  handleOnClose, handlesetIsHeadlessModal, title, children, session }) {
 
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog
         as="div"
         static
-        className="fixed inset-0 overflow-scroll mt-[7em]"
+        className="fixed inset-0 overflow-scroll shrink-none flex-none"
         open={open}
-        onClose={setOpen}
+        onClose={handlesetIsHeadlessModal}
       >
         <div className="absolute inset-0 overflow-hidden">
           <Transition.Child
@@ -30,7 +30,7 @@ export default function HeadlessSlideOver({ open, setOpen,  handleOnClose,title,
           >
             <Dialog.Overlay className="absolute inset-0 backdrop-blur-sm bg-opacity-75 transition-opacity" />
           </Transition.Child>
-          <div className="margin-can-be-set-here">
+          <div className="!relative  ">
             <Transition.Child
               as={Fragment}
               enter="transform transition ease-in-out duration-500 sm:duration-700"
@@ -50,11 +50,11 @@ export default function HeadlessSlideOver({ open, setOpen,  handleOnClose,title,
                   leaveFrom="opacity-100"
                   leaveTo="opacity-0"
                 >
-                  <div className={classNames(open ? "z-50 absolute top-[-2em] left-[9em] ml-8 pt-4 pr-2 flex sm:-ml-10 sm:pr-4" : "absolute top-0 left-0 ml-8 pt-4 pr-2 flex sm:-ml-10 sm:pr-4")}>
+                  <div className={classNames(open ? "z-50 relative  relative massi-flex-end   ml-4 pt-4 pr-2 flex" : "absolute top-0 left-0 ml-8 pt-4 pr-2 flex sm:-ml-10 sm:pr-4")}>
                   <OpenButton 
                     setOpen={setOpen}
                     isOpen={open} 
-                    handleOnClose={handleOnClose}/>
+                    handlesetIsHeadlessModal={handlesetIsHeadlessModal}/>
                     {/* <button
                       className="rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
                       onClick={() => setOpen(false)}
@@ -65,7 +65,7 @@ export default function HeadlessSlideOver({ open, setOpen,  handleOnClose,title,
                   </div>
                 </Transition.Child>
                 
-                <MobileSideNavigation/>
+                <MobileSideNavigation navigationOpen={open}   />
                 {/* <div className={classNames(open ? "absolute top-0 right-24 z-50" : "h-full flex flex-col py-6 bg-white shadow-xl overflow-y-scroll !mt-[10em] z-40")}>
                    <OpenButton  isOepn={open} />
                   <div className="px-4 sm:px-6">

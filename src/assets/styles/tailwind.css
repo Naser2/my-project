@@ -808,21 +808,11 @@ input[type=checkbox]{position:absolute;overflow:hidden;clip:rect(0,0,0,0);width:
     text-align: center;
 }
 
-/* .nav div.logo {
-    float: left;
-    width: auto;
-    height: auto;
-    padding-left: 3rem;
-} */
 
 .nav div.logo a {
     text-decoration: none;
     /* color: #fff; */
     font-size: 2.5rem;
-}
-
-.nav div.logo a:hover {
-    color: #00E676;
 }
 
 .nav div.main_list {
@@ -853,9 +843,7 @@ input[type=checkbox]{position:absolute;overflow:hidden;clip:rect(0,0,0,0);width:
     font-size: 2.4rem;
 }
 
-.nav div.main_list ul li a:hover {
-    color: #00E676;
-}
+
 
 
 /* Home section */

@@ -24,22 +24,22 @@ const Slider = ({images}) => {
     console.log("SLIDER-ACTIVE-IMAGE:", activeImage)
     const timer = setTimeout(() => {
       clickNext();
-    }, 5000);
+    }, 55000);
     return () => {
       clearTimeout(timer);
     };
   }, [activeImage]);
   return (
-    <div className="grid place-items-center md:grid-cols-2 grid-cols-1 w-full max-w-full shadow-2xl rounded-2xl">
+    <div className="grid place-items-center grid-cols-1 w-full max-w-full md:grid-cols-3 !space-x-0 lg:grids-cols-3 shadow-2xl rounded-2xl">
       <div
-        className={`w-full h-[70vh] sm:h-[99vh] flex justify-center items-center gap-4 transition-transform ease-in-out duration-500 md:rounded-2xl p-6 md:p-0`}
+        className={`w-full h-[70vh]  md:col-span-2  sm:h-[98vh] sm:col flex justify-center items-center gap-4 transition-transform ease-in-out duration-500 md:p-0`}
       >
         {images.map((elem, idx) => (
           <div
             key={idx}
             className={`${
               idx === activeImage
-                ? "block w-full h-full !aspect-[4/5] object-cover transition-all duration-500 ease-in-out"
+                ? "block w-full h-full !aspect-[33/27] object-cover transition-all duration-500 ease-in-out"
                 : "hidden"
             }`}
           >
@@ -48,23 +48,20 @@ const Slider = ({images}) => {
               alt=""
               width={400}
               height={400}
-              className="w-full h-full object-cover md:rounded-tl-3xl md:rounded-bl-3xl"
+              className="w-full h-full object-cover"
             />
           </div>
         ))}
-      </div> <Description
+      </div>
+      <Description
         activeImage={activeImage}
         clickNext={clickNext}
         clickPrev={clickPrev}
-      />
-    {/* {images.map((elem, idx) => ( 
-      <>{elem.sideDescription == true && 
-     
-      }</> 
-      ))
-      }*/}
+        imageTheme={images[activeImage].imageTheme} // Pass the background property
+       />
     </div>
   );
 };
 
+// md:rounded-tl-3xl md:rounded-bl-3xl
 export default Slider;

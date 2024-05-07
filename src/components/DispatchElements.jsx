@@ -371,10 +371,10 @@ const DispatchElements = ({ data }) => {
             </div>
             <div className="DispatchElement_label__yhJKl DispatchElement_vertical-align-center__4scLw DispatchElement_horizontal-align-center__eRwrl">
               <h2 id={`title-${i}`} style={{ filter: 'drop-shadow(0 0 0.625rem rgba(0, 0, 0, 0.93))', color: '#ffffff' }} className="title-with-level dispatch-element__title dispatch-element__title--always-display font-century-std size-l uppercase">
-                <span className="multiline-text">{item1.title}</span>
+                <span className="multiline-text hidden">{item1.title}</span>
               </h2>
               <h3 style={{ color: '#ffffff' }} className="title-with-level dispatch-element__subtitle font-century-std size-m">
-                <span className="multiline-text">{item1.subtitle}</span>
+                <span className="multiline-text hidden">{item1.subtitle}</span>
               </h3>
             </div>
           </div>
@@ -408,10 +408,10 @@ const DispatchElements = ({ data }) => {
             </div>
             <div className="DispatchElement_label__yhJKl DispatchElement_vertical-align-center__4scLw DispatchElement_horizontal-align-center__eRwrl">
               <h2 id={`title-${i + 1}`} style={{ filter: 'drop-shadow(0 0 0.625rem rgba(0, 0, 0, 0.93))', color: '#ffffff' }} className="title-with-level dispatch-element__title dispatch-element__title--always-display font-century-std size-l uppercase">
-                <span className="multiline-text">{item2.title}</span>
+                <span className="multiline-text hidden">{item2.title}</span>
               </h2>
               <h3 style={{ color: '#ffffff' }} className="title-with-level dispatch-element__subtitle font-century-std size-m">
-                <span className="multiline-text">{item2.subtitle}</span>
+                <span className="multiline-text hidden">{item2.subtitle}</span>
               </h3>
             </div>
           </div>
