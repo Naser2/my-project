@@ -28,7 +28,7 @@ import Slider from '@/components/slider/Slider'
 import ContactSection from '@/components/ContactSection'
 import Porfolio from '@/components/Porfolio'
 import massiElevateHero from '@/assets/images/massi-elevate-hero.jpeg'
-
+import Clients from '@/components/Clients';
 const items = [
   {
     id: 'account',
@@ -81,25 +81,25 @@ export default function HomePage() {
 
       {/* <div className="relative min-h-65 p-10 flex w-full SlidingHeroContainer_ForwardLink_root__EtbqJ__eBvMq pt-4"></div> */}
     {/* <TestButton>Hello Test</TestButton> */}
-      <section id="massi beauty" className="relative mt-14">
+      <section id="Massi-Beauty-Intro" className="relative mt-14 bg[linear-gradient(to top,#060404 0,hsl(0deg 0% 100%) 100%),linear-gradient(90deg,rgb(var(--gradient-from,85 85 85)/.2) 0,rgb(var(--gradient-to,85 85 85)/.2) 100%)]">
         <h2 className="h-0 w-0 sr-only">Introducing Wholesome beauty </h2>
         {heroImages.map((heroData, index) => (  <SlidingHeroContainer key={index} heroData={heroData}/> ))}
        </section>
 
     
 
-    <section id="mission" className=" bg-gray-300">
+    <section id="mission" className=" bg-gray-300 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
         <h2 className="h-0 w-0 sr-only">Mission</h2>
         <DispatchElements data={dispatchData} />
         
     </section>
-    <section id="mission" className="bg-gray-300">
+    <section id="mission" className="bg-gray-300 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
         <h2 className="h-0 w-0 sr-only">Mission</h2>
         <CocoChanel property={null}/>
     </section>
 
        {/* <img src="http://i.giphy.com/DzIXZlXmh61na.gif" alt=""  className="w-64"/> */}
-      <section id="services"  className="bg-gray-200">
+      <section id="services"  className="bg-gray-200 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
         <h2 className="h-0 w-0 sr-only">Services</h2>
       {navigation.categories.map((assetsCategories, index) => {
         const Services = assetsCategories.name =='Services' ? assetsCategories : null;
@@ -140,9 +140,9 @@ export default function HomePage() {
 
      <section id="products" className="bg[var(--hh-color-sundrenched-stone)] !relative">
           <h2 className="h-0 w-0 sr-only">Products</h2>
-          <FadeInSection>
+        
           <Products />
-        </FadeInSection> 
+      
      </section>
 
          <section id="testimonials" className="">
@@ -153,21 +153,94 @@ export default function HomePage() {
           <h2 className="h-0 w-0 sr-only">About Us</h2>
           <AboutSection  aboutData={aboutData}/>    
         </section>
-        
+        <div type="button" class="slider-nav slider-nav-next slider-nav-reco slider-arrow slider-arrow-svg next-arrow"></div>
         <section id="porfolio"  className="bg-gray-200 ">
           <h2 className="h-0 w-0 sr-only"> PORTFOLIO</h2>
           <Porfolio team={team} />
         </section>
-        
-
+        <div className="sm:grid sm:grid-cols-2">
+             <img className="w-full h-full"src={'/maya-angelou.jpeg'} alt={'maya-angelou.png'}/>
+             <img className="hidden sm:flex w-full h-full"src={'/quote-2.jpeg'} alt={'quote-2'}/>
+        </div>
+ 
         <section id="CONTACT" className="!relative ">
           <h2 className="h-0 w-0 sr-only">CONTACT</h2>
           <ContactSection />
         </section>
-      
-        <section id="SIGNUP" className="">
+
+        <section id="Booknow" className="!relative pb-24">
+        <img className="w-full h-full " src={'/book_now.webp'} alt={'ook_now.webp'}/>
+        <div className="bg-transparent sm:bg-[var(--agedBlack)] sm:px-24
+        sm:grid sm:grid-cols-3 space-between sm:inline-flex sm:py-8  -pt-6">
+
+          <div className="px-4 text-left bg-[var(--agedBlack)] sm:max-w-[25vw] rounded-sm py-4 !pb-12">
+          <div className="newletter-text">
+            <h2 class="text-3xl pb-6 !text-white">Newsletter</h2>  
+            <p className="!text-white">Enter your email address for our mailing list to keep yourself updated with our new items, sales, discounts and events!</p>
+             </div>
+          <div className="subsrcibe mx-4 mx-auto  my-2 sm:mx-0">
+             <form 
+                className="contact-form flex-block" 
+                method="post" 
+                action="/contact#contact-newsletter-footer" id="contact-newsletter-footer" accept-charset="UTF-8" 
+                data-newsletter-form="">
+              {/* <input type="hidden" name="form_type" value="customer"/>
+              <input type="hidden" name="utf8" value="✓"/> */}
+
+                {/* <p class="newsletter-message newsletter-message--success">
+                      Thanks for signing up! 
+                </p>
+                <p class="newsletter-message newsletter-message--error">
+                  <em>This customer is already subscribed!</em>
+                </p> */}
+
+                {/* <input type="hidden" name="contact[accepts_marketing]" value="true"/> */}
+              <div className="w-full flex my-2 ring-1 ring-slate-100">
+                 <input className="input-group-field flex  py-4 w-full min-w-[20em]" 
+                        aria-label="First name"
+                        type="name" 
+                        name="contact[first_name]" 
+                         placeholder="First name" value=""/> 
+                  </div>
+                  <div className="relative ring-1 ring-slate-100">
+                  <input 
+                     className="input-group-field w-full py-4 ing-slate-100" 
+                      type="email" id="email_input_footer" 
+                      placeholder={"email@newsletter.com"}
+                      aria-label="email@newsletter.com" 
+                      autocorrect="off" 
+                      autocapitalize="off" 
+                      name="contact[email]" 
+                      data-newsletter-field="" 
+                      required={true}/>
+                    <span className="input-group-btn h-full absolute top-[0em] right-0  ">
+                    <button type="submit" className="px-4  h-full btn caps bg-white text-black px-2 " name="subscribe" id="subscribe">
+                      Join  
+                    </button>
+                  </span>
+                </div>
+            </form>
+          </div>
+          
+            {/* <h2 class="text-[var(--hh-color-aged-black)]  text-left featured-product-grid__title">
+            Appointments Open
+            </h2>
+          <p class="-mt-2 sm:-mt-4 text-lg leading-8 text-gray-600 text-left ">Schedule a 15 mins consulation or book ...
+          <button class="!mt-[6.6vh] image-with-text__cta themeBtn bg-black !text-white no_high_contrast  hover:!bg-gray-700 hover:text-white px-16 hidden sm:flex" width="full" theme="primary" href="/pages/science-technology">
+            Book now
+            </button>
+          </p> */}
+          </div>
+        <div className="right massi-flex-end  col-span-2">
+          <button className="absolute -mt-24 !mt-[-5.6vh] image-with-text__cta themeBtn bg-black !text-white no_high_contrast  hover:!bg-gray-700 hover:text-white px-16 hidden sm:flex" width="full" theme="primary" href="/pages/science-technology">Get Offers</button></div></div>
+
+        </section>
+
+        {/* <img className="w-full h-full" src={'/book_now.webp'} alt={'maya-angelou.png'}/> */}
+
+        <section id="SIGNUP" className="elative py-24 ">
           <h2 className="h-0 w-0 sr-only">SIGNUP</h2>
-          <ContactSection />
+          {/* <ContactSection /> */}
         </section>
 
     {/* <TalwindUiTest /> */}
@@ -1022,21 +1095,19 @@ export default function HomePage() {
 
 
 
-     {/* <div id="welcome-screen-foreground">
-      <div id="welcome-screen-logo">
-        <img
-          id="welcome-screen-logo-image"
-          src="https://static.wixstatic.com/media/2ada6c_f5ce470294f0443f984aa05cf5ea585a~mv2.png/v1/fill/w_240,h_175,al_c,usm_0.66_1.00_0.01/2ada6c_f5ce470294f0443f984aa05cf5ea585a~mv2.png"
-          alt=""
-        />
-        <div id="welcome-screen-logo-cover" />
+     {/* <div id="welcome-screen-foreground"> 
+        <div id="welcome-screen-logo" className="!z-50">
+          <img className="!z-50"
+            id="welcome-screen-logo-image"
+            src="https://static.wixstatic.com/media/2ada6c_f5ce470294f0443f984aa05cf5ea585a~mv2.png/v1/fill/w_240,h_175,al_c,usm_0.66_1.00_0.01/2ada6c_f5ce470294f0443f984aa05cf5ea585a~mv2.png"
+            alt=""
+          />
+            <div id="welcome-screen-logo-cover" />
+          </div>
       </div>
-    </div>
-  <div id="welcome-screen-background">
-
-  
-    </div> */}
-          {/* <div id="welcome-screen" className="welcome-screen-state-logo-intro">
+      <div id="welcome-screen-background">
+     </div> */}
+          {/* <div id="welcome-screen" className="welcome-screen-state-logo-intro"> ---> WORKKS
             <div id="welcome-screen-background"></div>
              <div id="welcome-screen-foreground">
                 <div id="welcome-screen-logo">

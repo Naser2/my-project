@@ -11,10 +11,11 @@ import wig1 from '@/assets/images/products/wigs/wig-1.webp'
 import wig1Reveal from '@/assets/images/products/wigs/wig-1-hover.webp'
 import { StarIcon } from '@heroicons/react/20/solid'
 import {classNames} from '@/utils/classNames.js'
+import { FadeIn, FadeInStagger } from '../FadeIn';
 const products = [
     {
       id: 1,
-      title: 'Boost your conversion rate',
+      title: 'Boost your volume',
       href: '#',
       subtitle:
       'Illo sint voluptas. Blessinvoluptates culpa eligendi..',
@@ -36,7 +37,7 @@ const products = [
     },
     {
         id: 2,
-        title: 'Boost your conversion rate',
+        title: 'Silk like custome',
         href: '#',
         subtitle:
         'Illo sint voluptas. Blessinvoluptates culpa eligendi..',
@@ -58,7 +59,29 @@ const products = [
       },
       {
         id: 3,
-        title: 'Boost your conversion rate',
+        title: '17 Inch For Kurls',
+        href: '#',
+        subtitle:
+        'Illo sint voluptas. Blessinvoluptates culpa eligendi..',
+        description:
+          'Illo sint voluptas. Bless voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
+        imageUrl:wig1.src,
+        imageReavealUrl:wig1Reveal.src,
+        price: '$38',
+        datetime: '2020-03-16',
+        
+        author: {
+          name: 'Michael Foster',
+          imageUrl:
+            'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        },
+        price: '$35',
+        rating: 3.9,
+        reviewCount: 148,
+      },
+      {
+        id: 3,
+        title: 'Tape-Ins Ready',
         href: '#',
         subtitle:
         'Illo sint voluptas. Blessinvoluptates culpa eligendi..',
@@ -102,12 +125,16 @@ const products = [
     };
   
     return (
+
+   <FadeInStagger key={'products'}>
+    <FadeIn>
+
       <div className="bg-[var(--hh-color-sundrenched-stone)] pt-4 pb-12 sm:py-12 mx-auto max-w-[88vw]  sm:max-w-none px-6 lg:px-8 lg:px-[3vw]">
         <div className="flex-block">
             <div className='sm:grid grid-cols-2 space-between inline-flex py-8'>
                 <div className="text-left">
                         <h2 className="text-[var(--hh-color-aged-black)]  text-left featured-product-grid__title">Products</h2>
-                        <p className="mt-2 text-lg leading-8 text-gray-600">
+                        <p className="-mt-3 text-lg leading-8 text-gray-600">
                         A collection of grade a quality products offered by Massi. 
                         </p>
                 </div>  
@@ -133,22 +160,24 @@ const products = [
               >
                 <img src={product.imageUrl} alt="" className="-z-10 h-full w-full object-cover products-display-image" />
                 <div className="flex flex-wrap items-center gap-y-1  text-sm leading-6 text-gray-300 pt-4">
-                <div className='flex'>
+                <div className="!flex-block" >
+                <div className='grid grid-cols-2 space-between w-full'>
                     <h4 className="hover:underline text-lg leading-6 text-[var(--hh-color-aged-black)] dark:text-white upercase">
                     <a href={product.href}>
                      <span className="" />
                      {product.title}
                     </a>
                     </h4>
-                     <time dateTime={product.datetime} className="pl-4 text-black">
+                     <time dateTime={product.datetime} className="ml-[13.9vw] text-black massi-flex-end">
                       {product.price}
                      </time>
                 </div>
-              <div className="hidden sm:flex !flex-block ml-1 items-center gap-x-4" >
+              <div className="hidden sm:flex" >
+              <div className="!flex-block ml-1 items-center gap-x-4" >
                 <div className="sr-only flex gap-x-2.5 text-gray-500">
                     {product.subtitle}
                 </div>
-                <div className="">
+                <div className="flex-block">
                  <h2 className="sr-only">Reviews</h2>
                  <div className="flex ">
                    
@@ -181,6 +210,8 @@ const products = [
                 
                     {/* <div className="oke-stars-foreground fill-state-black text-black stroke-black" style={{"width": "98.1633%"}}><svg height="18" viewBox="0 0 87.11111111111111 16" aria-hidden="true"><use x="0" id="#oke-star-filled" href="#oke-star-filled"></use><use x="17.77777777777778" href="#oke-star-filled"></use><use x="35.55555555555556" href="#oke-star-filled"></use><use x="53.333333333333336" href="#oke-star-filled"></use><use x="71.11111111111111" href="#oke-star-filled"></use></svg></div> */}
                   </div>
+                  </div>
+                </div>
                 </div>
       
               </article>
@@ -224,6 +255,8 @@ const products = [
         </button>
         </div>
       </div>
+      </FadeIn>
+    </FadeInStagger>
     )
   }
   

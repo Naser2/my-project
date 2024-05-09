@@ -2768,8 +2768,12 @@ div,figcaption,figure{border:0;}
   div{background:transparent;border:0;margin:0;outline:0;padding:0;vertical-align:baseline;}
   :focus{outline:none;}
   /*! CSS Used from: Embedded */
-  #welcome-screen-background{
-    position:absolute;left:0;top:0;width:100%;height:100%;
+#welcome-screen-background{
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
     background:#FF6600;
     background: #927f72;
   }
@@ -3160,7 +3164,7 @@ div,figcaption,figure{border:0;}
   .text-center{text-align:center;}
   .ui-helper-hidden-accessible{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;}
   :focus{outline:0;}
-  strong{font-family:AvantGardeBold,Arial,sans-serif;}
+
   .back-to-top-btn{position:fixed;width:50px;height:50px;background:#000;right:0;bottom:77px;cursor:pointer;display:none;z-index:999;}
   @media screen and (min-width:50em){
   .back-to-top-btn{margin-right:10px;}
@@ -3169,14 +3173,14 @@ div,figcaption,figure{border:0;}
   .flex-wrap{display:-webkit-box;display:flex;flex-wrap:wrap;}
   .dropdown-with-arrow::after{content:"";width:6px;height:6px;border-right:2px solid #000;border-bottom:2px solid #000;position:absolute;}
   h1{margin:0;}
-  h1:not(.banner-title){font-family:AvantGardeBold,Arial,sans-serif;letter-spacing:1px;font-size:1.25rem;line-height:1.2;}
+  h1:not(.banner-title){letter-spacing:1px;font-size:1.25rem;line-height:1.2;}
   @media screen and (min-width:50em){
   h1:not(.banner-title){line-height:1.17;}
   }
   @media screen and (min-width:80em){
   h1:not(.banner-title){font-size:2rem;line-height:1.14;}
   }
-  h1:not(.banner-title){font-family:AvantGardeBold,Arial,sans-serif;font-style:normal;}
+  h1:not(.banner-title){font-style:normal;}
   body{font-family:AvantGardeMedium,Arial,sans-serif;letter-spacing:.5px;font-size:.9375rem;line-height:1.27;}
   @media screen and (min-width:80em){
   body{font-size:1.125rem;line-height:1.39;}
@@ -3213,7 +3217,7 @@ div,figcaption,figure{border:0;}
   .button.secondary-button-revamp:active:not(.disabled):not(:disabled){background-position:center bottom!important;outline-color:transparent;color:#000;border:2px solid #bdbdbd;}
   html.no-touch .button.secondary-button-revamp:hover:not(.disabled):not(:disabled){background-position:center bottom!important;outline-color:transparent;color:#000;border:2px solid #bdbdbd;}
   .button.secondary-button-revamp:disabled{cursor:default;opacity:1;background:#828282;outline-color:transparent;border:2px solid #828282;}
-  .button.button-revamp,.button.secondary-button-revamp{display:inline-block;text-transform:none;font-family:AvantGardeBold,Arial,sans-serif;letter-spacing:2px;}
+  .button.button-revamp,.button.secondary-button-revamp{display:inline-block;text-transform:none;letter-spacing:2px;}
   .svg-inline.close-icon{stroke:#000;}
   @media screen and (max-width:49.9375em){
   .svg-inline.close-icon{stroke:#fff;}

@@ -15,6 +15,7 @@ import Navbar from "@/components/Navbar";
 import Header, { MobileHeader } from '@/components/SephoHeader'; //
 import HideableNavbar from '@/components/HideableNavbar'; 
 import { Inter } from "next/font/google";
+import SplashScreen from '@/components/SplashScreen';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -41,7 +42,13 @@ export default function RootLayout({
       <AuthProvider>
         <html lang="en"  suppressHydrationWarning={true}  className='dark' style={{ colorScheme: 'dark' }}>
           <ThemeModeProvider>  
+            
           <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+        <link href="https://fonts.googleapis.com/css2?family=Ovo&display=swap" rel="stylesheet"/>
+
+            
           <script
             dangerouslySetInnerHTML={{
               __html: `
@@ -55,6 +62,7 @@ export default function RootLayout({
           </script>
         </head>
          <body id="app" className={clsx(inter.className, "max-w-screen font-sans antialiased text-gray-600 min-h-full flex flex-col [overflow-anchor:none] dark:bg-black")} style={{"transition":"all 0.4s ease !important"}}> 
+         <SplashScreen />
           {/* <Header   items={items}/>  */}
           <HideableNavbar/>
           <main className="relative -mt-[5.75rem] overflow-hidden  flex-auto">

@@ -512,7 +512,7 @@ export const latestBlogs=
     resources: [
       {
         id: 1,
-        title: 'Boost your conversion rate',
+        title: 'Boost your hair confidence',
         href: '#',
         date: 'Mar 16, 2023',
         datetime: '2023-03-16',
@@ -885,6 +885,7 @@ const bestSellers = [
 
 
 export const images = [
+ 
   {
     id: 0,
     src: "/service-massi.JPG",
@@ -895,8 +896,64 @@ export const images = [
   },
   // public/service-massi-1.JPG public/service-massi-2.JPG
   {
-    id: 0,
-    src: "/service-massi-2.JPG",
+    id: 20,
+    src: "/More-items-0.jpeg",
+    title: "Scalp Treatments",
+    sideDescription: false,
+    imageTheme: {background: "bg-[var(--massi-gray-2)]", text:"text-gray-500" },
+    desc: "Massi gets to the needy greedy of treating the problems left for decades of unsolvable conditioning, and scalp treatments. Our luxurious treatments leave your hair feeling revitalized and your scalp refreshed."
+  }, 
+  {
+    id: 13,
+    src: "/massi-works-ig.jpeg",
+    title: "Laces and more",
+    sideDescription: true,
+    imageTheme: { background: "bg-[var(--brave-color-brandBraveLigh)]", text: "text-green-300]" },
+    desc: "Transform your look with our expert hair coloring services, including highlights, lowlights, and all-over color options. Whether you're seeking a subtle change or a bold new look, we have the perfect color for you."
+  },
+  {
+    id: 21,
+    src: "/More-items-00.jpeg",
+    title: "Scalp Treatments",
+    sideDescription: false,
+    imageTheme: {background: "bg-[var(--massi-gray-2)]", text:"text-gray-500" },
+    desc: "Massi gets to the needy greedy of treating the problems left for decades of unsolvable conditioning, and scalp treatments. Our luxurious treatments leave your hair feeling revitalized and your scalp refreshed."
+  }, 
+  {
+    id: 22,
+    src: "/More-items-1.jpeg",
+    title: "Scalp Treatments",
+    sideDescription: false,
+    imageTheme: {background: "bg-[var(--massi-gray-2)]", text:"text-gray-500" },
+    desc: "Massi gets to the needy greedy of treating the problems left for decades of unsolvable conditioning, and scalp treatments. Our luxurious treatments leave your hair feeling revitalized and your scalp refreshed."
+  }, 
+  {
+    id: 23,
+    src: "/More-items-2.jpeg",
+    title: "Scalp Treatments",
+    sideDescription: false,
+    imageTheme: {background: "bg-[var(--massi-gray-2)]", text:"text-gray-500" },
+    desc: "Massi gets to the needy greedy of treating the problems left for decades of unsolvable conditioning, and scalp treatments. Our luxurious treatments leave your hair feeling revitalized and your scalp refreshed."
+  }, 
+  {
+    id: 24,
+    src: "/More-items-3.jpeg",
+    title: "Scalp Treatments",
+    sideDescription: false,
+    imageTheme: {background: "bg-[var(--massi-gray-2)]", text:"text-gray-500" },
+    desc: "Massi gets to the needy greedy of treating the problems left for decades of unsolvable conditioning, and scalp treatments. Our luxurious treatments leave your hair feeling revitalized and your scalp refreshed."
+  }, 
+  {
+    id: 25,
+    src: "/More-items-4.jpeg",
+    title: "Scalp Treatments",
+    sideDescription: false,
+    imageTheme: {background: "bg-[var(--massi-gray-2)]", text:"text-gray-500" },
+    desc: "Massi gets to the needy greedy of treating the problems left for decades of unsolvable conditioning, and scalp treatments. Our luxurious treatments leave your hair feeling revitalized and your scalp refreshed."
+  }, 
+  {
+    id: 26,
+    src: "/More-items-5.jpeg",
     title: "Scalp Treatments",
     sideDescription: false,
     imageTheme: {background: "bg-[var(--massi-gray-2)]", text:"text-gray-500" },
@@ -928,14 +985,16 @@ export const images = [
   },
   {
     id: 2,
-    src: "/services-init-1.jpeg",
+    src: "/Clients_usual_template2.jpg",
     title: "Hair Coloring: Highlights, Lowlights, and More",
     sideDescription: true,
     imageTheme: { background: "bg-[var(--brave-color-brandBraveLigh)]", text: "text-green-300]" },
     desc: "Transform your look with our expert hair coloring services, including highlights, lowlights, and all-over color options. Whether you're seeking a subtle change or a bold new look, we have the perfect color for you."
   },
+ 
+
   {
-    id: 2,
+    id: 14,
     src: "/massi-photo.JPG",
     title: "Hair Coloring: Highlights, Lowlights, and More",
     sideDescription: true,

@@ -228,6 +228,7 @@ setUserSession(session)
           display: block;
           transition: top 0.3s;
           z-index: 10; /* Ensure it's above other content */
+          
         }
 
         #navbar a {
@@ -260,8 +261,8 @@ setUserSession(session)
           margin-top: 30px;
         }
       `}</style>
-      <div id="navbar" className={classNames(navigationOpen ===true  ? 'hidden' : '!fixed h-[4rem] z-50')}>
-        <div className={classNames("sticky-top sticky-top-static sm:mb-0 dark:!bg-black !z-50")}>
+      <div id="navbar" className={classNames(navigationOpen ===true  ? 'hidden' : '!fixed h-[4rem] z-50 !w-full')}>
+        <div className={classNames("sticky-top sticky-top-static sm:mb-0 dark:!bg-black !z-40 !w-full")}>
           <div className="" style={{ display: "block" }} ></div> 
           <NavTriggerComponent/>
           <MobileHeader navigationOpen={navigationOpen} 
@@ -294,7 +295,7 @@ setUserSession(session)
             {/* <SlideOutSideNav  navigationOpen={navigationOpen} handleSetNavigationIsOpen={handleSetNavigationIsOpen}/> */}
       
       </div>
-      <div id="SECONDARY-NAVBAR" className={classNames(navigationOpen ? "hidden" : "!z-40 nav row header-sencond  bg-[var(--google-grey-50)] py-[0.4rem] px-[1rem] desktop-header show-for-mlarge align-justify w-full dark:bg-black dark:shadow-xl dark:border-t border-gray-400")}>
+      <div id="SECONDARY-NAVBAR" className={classNames(navigationOpen ? "hidden" : "!z-10 nav row header-sencond  bg-[var(--google-grey-50)] py-[0.4rem] px-[1rem] desktop-header show-for-mlarge align-justify w-full dark:bg-black dark:shadow-xl dark:border-t border-gray-400")}>
           <div className={`${isSlideIn ? 'slide-in' : ''} flex`}>
             <h2 id="current-section" className="px-12 py-2 overlayed-text section-anouncer-text-h2"></h2> 
           <div className='absolute right-0 inline-flex flex-end pr-[2em]'>  
@@ -353,7 +354,7 @@ export const MobileHeader = ({session, navigation, userSession, navigationOpen, 
  return  (
   // ${navigationOpen  && advertissment  && 'inset-x-0 z-40 animationTranfrom'}
   // 
- <div  id="MAIN-NAVIGATION-HEADER" className={classNames(` ${navigationOpen ? '!hidden' :'mobile-header '} bg-white dark:bg-black z-50 !bg-white  dark:!bg-black`)}
+ <div  id="MAIN-NAVIGATION-HEADER" className={classNames(` ${navigationOpen ? '!hidden' :'mobile-header '} dark:bg-black !z-50 main-navbar-bg  dark:!bg-black`)}
       style={{}}>
       {/* {navigationOpen && <UserIcon navigationOpen={navigationOpen} session={session} isProfileMenuOpen={isProfileMenuOpen} profileImage={profileImage} setIsProfileMenuOpen={setIsProfileMenuOpen}/>} */}
      <div className="flex justify-between center px-4  pr-2 sm:ml-[2vw]">
@@ -382,7 +383,7 @@ export const MobileHeader = ({session, navigation, userSession, navigationOpen, 
             }
         </div>
    
-     <div className="top-right py-[1em] w-4xl justify-center  flex inline-flex grid sm:grid-cols-5 sm:mr-4">
+     <div className="top-right  py-[0.5em] w-4xl justify-center  flex inline-flex grid sm:grid-cols-5 sm:mr-4">
       <ThemeSwitchModal />
      {/* <ThemeSwitch/> */}
      <div className='absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0'>

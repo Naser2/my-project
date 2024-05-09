@@ -6,18 +6,18 @@ import { FaBookmark } from 'react-icons/fa';
 
 const AboutSection = ({ aboutData }) => {
 
-return <div className="blocks blocks--full-width">
+return <div className="blocks blocks--full-width !mb-0">
   <div className="blocks__row">
     <div className="blocks__item blocks__item--half">
-      <div className="blocks__item__image blocks__item__image--news-size-1 bg-white px-8 py-14 sm:py-12  py-24 sm:px-24">
-        {/* <div class="image-with-text__content w-full"> */}
-          <h2 class="image-with-text__heading">About Massi Beauty</h2>
+      <div className="blocks__item__image blocks__item__image--news-size-1 bg-white px-8 py-14 sm:py-12  py-24 xl::px-24">
+        <div class="xl:!max-w-xl xl:px-24">
+          <h2 class="image-with-text__heading">About Massi</h2>
         <div class="rte image-with-text__title">
         <h5 className='!text-xl xl:!text-2xl'>  {aboutData.description}
 
         </h5>        <button class="!mt-8 sm:!mt-[4.6vh] image-with-text__cta themeBtn bg-black !text-white no_high_contrast  hover:!bg-gray-700 hover:text-white px-16 " width="full" theme="primary" href="/about">{aboutData.title}</button>
         </div>
-
+        </div>
         {/* <button class="image-with-text__cta themeBtn bg-black !text-white no_high_contrast  hover:!bg-gray-700 hover:text-white px-16" width="full" theme="primary" href="/pages/science-technology">LEARN MORE</button> */}
         {/* </div> */}
         {/* <p className=''>{aboutData.description}</p> */}

@@ -36,8 +36,8 @@ const ProductCardDisplay = ({ productsSample }) => {
                 </a>
               </div>
               <div className="underbanner-content-wrapper fullwidth py-4 px-4">
-                <div className="underbanner-title strong font-bold text-black text-xl  dark:text-white">
-                  <p>{banner.title}</p>
+                <div className="underbanner-title  strong font-bold text-xl  dark:text-white">
+                  <p className=''>{banner.title}</p>
                 </div>
                 <div className="underbanner-text-wrapper py-4">
                   <div className="underbanner-description-code underbanner-description-without-copy-code">

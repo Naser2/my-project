@@ -14,7 +14,7 @@ export default function HeadlessSlideOver({ open, setOpen,  handleOnClose, handl
       <Dialog
         as="div"
         static
-        className="fixed inset-0 overflow-scroll shrink-none flex-none"
+        className="fixed inset-0 overflow-scroll shrink-none flex-none !z-50"
         open={open}
         onClose={handlesetIsHeadlessModal}
       >

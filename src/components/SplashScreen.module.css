@@ -1,0 +1,392 @@
+
+/* .splashScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f8cbcb;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .slideIn {
+    width: 0;
+    height: 100%;
+    background-color: #f8cbcb;
+    position: absolute;
+    left: 0;
+    animation: slideIn 3s forwards;
+  }
+  
+  .curtain {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .slideOutLeft,
+  .slideOutRight {
+    width: 50%;
+    height: 100%;
+    background-color: #2b2829;
+    position: absolute;
+    overflow: hidden;
+    animation: slideOutLeft 3s forwards, slideOutRight 3s forwards;
+  }
+  
+  .title {
+    font-size: 3rem;
+    color: #fff;
+    animation: slideTitle 3s forwards;
+  }
+  
+  @keyframes slideIn {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  
+  @keyframes slideOutLeft {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  @keyframes slideOutRight {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  @keyframes slideTitle {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  } */
+
+  /* ---- Slideoins both with hesitation  */
+  /* .splashScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f8cbcb;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .slideIn {
+    width: 0;
+    height: 100%;
+    background-color: #f8cbcb;
+    position: absolute;
+    left: 0;
+    animation: slideIn 3s forwards;
+  }
+  
+  .curtain {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .slideOutLeft,
+  .slideOutRight {
+    width: 50%;
+    height: 100%;
+    background-color: #2b2829;
+    position: absolute;
+    overflow: hidden;
+    animation: slideOutLeft 3s forwards, slideOutRight 3s forwards;
+  }
+  
+  .title {
+    font-size: 3rem;
+    color: #fff;
+    animation: slideTitle 3s forwards;
+  }
+  
+  @keyframes slideIn {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  
+  @keyframes slideOutLeft {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  @keyframes slideOutRight {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  @keyframes slideTitle {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+   */
+
+
+   /* .splashScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f8cbcb;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .slideIn {
+    width: 0;
+    height: 100%;
+    background-color: #f8cbcb;
+    position: absolute;
+    left: 0;
+    animation: slideIn 3s forwards;
+  }
+  
+  .curtainLeft,
+  .curtainRight {
+    width: 50%;
+    height: 100%;
+    background-color: #2b2829;
+    position: absolute;
+    overflow: hidden;
+    animation: slideOutLeft 3s forwards, slideOutRight 3s forwards;
+  }
+  
+  .curtainLeft {
+    left: 0;
+  }
+  
+  .curtainRight {
+    right: 0;
+  }
+  
+  .title {
+    position: absolute;
+    font-size: 3rem;
+    color: #fff;
+    z-index: 1;
+    animation: slideTitle 3s forwards;
+  }
+  
+  @keyframes slideIn {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  
+  @keyframes slideOutLeft {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  @keyframes slideOutRight {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  @keyframes slideTitle {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+   */
+ 
+   .splashScreen {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f8cbcb;
+    background-color: #f8cbcb !important;;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+   .slideIn {
+    width: 100%;
+    height: 100%;
+    background-color: #fff3f3;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1; /* Ensure it's above other content */
+    animation: slideIn 0.2s forwards;
+  }
+  
+  @keyframes slideIn {
+    0% {
+      
+        transform: translateX(-100%);
+    }
+    /* 50% {
+      
+        transform: translateX(-50%);
+    }
+    75% {
+      
+        transform: translateX(-20%);
+    } */
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+/* 
+  .slideInLeft {
+    width: 50%;
+    height: 100%;
+    background-color: #2b2829;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9998;
+    animation: slideInLeft 1s forwards;
+  }
+  
+  .slideInRight {
+    width: 50%;
+    height: 100%;
+    background-color: #2b2829;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 9998; 
+    animation: slideInRight 1s forwards;
+  }
+  
+  @keyframes slideInLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInRight {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+   */
+   .slideInLeft {
+    width: 50%;
+    height: 100%;
+    background-color: #2b2829;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9998; /* Ensure it's below slideIn */
+    animation: slideInLeft 2s forwards;
+  }
+  
+  .slideInRight {
+    width: 50%;
+    height: 100%;
+    background-color: #2b2829;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 9998; /* Ensure it's below slideIn */
+    animation: slideInRight 2s forwards;
+  }
+  
+  @keyframes slideInLeft {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  @keyframes slideInRight {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  .title {
+    position: absolute;
+    font-size: 3rem;
+    color: #fff;
+    z-index: 1;
+    animation: slideTitle 3s forwards;
+  }
+  

@@ -73,9 +73,9 @@ import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/2
 
 export default function ContactSection() {
   return (
-    <div className="!relative isolate bg-white">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
-        <div className="relative p-4 sm:pl-6 pb-10 pt-12 sm:pt-32 lg:static lg:px-8 lg:pt-24 lg:pb-12">
+    <div className="!relative isolate">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2 bg-[#f5f4f2]">
+        <div className="relative p-4 sm:pl-6 pb-10 pt-12 sm:pt-32 lg:static lg:px-8 lg:pt-24 lg:pb-0">
           <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-2xl">
             <div className="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden bg-gray-100 ring-1 ring-gray-900/10 lg:w-1/2">
               <svg
@@ -140,11 +140,11 @@ export default function ContactSection() {
             </dl>
           </div>
         </div>
-        <div className='max-w-[93vw] sm:max-w-[48vw] pt-6 lg:pt-34'>
+        <div className='max-w-[93vw] sm:max-w-[48vw] pt-6 lg:pt-34 bg-[#fff0f0]'>
         
         <form action="#" method="POST" className="pb-24 sm:py-20 lg:px-8">
           <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">  
-             <h2 class="text-2xl px-6 sm:px-0 pb-6">Message Me</h2>
+             <h2 class="!text-xl px-6 sm:px-0 pb-6">Message Me for a faster reply</h2>
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-1 px-6 sm:px-0">
               <div>
               <div class="mt-4">
@@ -213,7 +213,7 @@ export default function ContactSection() {
                     name="message"
                     id="message"
                     rows={4}
-                    className="block w-full sm:max-w-[38vw] px-3.5  rounded-md border-0   py-[1em]
+                    className="block w-full sm:max-w-[30vw] px-3.5  rounded-md border-0   py-[1em]
                     text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 
                     placeholder:text-gray-400 focus:ring-2 focus:ring-inset 
                      focus:ring-[var(--agedBlack)] sm:text-sm sm:leading-6 focus:ring-[var(--agedBlack)]"

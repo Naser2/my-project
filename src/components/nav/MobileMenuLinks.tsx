@@ -191,8 +191,8 @@ export function MobileMenuLinks({categories, session,navigationOpen, handlesetIs
               className={({ selected }) =>
                 classNames(
                   selected
-                    ? "bg-black border-cream-1 dark:bg-black text-white !ml-[-3em] !w-3/3 sm:!ml-[-3.5em] text-black w-[4em]"
-                    : "border-transparent  text-black  dark:bg-white dark:text-black  !ml-[-2.5em] sm:!ml-[-3.5em] ",
+                    ? "bg-black border-cream-1 dark:bg-black text-white !ml-[-1.6em] !w-3/3 sm:!ml-[-4.5em] text-black w-[4em]"
+                    : "border-transparent  text-black  dark:bg-white dark:text-black  !ml-[-2.5em] sm:!ml-[-4.5em] ",
                   "flex-1 whitespace-nowrap py-2  !pb-2 text-lg font-medium  w-3/3"
                 )
               } style={{"transition": "all 1s", "overflow":"hidden"}}
@@ -209,7 +209,7 @@ export function MobileMenuLinks({categories, session,navigationOpen, handlesetIs
       console.log("CATEGORY-PANEL", category)
       
       return (
-          <Tab.Panel key={categoryIndex} className="ml-[2em] sm:ml-[1em] space-y-6  sm:space-y-8 sm:pl-0 sm:pb-4 pt-4 sm:pt-8  "> 
+          <Tab.Panel key={categoryIndex} className="ml-[2em] sm:ml-[2em] space-y-8  sm:space-y-8 sm:pl-0 sm:pb-4 mt-10 sm:pt-0 sm:pb-12 "> 
          
            {category.sections.map((section, sectionIdx) => { 
         
@@ -299,7 +299,7 @@ export const CorporateMenu = ({pages}) => {
           <a
             href={item.href}
             id={`corporate-menu-item-${index}`}
-            className="header__primary__button js-header-link about-chanel about-chanel__margin text-left"
+            className="header__primary__button js-header-link about-chanel about-chanel__margin text-left hover:bg-gray-100"
             role="button"
             aria-haspopup="dialog"
             data-aria-label={`menu.axis.aria.${item.name}`}
@@ -307,7 +307,8 @@ export const CorporateMenu = ({pages}) => {
             aria-hidden="false"
             tabIndex="0"
           >
-            <span data-test={`lnkAxisCategory_${item.name}`}   className="text-left dark:text-white text-[1.5em]">{item.name}</span>
+            {/* text-[1.2em] sm:text-[1.5em]" */}
+            <span data-test={`lnkAxisCategory_${item.name}`}   className="text-left dark:text-white ">{item.name}</span>
             <svg
               className="icon is-xsmall is-arrow is-arrowsmallright"
               focusable="false"

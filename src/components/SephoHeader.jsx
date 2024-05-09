@@ -883,7 +883,7 @@ export const MobileHeader = ({session, navigation, userSession, navigationOpen, 
             }
         </div>
    
-     <div className="top-right py-[1em]  sm:my-2 justify-center flex inline-flex grid grid-cols-3 sm:py-2 sm:mr-4">
+     <div className="top-right py-[1em] py-[1em]  sm:my-2 justify-center flex inline-flex grid grid-cols-3 sm:py-2 sm:mr-4">
       <ThemeSwitchModal />
      {/* <ThemeSwitch/> */}
      <div className='absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto  md:pr-0'> </div> <div className='absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0'>
