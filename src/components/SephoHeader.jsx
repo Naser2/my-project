@@ -1782,21 +1782,10 @@ export const HeaderNavigationLinks = ({ dataToMap, navigationOpen, session }) =>
 // translate-x-fullnav-menu-mobile   ${navigationOpen ? 'translate-x-0 transition duration-150 ease-in-out': 'translate-x-full'}
 export const MobileSideNavigation = ({session, navigationOpen,handlesetIsHeadlessModal,  handleSetNavigationIsOpen,  handleCountryPickerIsOpen}) => {
 
-    return   ( <nav id="mobile-navigation" className={clsx(`${navigationOpen ? '!mt-[0em]   transform transition ease-in-out duration-500 sm:duration-700  sm:w-[33em] !overflow-scroll' :'top-[0em] sm:!top-[0em] transform transition ease-in-out duration-500 sm:duration-700'} nav-menu-mobile  !bg-white bg-[var(--massi-grey-3)] dark:bg-black`)} role="navigation">
-                <div id="NAV-CONTENT" className="nav-content">
-               
-                  {/* <div className="language-select-wrapper country-language-wrapper">
-                
-                    <div className="arrow show-for-mlarge" />
-                  </div> */}
-                  {/* <div className=" p-[1em] w-full">
-                  <LogoMobile session={session} navigationOpen={navigationOpen}/>
-                </div> */}
-                  {/* <HeaderNavigationLinks  dataToMap={navigation} navigationOpen={navigationOpen} session={session}/> */}
+    return   ( <nav id="mobile-navigation" className={clsx(`${navigationOpen ? '!fixed !pt-[4em] h-full sm:!pt-[0em] translate-x-ful transform transition ease-in-out duration-500 sm:duration-700  sm:w-[33em] !overflow-hidden' :'top-[0em] sm:!top-[0em] transform transition ease-in-out duration-500 sm:duration-700'} nav-menu-mobile  !bg-white bg-[var(--massi-grey-3)] dark:bg-black`)} role="navigation">
+                <div id="NAV-CONTENT" className="nav-content absolute top-0 w-full overflow-scroll">
                   <MobileMenuLinks categories={navigation}  session={session} navigationOpen={navigationOpen}  handlesetIsHeadlessModal={handlesetIsHeadlessModal}/> 
-                  {/* <FancyLoader /> */}
-                  <div className='menu-wrapper'>
-                    {/* <FAQ /> */}
+                  <div className='menu-wrapper'>         
                   </div>
                 </div>
             

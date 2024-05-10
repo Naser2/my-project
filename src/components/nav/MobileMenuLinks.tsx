@@ -145,7 +145,7 @@ const RefinementComponent = ({ column, sectionId }) => {
             <a className="refinement-link active" href="https://www.sephora.fr/shop/cheveux-c307/">
               {/* {column.name} */}
             </a>
-            <ul className="category-level-1 px-6">
+            <ul className="category-level-1 px-6  mt-4">
               {column.items.map((item, index) => (
                 <li key={index} className="flex-wrap text-left dark:text-white " 
                    
@@ -174,15 +174,15 @@ export default RefinementComponent;
 export function MobileMenuLinks({categories, session,navigationOpen, handlesetIsHeadlessModal}) {
   console.log("CATEGORIES-IN-MobileLinks", categories)
   
-  return ( <div className="relative w-full ">
-    <div className="px-[2em] w-1/2 flex space-between transform ease-in-out duration-500"> 
+  return ( <div className="relative w-full">
+    <div className="px-[2em] w-1/2 flex space-between transform ease-in-out duration-500 !relative"> 
     <LogoMobile session={session} navigationOpen={navigationOpen}/> 
     {/* <OpenButton navigationOpen={navigationOpen}  handlesetIsHeadlessModal={handlesetIsHeadlessModal}/> */}
      </div>
 
-    <Tab.Group as="div" className="w-full">
+    <Tab.Group as="div" className="w-full bg-gray-100 pb-8 border-b-4 border-indigo-500 border-[var(--agedBlack)]">
 
-    <div className="border-b border border-gray-200 w-ful border-y-4 divide-y divide-slate-700  border-indigo-500 dark:border-t-1 dark:mt-6 dark:pr-6">
+    <div className="border-b border border-gray-200 w-ful border-y-4 divide-y divide-slate-700  border-indigo-500 dark:border-t-1 dark:mt-6 dark:pr-6 !overflow-scroll">
       <Tab.List className="-mb-px   px-0 inline-flex  w-full shawdow-xl">
       { categories.categories.map((category, index) => {
           console.log("CATEGORIY-TAB", category)

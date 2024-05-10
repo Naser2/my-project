@@ -18,7 +18,7 @@ export default function HeadlessSlideOver({ open, setOpen,  handleOnClose, handl
         open={open}
         onClose={handlesetIsHeadlessModal}
       >
-        <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden ">
           <Transition.Child
             as={Fragment}
             enter="ease-in-out duration-500"
@@ -30,7 +30,7 @@ export default function HeadlessSlideOver({ open, setOpen,  handleOnClose, handl
           >
             <Dialog.Overlay className="absolute inset-0 backdrop-blur-sm bg-opacity-75 transition-opacity" />
           </Transition.Child>
-          <div className="!relative  ">
+          <div className="!fixed">
             <Transition.Child
               as={Fragment}
               enter="transform transition ease-in-out duration-500 sm:duration-700"
@@ -50,7 +50,7 @@ export default function HeadlessSlideOver({ open, setOpen,  handleOnClose, handl
                   leaveFrom="opacity-100"
                   leaveTo="opacity-0"
                 >
-                  <div className={classNames(open ? "z-50 relative  relative massi-flex-end   ml-4 pt-4 pr-2 flex" : "absolute top-0 left-0 ml-8 pt-4 pr-2 flex sm:-ml-10 sm:pr-4")}>
+                  <div className={classNames(open ? "z-50 relative  relative massi-flex-end py-[0.5em]  mx-auto pr-2 flex" : "absolute top-0 left-0 ml-8 pt-4 pr-2 flex sm:-ml-10 sm:pr-4")}>
                   <OpenButton 
                     setOpen={setOpen}
                     isOpen={open} 

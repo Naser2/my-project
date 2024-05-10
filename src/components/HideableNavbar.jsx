@@ -471,7 +471,7 @@ export const OpenButton = ({isOpen, handleOnClose, handlesetIsHeadlessModal}) =>
     {/* <NavTriggerComponent /> */}
     <label onClick={()=>handlesetIsHeadlessModal()}
       // htmlFor="mobile-navigation"
-      className="menu-togglee  ml-4 z-50 sm:mr-1"
+      className="menu-togglee  ml-4 z-50 mr-[1em]"
       id="menu-togglee">
       <span aria-label="Close menu"  
       id="menu-togglee" 

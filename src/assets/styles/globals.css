@@ -2575,6 +2575,7 @@ html.no-touch .button.secondary-button-revamp:hover:not(.disabled):not(:disabled
   min-width:140px;
   /* max-width:455px;overflow-y:scroll; */
   overflow-x:hidden;
+  overflow-y: scroll !important;
   position:fixed;
   background:#f2f2f2;
   top:0;
@@ -2586,10 +2587,10 @@ html.no-touch .button.secondary-button-revamp:hover:not(.disabled):not(:disabled
 }
 /* @media screen and (min-width:50em){
   .nav-menu-mobile {
-    display: hidden;
+    overflow-y: hidden !important;
   }
-  }
-   */
+  } */
+  
 
 
 @media screen and (min-width:80em){
