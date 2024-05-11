@@ -5,7 +5,7 @@ const Cart =({addItemCount}) =>{
     return (
         <div onClick={addItemCount}
         htmlFor="mobile-navigation"
-        className="menu-togglee ring-1 rounded-full hover:ring-black h-8 w-8 mt-4  hover:bg-white"
+        className="menu-togglee hover:ring-1 hover:ring-[var(--ds-gray-alpha-500)] rounded-full hover:ring-black h-8 w-8 mt-4  hover:bg-white"
         id="menu-togglee">
          <a className=" empty" href="/cart" title="Commander">
              <span class="header-link-icon pb-8 justify-center flex">
@@ -33,7 +33,7 @@ const Cart =({addItemCount}) =>{
 export const CartMobile =({addItemCount}) =>{
   return (
   
-  <div onClick={addItemCount} id="CART-MOBILE" className='mx-2'>
+  <div onClick={addItemCount} id="CART-MOBILE" className='mx-2 sm:mx-2'>
     <label className="stack_stack__iZkUS stack inline-flex sm:mx-1 !-mr-[0.6em]  navTrigger menu-toggle_menuToggle__6OaWw mobile-menu-button_indicator__mGvzn avatar-mobile-menu_button__YEcob 
     rounded-full dark:!text-white" data-version="v1" 
     style={{
@@ -45,8 +45,8 @@ export const CartMobile =({addItemCount}) =>{
       '-stackGap': '8px'
     }}>
       <div className=''>
-        <button 
-          className="bell_btn__yil2q  text-black hover:shadow-xl sm:mr-1 mobile-search-magnifying-glass hover:bg-[--lightGrey] dark:stroke-gray-200 
+        <button    id="CART-CART-JS"
+          className="bell_btn__yil2q  hover:ring-[var(--ds-gray-alpha-500)] text-black hover:shadow-xl sm:mr-1 mobile-search-magnifying-glass hover:bg-[--lightGrey] dark:stroke-gray-200 
           dark:hover:!stroke-white dark:bg-slate-800 dark:!text-white "
           type="button"
           aria-haspopup="dialog"

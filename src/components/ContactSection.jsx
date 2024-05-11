@@ -73,7 +73,7 @@ import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/2
 
 export default function ContactSection() {
   return (
-    <div className="!relative isolate">
+    <div className="!relative isolate bg-gray-100">
       <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2 bg-[#f5f4f2]">
         <div className="relative p-4 sm:pl-6 pb-10 pt-12 sm:pt-32 lg:static lg:px-8 lg:pt-24 lg:pb-0">
           <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-2xl">
@@ -140,7 +140,7 @@ export default function ContactSection() {
             </dl>
           </div>
         </div>
-        <div className='max-w-[93vw] sm:max-w-[48vw] pt-6 lg:pt-34 bg-[#fff0f0]'>
+        <div className='max-w-[93vw] sm:max-w-[48vw] pt-6 lg:pt-34'>
         
         <form action="#" method="POST" className="pb-24 sm:py-20 lg:px-8">
           <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">  

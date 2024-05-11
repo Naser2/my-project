@@ -388,9 +388,9 @@ export const MobileHeader = ({session, navigation, userSession, navigationOpen, 
      {/* <ThemeSwitch/> */}
      <div className='absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0'>
     { userSession ? <Link href='/messages' className='relative group '>
-          <button
+          <button  id="CART-FROm-HIDEBAL"
             type='button'
-            className='bell_btn__yil2q  mr-4 relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none ring-ds-gray-alpha focus:ring-2 focus:!ring-white focus:ring-offset-2 focus:ring-offset-gray-800'
+            className='bell_btn__yil2q  mr-4 relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none hover:ring-ds-gray-alpha focus:ring-2 focus:!ring-white focus:ring-offset-2 focus:ring-offset-gray-800'
           >
             <span className='absolute -inset-1.5 '></span>
             <span className='sr-only'>View notifications</span>
@@ -471,12 +471,12 @@ export const OpenButton = ({isOpen, handleOnClose, handlesetIsHeadlessModal}) =>
     {/* <NavTriggerComponent /> */}
     <label onClick={()=>handlesetIsHeadlessModal()}
       // htmlFor="mobile-navigation"
-      className="menu-togglee  ml-4 z-50 mr-[1em]"
+      className="menu-togglee  ml-4 z-50 mr-[1em] sm:!mr-0"
       id="menu-togglee">
       <span aria-label="Close menu"  
       id="menu-togglee" 
       htmlFor="mobile-navigation" 
-      className={classNames(`${isOpen ? "!bg-[var(--google-grey-50)] shadow-gray-400 ring-1 shadow-2xl flex k sm:mr-1 mobile-search-magnifying-glass hover:bg-white ring-[var(--google-grey-400)] dark:bg-slate-800 dark:!text-white dark:hover:ring-white dark:ring-[var(--google-grey-500)]" :
+      className={classNames(`${isOpen ? "!bg-[var(--google-grey-50)] shadow-gray-400 ring-1 shadow-xl flex k sm:mr-1 mobile-search-magnifying-glass hover:bg-white ring-[var(--agedBlack)] dark:bg-slate-800 dark:!text-white dark:hover:ring-white dark:ring-[var(--google-grey-500)]" :
        "ring-[var(--google-grey-500)]"}`,
        "dark:bg-slate-800 dark:!text-white dark:hover:ring-white navTrigger menu-toggle_menuToggle__6OaWw mobile-menu-button_indicator__mGvzn avatar-mobile-menu_button__YEcob hover:ring-1 hover:shadow-xl hover:ring-[#bdbdbd] sm:mr-1 mobile-search-magnifying-glass dark:bg-slate-800 dark:!text-white dark:hover:ring-white")}
       data-expanded="false" data-testid="mobile-menu/trigger" type="button">

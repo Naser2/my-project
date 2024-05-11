@@ -160,15 +160,15 @@ const products = [
               >
                 <img src={product.imageUrl} alt="" className="-z-10 h-full w-full object-cover products-display-image" />
                 <div className="flex flex-wrap items-center gap-y-1  text-sm leading-6 text-gray-300 pt-4">
-                <div className="!flex-block" >
-                <div className='grid grid-cols-2 space-between w-full'>
+                <div className="w-full px-0" >
+                <div className='mt-4 flex justify-between'>
                     <h4 className="hover:underline text-lg leading-6 text-[var(--hh-color-aged-black)] dark:text-white upercase">
                     <a href={product.href}>
                      <span className="" />
                      {product.title}
                     </a>
                     </h4>
-                     <time dateTime={product.datetime} className="ml-[13.9vw] text-black massi-flex-end">
+                     <time dateTime={product.datetime} className="text-black massi-flex-end pr-4">
                       {product.price}
                      </time>
                 </div>

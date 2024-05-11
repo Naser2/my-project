@@ -180,7 +180,7 @@ export function MobileMenuLinks({categories, session,navigationOpen, handlesetIs
     {/* <OpenButton navigationOpen={navigationOpen}  handlesetIsHeadlessModal={handlesetIsHeadlessModal}/> */}
      </div>
 
-    <Tab.Group as="div" className="w-full bg-gray-100 pb-8 border-b-4 border-indigo-500 border-[var(--agedBlack)]">
+    <Tab.Group as="div" className="w-full bg-gray-100  border-b-4 border-indigo-500 border-[var(--agedBlack)]">
 
     <div className="border-b border border-gray-200 w-ful border-y-4 divide-y divide-slate-700  border-indigo-500 dark:border-t-1 dark:mt-6 dark:pr-6 !overflow-scroll">
       <Tab.List className="-mb-px   px-0 inline-flex  w-full shawdow-xl">
@@ -209,7 +209,7 @@ export function MobileMenuLinks({categories, session,navigationOpen, handlesetIs
       console.log("CATEGORY-PANEL", category)
       
       return (
-          <Tab.Panel key={categoryIndex} className="ml-[2em] sm:ml-[2em] space-y-8  sm:space-y-8 sm:pl-0 sm:pb-4 mt-10 sm:pt-0 sm:pb-12 "> 
+          <Tab.Panel key={categoryIndex} className="ml-[2em] sm:ml-[2em] space-y-8  sm:space-y-8 sm:pl-0 sm:pb-4 my-10 sm:pt-0 sm:pb-12 "> 
          
            {category.sections.map((section, sectionIdx) => { 
         
@@ -223,7 +223,7 @@ export function MobileMenuLinks({categories, session,navigationOpen, handlesetIs
                     <ul
                     role="list"
                     aria-labelledby={`${category.id}-${section.id}-heading-mobile`}
-                    className="mt-2 flex flex-col space-y-3" >
+                    className="mt-1 flex flex-col space-y-2 sm:space-y-3" >
                      <RefinementComponent column={section} sectionId={section.id}/>  
                   </ul>
                 </div>

@@ -32,14 +32,14 @@ const Slider = ({images}) => {
   return (
     <div className="grid place-items-center grid-cols-1 w-full max-w-full md:grid-cols-3 !space-x-0 lg:grids-cols-3 shadow-2xl rounded-2xl">
       <div
-        className={`w-full h-[70vh]  md:col-span-2  sm:h-[98vh] sm:col flex justify-center items-center gap-4 transition-transform ease-in-out duration-500 md:p-0`}
+        className={`w-full h-[70vh] backdrop-blur-sm   md:col-span-2  sm:h-[98vh] sm:col flex justify-center items-center gap-4 transition-transform ease-in-out duration-500 md:p-0`}
       >
         {images.map((elem, idx) => (
           <div
             key={idx}
             className={`${
               idx === activeImage
-                ? "block w-full h-full !aspect-[33/27] object-cover transition-all duration-500 ease-in-out"
+                ? "backdrop-blur-md  block w-full h-full !aspect-[33/27] object-cover transition-all duration-500 ease-in-out"
                 : "hidden"
             }`}
           >
@@ -48,7 +48,7 @@ const Slider = ({images}) => {
               alt=""
               width={400}
               height={400}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover hover:backdrop-blur-sm"
             />
           </div>
         ))}

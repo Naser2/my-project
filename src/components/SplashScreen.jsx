@@ -124,7 +124,7 @@ const SplashScreen = () => {
 //       {isLoaded ? null : <div className={styles.slideIn} />}
 //     </div>
 //   );
-return <><div className={classNames(!appInitColor  && "bg-red-400 !z-40 h-screen w-screen ",  "bg-[var(--themeColor)] z-10 h-screen w-screen" )} 
+return <><div className={classNames(!appInitColor  && "bg-red-400 !z-40 h-screen w-screen ",  "bg-[var(--themeColor)] z-10 h-screen w-screen", isLoaded && "hidden")} 
                 //  style={{ backgroundColor: isLoaded ? '#f8cbcb' : 'initial' }}
                  ></div>
 {/* <div className={styles.slideIn} /> */}
@@ -149,7 +149,7 @@ return <><div className={classNames(!appInitColor  && "bg-red-400 !z-40 h-screen
     }
     </>
    <> { logoRise && 
-      ( <div id="welcome-screen" className={classNames("welcome-screen-state-logo-intro", blindsOuverture ==true ? '!z-10' :'!z-50')}>
+      ( <div id="welcome-screen" className={classNames("welcome-screen-state-logo-intro", blindsOuverture ==true ? '!z-10' :'!z-50', isLoaded && "hidden")}>
        <div id="welcome-screen-background" className={classNames(!initBackground == false ?  'bg-[#927f72] absolute top-0 left-0 w-full h-screen' : ' absolute top-0 left-0 w-full h-screen !bg-[#927f72 !z-10')}></div>
         <div id="welcome-screen-foreground">
            <div id="welcome-screen-logo">

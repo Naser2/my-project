@@ -22,7 +22,7 @@ export default function Porfolio({team}) {
                 <div className="lg:col-span-3 mx-[1em]">
                   <ul
                     role="list"
-                    className="grid grid-cols-3 gap-[0.3em] xl:gap-x-12  sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  xl:gap-8"
+                    className="grid grid-cols-3 gap-[0.3em] xl:gap-x-12  sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  xl:gap-y-1"
                   >
                     {group.people.map((person) => (
                       <li key={person.name} className='group'>
