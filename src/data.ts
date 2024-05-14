@@ -31,8 +31,24 @@ import Bessseller2  from '@/assets/images/massi/Bessseller-2.webp'
 import Bessseller3 from '@/assets/images/massi/Bessseller-3.png'
 import imageAngelaFisher from '@/assets/images/team/angela-fisher.jpeg'
 import  massiAboutSection from '@/assets/images/massi-about-section.jpeg'
+import HeroGiff from '@/assets/images/ezgif-7-5ad70af6f1.gif'
 import clsx from 'clsx'
 // import Intro from '@/components/Intro'
+export const heroImages = [
+  {
+   title: "La Haute Horlogerie de CHANEL", 
+     subtitle: "Haute Horlogerie",
+       label: "See More",
+       link: "/about",
+   image: {
+       imageSrc: HeroGiff.src,
+       // "https://www.chanel.com/puls-img/c_limit,w_3200/q_auto:good,dpr_auto,f_auto/1710838915277-onehpcorpodslidinghero2880x1260px51jpg_1260x2880.jpg",
+       imageAlt: "Image of Haute Horlogerie",
+       mobileImageSrc:HeroGiff.src,
+       // "https://www.chanel.com/puls-img/1710838915022-onehpcorpomslidinghero1125x1500px41jpg_1500x1125.jpg",
+   },
+ }
+]
 
 export const navigation = {
   categories: [
@@ -179,7 +195,8 @@ export const navigation = {
     { name: "About", href: "/about" },
     { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
-    { name: "Login", href: "/login" },
+    { name: "Login", href: "/api/auth/login" },
+    { name: "Logout", href: "/api/auth/logout" },
   ],
 };
 

@@ -55,12 +55,12 @@ const Message = ({ message }) => {
   return (
     <div className='relative bg-white p-4 rounded-md shadow-md border border-gray-200'>
       {!isRead && (
-        <div className='absolute top-2 right-2 bg-yellow-500 text-white px-2 py-1 rounded-md'>
+        <div className='absolute top-2 right-2 bg-blue-500 text-white px-2 py-1 rounded-md'>
           New
         </div>
       )}
       <h2 className='text-xl mb-4'>
-        <span className='font-bold'>Property Inquiry:</span>{' '}
+        <span className='font-bold'>Inquiry:</span>{' '}
         {message.property.name}
       </h2>
       <p className='text-gray-700'>{message.body}</p>
@@ -74,7 +74,7 @@ const Message = ({ message }) => {
 >
   <div className="w7m89t0 w7m89tca">
     <button
-      className="QwpljBX"
+      className="QwpljBX pr-1"
       data-testid="avatar"
       style={{ borderRadius: "50%" }}
     >
@@ -97,15 +97,15 @@ const Message = ({ message }) => {
   </div>
   <div className="message-content">
     <div className="header flex flex-justify-between">
-      <div className="header flex flex-items-center">
-        <span className="sender" data-testid="basic-message-header">
+      <div className="header flex flex-items-center px-2">
+        <span className="sender" data-testid="basic-message-header ">
           Nomi
         </span>
         <div
-          className="w7m89t0 w7m89tjx"
+          className="w7m89t0 w7m89tjx mx-2"
           data-testid="message-header-timestamp"
         >
-          <time>Apr 05, 2024, 7:36 AM</time>
+          <time>Apr 05, 2024, <span className='text-gray-600'>7:36 AM</span></time>
         </div>
         <div />
       </div>
@@ -268,11 +268,11 @@ const Message = ({ message }) => {
           isRead ? 'bg-gray-300' : 'bg-blue-500 text-white'
         } py-1 px-3 rounded-md`}
       >
-        {isRead ? 'Mark As New' : 'Mark As Read'}
+        {isRead ? 'Unread Message' : 'Mark As Read'}
       </button>
       <button
         onClick={handleDeleteClick}
-        className='mt-4 bg-red-500 text-white py-1 px-3 rounded-md'
+        className='mt-4  bg-[var(--agedBlack)] hover:bg-red-500 text-white py-1 px-3 rounded-md'
       >
         Delete
       </button>

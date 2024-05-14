@@ -109,7 +109,7 @@ export const POST = async (request) => {
     await newProperty.save();
 
     return Response.redirect(
-      `${process.env.NEXTAUTH_URL}/properties/${newProperty._id}`
+      `${process.env.NEXTAUTH_URL}/product/${newProperty._id}`
     );
 
     // return new Response(JSON.stringify({ message: 'Success' }), {

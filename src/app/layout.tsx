@@ -16,6 +16,7 @@ import Header, { MobileHeader } from '@/components/SephoHeader'; //
 import HideableNavbar from '@/components/HideableNavbar'; 
 import { Inter } from "next/font/google";
 import SplashScreen from '@/components/SplashScreen';
+import { ChakraProvider } from '@chakra-ui/react'
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -60,7 +61,8 @@ export default function RootLayout({
               `,
             }}>
           </script>
-        </head>
+        </head>  
+          {/* <ChakraProvider> */}
          <body id="app" className={clsx(inter.className, "max-w-screen font-sans antialiased text-gray-600 min-h-full flex flex-col [overflow-anchor:none] dark:bg-black")} style={{"transition":"all 0.4s ease !important"}}> 
          <SplashScreen />
           {/* <Header   items={items}/>  */}
@@ -72,10 +74,12 @@ export default function RootLayout({
            </main>
         
          </body> 
+          {/* </ChakraProvider>  */}
        </ThemeModeProvider>
       </html>
      </AuthProvider> 
     </GlobalProvider>  
+  
 
   );
 }

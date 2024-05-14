@@ -6,7 +6,7 @@ import SlideOffComponent from './SlideOffComponent';
 
 const SlidingHeroContainer = ({ heroData }) => {
 // setTimeout and add this to photo #_7bgmoenc6_main
-  const {title, subtitle, buttonLabel, buttonLink} = heroData
+  const {title, subtitle, label,link} = heroData
   const {imageSrc, imageAlt, mobileImageSrc} = heroData.image
 
   console.log("SlidingHeroContainer-heroData", heroData, "STYLE MODULE",  SlidingHeroContainer)
@@ -52,7 +52,7 @@ const SlidingHeroContainer = ({ heroData }) => {
          </h1> 
          <div className={classNames("justify-center, opacity-1 !z-20")}  style={{"transition":"all 1.3s ease !important"}}>
            <Button className={"themeBtn !text-white no_high_contrast  hover:!bg-gray-700 hover:text-white  !z-30"} 
-                  href="/get-started" color="white" shape="roundedSm"><span>Seee More </span></Button>
+                  href={link} color="white" shape="roundedSm"><span>{label} </span></Button>
            </div>
            </div>
     </div>

@@ -10,6 +10,7 @@ import { useState,useEffect } from 'react';
 import ThemeSwitch from "@/components/ThemeSwitch"
 import { LogoMobile } from "../SephoHeader";
 import { OpenButton } from "../HideableNavbar";
+import Link from "next/link";
 const refinementData = [{
   name:"Cheveux", 
   categoryContent:[
@@ -142,15 +143,15 @@ const RefinementComponent = ({ column, sectionId }) => {
         <ul className={classNames(expandedInputId === sectionId && "!mt-[1em] sm:!mt-[-2em] xl:!mt-[-3em]",  "refinement-container category ml-[-3em] -mt-2 sm:-mt-4 xl:!-mt-2")}>
         {/* <ul  className={`refinement-container ${column.id}`}> */}
           {/* <li> */}
-            <a className="refinement-link active" href="https://www.sephora.fr/shop/cheveux-c307/">
+            <Link className="refinement-link active" href="https://www.sephora.fr/shop/cheveux-c307/">
               {/* {column.name} */}
-            </a>
+            </Link>
             <ul className="category-level-1 px-6  mt-4">
               {column.items.map((item, index) => (
                 <li key={index} className="flex-wrap text-left dark:text-white " 
                    
                 >
-                  <a
+                  <Link
                     className="refinement-link category-search-link"
                     title={`Aller à la catégorie: ${item.name}`}
                     href="#"
@@ -158,7 +159,7 @@ const RefinementComponent = ({ column, sectionId }) => {
                     data-cgid={`cgid-${item.href.replace(/ /g, "-")}`}
                   >
                     <span className="name  dark:text-[#bbbdc2] dark:hover:text-[#d0a24f]">{item.name}</span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -261,7 +262,7 @@ export const LinkMapper = ({links}) => {
     <ul className="group has-border is-hidden-l js-header-contact mobile-nav-bottom-links" >
       {links.map((link, index) => (
         <li key={index} className={link.className}>
-          <a href={link.href} className="group__item text-[1.5em] text-left text-[#333] dark:text-white hover:bg-gray-200 dark:hover:text-black" data-event-label={link.dataEventLabel}
+          <Link href={link.href} className="group__item text-[1.5em] text-left text-[#333] dark:text-white hover:bg-gray-200 dark:hover:text-black" data-event-label={link.dataEventLabel}
           //  style={{'color': '#333'}}
 
            >
@@ -271,7 +272,7 @@ export const LinkMapper = ({links}) => {
                 <use xlinkHref={link.icon}></use>
               </svg>
             )} */}
-          </a>
+          </Link>
         </li>
       ))}  
       <li>
@@ -296,7 +297,7 @@ export const CorporateMenu = ({pages}) => {
       {pages && pages.map((item, index) => {
         console.log("PAPGE", item)
      return    <div key={index} className="js-header-entry list-outside text-left">
-          <a
+          <Link
             href={item.href}
             id={`corporate-menu-item-${index}`}
             className="header__primary__button js-header-link about-chanel about-chanel__margin text-left hover:bg-gray-100"
@@ -317,7 +318,7 @@ export const CorporateMenu = ({pages}) => {
             >
               {/* <use xlinkHref="/_ui/responsive/theme-onechanel/assets/icons.svg?v=3.52.5-p1#arrowsmallright"></use> */}
             </svg>
-          </a>
+          </Link>
 
           <div
             className="header__secondary js-header-nav-secondary"
@@ -366,7 +367,7 @@ export const CorporateMenu = ({pages}) => {
                     <ul className="header__category__links">
                       {/* {item.links.map((link, idx) => ( */}
                         <li key={index}>
-                          <a
+                          <Link
                             href={item.href}
                             data-linkname={item.name}
                             className="js-header-secondary-link text-left dark:text-white "
@@ -376,7 +377,7 @@ export const CorporateMenu = ({pages}) => {
                             tabIndex={index}
                           >
                             {item.name}
-                          </a>
+                          </Link>
                         </li>
                       {/* ))} */}
                     </ul>
@@ -440,18 +441,18 @@ export function MobileMenu() {
               <div className="space-y-6 border-t border-gray-200 !px-2 !py-6">
                 {navigation.pages.map((page) => (
                   <div key={page.name} className="flow-root q0yked">
-                    <a
+                    <Link
                       href={page.href}
                       className="-m-2 block text-[1.5em] !p-4 font-medium  dark:text-white hover:main-text-color-1"
                     >
                       {page.name}
-                    </a>
+                    </Link>
                   </div>
                 ))}
               </div>
 
               <div className="border-t border-gray-200 px-6 py-6">
-                <a href="#" className="-m-2 flex items-center !p-2">
+                <Link href="#" className="-m-2 flex items-center !p-2">
                   <img
                     src="https://tailwindui.com/img/flags/flag-canada.svg"
                     alt=""
@@ -461,7 +462,7 @@ export function MobileMenu() {
                     CAD
                   </span>
                   <span className="sr-only">, change currency</span>
-                </a>
+                </Link>
               </div>
             </Dialog.Panel>
           </Transition.Child>

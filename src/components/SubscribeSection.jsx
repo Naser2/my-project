@@ -1,6 +1,6 @@
 const  SubscribeSection =({})=>{
     
-    return    <section id="Booknow" className="!relative pb-24">
+    return    <section id="Booknow" className="!relative pb-0">
     <img className="w-full h-full " src={'/book_now.webp'} alt={'Book_now image'}/>
     <img className="hidden sm:flex w-[110vw] overflow-hidden sm:w-full h-[20vh] absolute bottom-[78%] sm:bottom-[65%] left-0 z-20 ml-[4%] " src={'/subscribe_for_offers-transparent.png'} alt={'subscribe_for_offers-transparent'}/>
     <img className="sm:hidden w-[80vw] overflow-hidden h-[20vh] absolute bottom-[78%] left-0 z-20 mx-[4%] " src={'/subscribe_for_offers-transparent-mobile.png'} alt={'subscribe_for_offers-transparent'}/>
@@ -80,7 +80,8 @@ const  SubscribeSection =({})=>{
       <input class="w-full bg-transparent outline-none uppercase font-sans placeholder-ochre text-ochre" placeholder="ENTER YOUR EMAIL" data-index="0" type="text"/>
       <div class="absolute right-0 text-ochre font-sans text-xs tracking-plus leading-relaxed">
         <span>Incorrect format, please try again.</span>
-        </div></div></form></div>
+        </div></div></form>
+        </div>
       {/* <button className="absolute -mt-24 !mt-[-5.6vh] image-with-text__cta themeBtn bg-black !text-white no_high_contrast  hover:!bg-gray-700 hover:text-white px-16 hidden sm:flex" width="full" theme="primary" href="/pages/science-technology">Get Offers</button> */}
       </div>
     </div>

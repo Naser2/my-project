@@ -129,7 +129,7 @@ const products = [
    <FadeInStagger key={'products'}>
     <FadeIn>
 
-      <div className="bg-[var(--hh-color-sundrenched-stone)] pt-4 pb-12 sm:py-12 mx-auto max-w-[88vw]  sm:max-w-none px-6 lg:px-8 lg:px-[3vw]">
+      <div className="bg-[var(--hh-color-sundrenched-stone)] pt-4 pb-12 sm:py-12 mx-auto max-w-[88vw]  sm:max-w-none 6 lg:px-8 lg:px-[3vw]">
         <div className="flex-block">
             <div className='sm:grid grid-cols-2 space-between inline-flex py-8'>
                 <div className="text-left">

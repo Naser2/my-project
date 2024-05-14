@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 :root {
+  --font-family: "Ovo", serif;
   --white: #fff;
     --black: #000;
     --gray-50: #f9f9f9;
@@ -25,6 +26,7 @@
     --hh-font-h5: 40;
     --hh-font-h6: 32;
     --hh-font-caption: 12;
+    --hh-h5-font: 400 var(--hh-font-size-h5) / 1.4 var( --font-family);
     /* --hh-font-body-large: 24; */
     --hh-font-body: 14;
     --hh-font-caption: 11;
@@ -294,7 +296,7 @@
     --tw-prose-pre-bg: #1e293b;
 
        --hh-color-black: #000000;
-       --hh-color-aged-black: #2b2829;
+       --agedBlack: #2b2829;
        --hh-color-ancient-ore: #6a6868;
        --hh-color-unrefined-silver: #8b8882;
        --hh-color-grey-mineral: #cdcbca;
@@ -308,7 +310,7 @@
        --hh-okendo-answer-bg: rgba(250, 249, 248, 0.5);
        --hh-active-option-bg: #e0dedb;
        --hh-color-focus: #0038FF;
-       --hh-color-text: var(--hh-color-aged-black);
+       --hh-color-text: var(--agedBlack);
        --hh-color-light: var(--hh-color-star-white);
        --screen-size: 375;
        
@@ -316,10 +318,10 @@
        --hh-font-size-h2: max(var(--pixels-to-vw-h2), calc(var(--hh-font-h2) * 1px));
        --hh-font-size-h3: max(var(--pixels-to-vw-h3), calc(var(--hh-font-h3) * 1px));
        --hh-font-size-h4: max(var(--pixels-to-vw-h4), calc(var(--hh-font-h4) * 1px));
-       --hh-font-size-h5: max(var(--pixels-to-vw-h5), calc(var(--hh-font-h5) * 1px));
+       --hh-font-size-h5: max(var(--pixels-to-vw-h5), calc(var(--hh-font-h5) * 0.5px));
        --hh-font-size-h1: max(var(--pixels-to-vw-h1), calc(var(--hh-font-h1) * 1px));
        --hh-font-size-h3: max(var(--pixels-to-vw-h3), calc(var(--hh-font-h3) * 1px));
-       /* --hh-h2-font: 400 var(--hh-font-size-h2) / 1.4 var(--hh-font-family-tertiary); */
+       --hh-h2-font: 400 var(--hh-font-size-h2) / 1.4 var(--font-family);
        --pixels-to-vw-body: calc(var(--hh-font-body) / var(--screen-size) * 100vw);
        --pixels-to-vw-caption: calc(var(--hh-font-caption) / var(--screen-size) * 100vw);
        --pixels-to-vw-utility: calc(var(--hh-font-utility) / var(--screen-size) * 100vw);
@@ -330,7 +332,7 @@
        --pixels-to-vw-h2: calc(var(--hh-font-h2) / var(--screen-size) * 100vw);
        --pixels-to-vw-h3: calc(var(--hh-font-h3) / var(--screen-size) * 100vw);
        --pixels-to-vw-h4: calc(var(--hh-font-h4) / var(--screen-size) * 100vw);
-       --pixels-to-vw-h5: calc(var(--hh-font-h5) / var(--screen-size) * 100vw);
+       --pixels-to-vw-h5: calc(var(--hh-font-h5) / var(--screen-size) * 33vw);
        --pixels-to-vw-h6: calc(var(--hh-font-h6) / var(--screen-size) * 100vw);
        --hh-h1-letter-spacing: normal;
        --hh-h2-letter-spacing: normal;
@@ -471,7 +473,8 @@
 }
 
 body, .body, .p, p, .body-large, .h1, h1, .h2, h2, .h3, h3, .h4, h4, .h5, h5, .h6, h6, .utility, .caption, .pullquote, .bullet-list, .inline-link {
-  color: var(--hh-color-aged-black);
+  color: var(--agedBlack) !important;
+  /* color: var(--agedBlack); */
   margin: 0;
 }
 
@@ -773,6 +776,9 @@ body {
 }
 
 
+.border-r {
+  border-right-width: 1px;
+}
 .border-creaam-1 {
   border-color:  #7d5d24;
 }
@@ -857,17 +863,68 @@ body {
   font-weight: 400; */
   overflow-x: hidden;
 }
+@media screen and (min-width: 750px){
+.text-fifty-fifty__container--full-title .text-fifty-fifty__title {
+    grid-column: 1 / span 2;
+    grid-row: unset;
+    max-width: 100%;
+    padding-bottom: var(--hh-spacing-2);
+}}
+
+@media screen and (min-width: 750px){
+.text-fifty-fifty__container--full-title .text-fifty-fifty__title {
+    grid-column: 1 / span 2;
+    grid-row: unset;
+    max-width: 100%;
+    padding-bottom: var(--hh-spacing-2);
+}}
+@media screen and (min-width: 750px){
+.text-fifty-fifty__title {
+    max-width: 75%;
+    padding-bottom: 0;
+    text-transform: unset;
+    grid-row: 1 / span 2;}
+}
+.text-fifty-fifty__title {
+    text-transform: uppercase;
+}
+.text-fifty-fifty__title, .text-fifty-fifty__desc {
+    padding-bottom: var(--hh-spacing-2);
+}
+@media screen and (min-width: 750px){
+.text-fifty-fifty__title {
+    max-width: 75%;
+    padding-bottom: 0;
+    text-transform: unset;
+    grid-row: 1 / span 2;
+}}
+.text-fifty-fifty__title {
+    text-transform: uppercase;
+}
+.text-fifty-fifty__title, .text-fifty-fifty__desc {
+    padding-bottom: var(--hh-spacing-2);
+}
+.c-text {
+    color: var(--hh-color-text);
+}
+h5, .h5 {
+    font: var(--hh-h5-font);
+    font-family: var(--font-family);
+    letter-spacing: var(--hh-h5-letter-spacing);
+    text-decoration: none;
+    text-transform: var(--hh-h5-text-transform);
+}
 /* BEYONCE ----CARD ---- */
 /*! CSS Used from: https://cecred.com/cdn/shop/t/501/assets/-base.min.css?v=109256068592370711651712866752 ; media=all */
 
 .container {
   margin: 0 auto;
-  padding: 5%;
+  /* padding: 5%; */
   /* padding-right: 5%; */
   box-sizing: border-box;
   width: 100%;
 }
-  h2,h5{color:var(--hh-color-aged-black);margin:0;}
+  h2,h5{color:var(--agedBlack);margin:0;}
   h5 {
       display: block;
       font-size: 1.7em;
@@ -2184,7 +2241,9 @@ body{padding:0;margin:0;
   font-weight:400;line-height:1.5;color:#0a0a0a;background:#fefefe;top:0;left:0;right:0;bottom:0;height:100%;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
 img{max-width:100%;height:auto;-ms-interpolation-mode:bicubic;display:inline-block;vertical-align:middle;font-size:0;}
 img[data-src]{opacity:0;-webkit-transition:opacity .5s ease-in;transition:opacity .5s ease-in;}
-button{-webkit-appearance:none;-moz-appearance:none;background:0 0;padding:0;border:0;border-radius:0;line-height:1;}
+button{-webkit-appearance:none;-moz-appearance:none;background:0 0;padding:0;
+  /* border:0; */
+  border-radius:0;line-height:1;}
 /* .row{max-width:90rem;margin-left:auto;margin-right:auto;display:-webkit-box;display:flex;flex-flow:row wrap;} */
 .column{-webkit-box-flex:1;flex:1 1 0px;padding-left:.625rem;padding-right:.625rem;min-width:initial;}
 @media screen and (min-width:50em){

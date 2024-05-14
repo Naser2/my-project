@@ -14,7 +14,7 @@ import Header from '@/components/SephoHeader'; // Import the Header component
 import SlidingHeroContainer from '@/components/SlidingHeroContainer'; // Import the Header component
 import TestButton from '@/components/TestButton';
 import DispatchElements from '@/components/DispatchElements';
-import { aboutData, allReviews, dispatchData, images, navigation, proucdtsTeaser, servicesReviews, team } from "@/data";
+import { aboutData, allReviews, dispatchData, heroImages, images, navigation, proucdtsTeaser, servicesReviews, team } from "@/data";
 import ImageHero from '@/components/ImageHero'
 import ProductCardDisplay from '@/components/ProductCardDisplay'
 import TestimonialSection from '@/components/TestimonialSection'
@@ -40,23 +40,7 @@ const items = [
   },
   // Add more items as needed
 ];
-const heroImages = [
- {
-  title: "La Haute Horlogerie de CHANEL",
-  image: {
-      imageSrc: HeroGiff.src,
-      // "https://www.chanel.com/puls-img/c_limit,w_3200/q_auto:good,dpr_auto,f_auto/1710838915277-onehpcorpodslidinghero2880x1260px51jpg_1260x2880.jpg",
-      imageAlt: "Image of Haute Horlogerie",
-      mobileImageSrc:HeroGiff.src,
-      // "https://www.chanel.com/puls-img/1710838915022-onehpcorpomslidinghero1125x1500px41jpg_1500x1125.jpg",
-  },
 
-  subtitle: "Haute Horlogerie",
-  button: {
-      label: "Voir plus",
-      link: "/fr/horlogerie/haute-horlogerie/"
-  }
-}
 // ,{
 //   title: "La Haute Horlogerie de CHANEL",
 //    image: {
@@ -72,7 +56,7 @@ const heroImages = [
 //           link: "/fr/maquillage/rouge-allure-velvet/"
 //       }
 // }
-]
+
 
 
 export default function HomePage() {
@@ -172,15 +156,15 @@ export default function HomePage() {
           <h2 className="h-0 w-0 sr-only">CONTACT</h2>
           <ContactSection />
         </section>
-
+        <SectionEadem/>
         <SubscribeSection />
 
         {/* <img className="w-full h-full" src={'/book_now.webp'} alt={'maya-angelou.png'}/> */}
 
-        <section id="SIGNUP" className="elative py-24 ">
+        {/* <section id="SIGNUP" className="elative py-24 ">
           <h2 className="h-0 w-0 sr-only">SIGNUP</h2>
-          {/* <ContactSection /> */}
-        </section>
+          <ContactSection />
+        </section> */}
 
         {/* <div class="StyledWidgetMenu--hkf06h jnSKfE"><a class="StyledWidgetLink--4kybrr jKGdSQ"><div class="StyledWidgetIcon--eypg5o dKiKfO"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M9 1.688a7.313 7.313 0 110 14.625A7.313 7.313 0 019 1.688zm0 1.218a6.094 6.094 0 100 12.188A6.094 6.094 0 009 2.906zm0 2.438a.61.61 0 110 1.218.61.61 0 010-1.218zm.61 6.703a.61.61 0 01-1.22 0v-3.7a.61.61 0 111.22 0v3.7z" transform="translate(3 3)" fill-rule="evenodd"></path></svg></div><span class="StyledSpan--1x62xq3 cUibYJ">Learn more</span></a><button class="StyledWidgetButton--mwhbzw djuuNz"><div class="StyledWidgetIcon--eypg5o dKiKfO"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M5.812 19.138a.663.663 0 01-.943 0 .666.666 0 010-.943l2.054-2.054C4.744 14.741 4 12.805 4 12c0-1.741 2.803-6 8-6 2.001 0 3.263.607 3.961 1.103l2.242-2.241a.666.666 0 11.942.942L5.812 19.138zm4.396-6.282l2.653-2.652A1.994 1.994 0 0012 10c-1.103 0-2 .898-2 2 0 .3.08.589.208.856zM12 7.333c-4.523 0-6.667 3.744-6.667 4.667 0 .297.476 1.954 2.562 3.168l1.359-1.358c-.047-.043-.101-.075-.135-.133A3.337 3.337 0 0112 8.667c.66 0 1.293.202 1.835.562l1.162-1.161c-.55-.34-1.502-.735-2.997-.735zm0 8A.667.667 0 0111.956 14 2.198 2.198 0 0014 11.956a.666.666 0 111.33.087 3.537 3.537 0 01-3.288 3.289H12zm-1.84 1.113c.582.146 1.201.22 1.84.22 4.523 0 6.667-3.743 6.667-4.666 0-.279-.289-1.185-1.182-2.204a.667.667 0 111.004-.878C19.407 9.966 20 11.176 20 12c0 1.74-2.803 6-8 6a8.871 8.871 0 01-2.165-.262.667.667 0 11.326-1.292z" fill-rule="evenodd"></path></svg></div><span class="StyledSpan--1x62xq3 cUibYJ">Hide Brave Rewards</span></button></div> */}
    
@@ -211,7 +195,7 @@ export default function HomePage() {
 
     
     {/* <WelcomeScreen /> */}
-    <section id="LEGACY-PRODUCT-INFO" className="flex-auto overflow-hidden relative mx-auto mt-16 grid  max-w-container grid-cols-1 px-4 sm:mt-20 sm:px-6 lg:px-8 xl:mt-32">
+    {/* <section id="LEGACY-PRODUCT-INFO" className="flex-auto overflow-hidden relative mx-auto mt-16 grid  max-w-container grid-cols-1 px-4 sm:mt-20 sm:px-6 lg:px-8 xl:mt-32"> */}
       {/* <div className="lg:grid lg:auto-rows-min lg:grid-cols-12 lg:gap-x-8 relative overflow-auto">
         <div className="lg:col-span-5 lg:col-start-8">
           <ProductInfo />
@@ -233,167 +217,8 @@ export default function HomePage() {
 
       {/* <Reviews reviews={allReviews} /> */}
       {/* <RelatedProducts /> */}
-    </section>
-      <div className="bg-crema lg:p-smm">
-  <div className="flex justify-between flex-col-reverse lg:flex-row">
-    <ul className="container py-10 lg:p-0 w-full lg:w-8/12 flex flex-col lg:grid lg:grid-cols-3 lg:gap-x-5">
-      <li className="text-lg footer-tab">
-        <input
-          className="hidden"
-          type="checkbox"
-          id="footer-1"
-          data-index={1}
-        />
-        <label
-          htmlFor="footer-1"
-          className="footer-label block py-4 lg:pt-0 lg:mb-4 text-lg font-sans uppercase"
-        >
-          Company
-        </label>
-        <div className="footer-content">
-          <div className="font-serif mb-1  pt-1 lg:p-0">
-            <a href="/pages/about" className="inline">
-              About
-            </a>
-          </div>
-          <div className="font-serif mb-1 ">
-            <a href="/pages/store-locator" className="inline">
-              Store Finder
-            </a>
-          </div>
-          <div className="font-serif mb-1 ">
-            <a href="https://codeswitch.eadem.co/" className="inline">
-              Journal
-            </a>
-          </div>
-          <div className="font-serif mb-1 ">
-            <a href="/pages/beauty-burden" className="inline">
-              Beauty Burden
-            </a>
-          </div>
-          <div className="font-serif mb-1 ">
-            <a href="/pages/friend" className="inline">
-              Get $10 Off
-            </a>
-          </div>
-        </div>
-      </li>
-      <li className="text-lg footer-tab">
-        <input className="hidden" type="checkbox" id="footer-2" />
-        <label
-          htmlFor="footer-2"
-          className="footer-label block py-4 lg:pt-0 lg:mb-4 text-lg font-sans uppercase"
-        >
-          Help
-        </label>
-        <div className="footer-content">
-          <div className="font-serif mb-1  pt-1 lg:p-0">
-            <a href="/pages/faq" className="inline">
-              FAQ
-            </a>
-          </div>
-          <div className="font-serif mb-1 ">
-            <a href="/pages/recycling" className="inline">
-              Recycling
-            </a>
-          </div>
-          <div className="font-serif mb-1 ">
-            <a href="/pages/shipping-returns" className="inline">
-              Shipping &amp; Returns
-            </a>
-          </div>
-          <div className="font-serif mb-1 ">
-            <a href="/pages/contact-us" className="inline">
-              Contact Us
-            </a>
-          </div>
-        </div>
-      </li>
-      <li className="text-lg footer-tab">
-        <input className="hidden" type="checkbox" id="footer-3" />
-        <label
-          htmlFor="footer-3"
-          className="footer-label block py-4 lg:pt-0 lg:mb-4 font-sans uppercase"
-        >
-          Community
-        </label>
-        <div className="footer-content">
-          <div className="font-serif mb-1  pt-1 lg:p-0">
-            <a
-              href="https://www.instagram.com/eadem.co/"
-              className="inline"
-              target="_blank"
-            >
-              Instagram
-            </a>
-          </div>
-        </div>
-      </li>
-      <li className="block lg:hidden text-lg footer-tab">
-        <input className="hidden" type="checkbox" id="footer-4" />
-        <label
-          htmlFor="footer-4"
-          className="footer-label block py-4 lg:pt-0 lg:mb-4 font-sans uppercase"
-        >
-          Legal
-        </label>
-        <div className="footer-content">
-          <div className="font-serif mb-1 pt-1 lg:p-0">
-            <a href="/pages/terms-conditions" className="inline">
-              Terms and Conditions
-            </a>
-          </div>
-          <div className="font-serif mb-1">
-            <a href="/pages/privacy-policy" className="inline">
-              Privacy Policy
-            </a>
-          </div>
-          <div className="font-serif mb-1">
-            <a
-              data-acsb-custom-trigger="true"
-              className="inline cursor-pointer"
-            >
-              Accessibility
-            </a>
-          </div>
-        </div>
-      </li>
-    </ul>
-    <div className="container py-10 lg:p-0 w-full lg:w-4/12 bg-apricot lg:bg-crema">
-      <form className="flex flex-col text-lg newsletter-form">
-        <div className="mb-10 serializer">
-          <span>
-            <p>
-              <strong>10% OFF YOUR FIRST ORDER </strong>— Signup for the latest
-              product news, first-person essays, and expert skin tips.
-            </p>
-          </span>
-        </div>
-        <div className="relative pb-2 md:w-1/2 lg:w-full flex items-center border-b border-ochre val-w-email">
-          <input
-            className="w-full bg-transparent outline-none uppercase font-sans placeholder-ochre text-ochre"
-            type="text"
-            placeholder="ENTER YOUR EMAIL"
-            data-index={0}
-          />
-          <div className="absolute right-0 text-ochre font-sans text-xs tracking-plus leading-relaxed">
-            <span>Incorrect format, please try again.</span>
-          </div>
-          {/* <button
-            type="submit"
-            role="submit"
-            title="submit"
-            className="absolute right-0 w-3 h-3 focus:outline-none"
-          >
-            <svg className="fill-current text-ochre">
-              <use xlinkHref="#svg-arrow" />
-            </svg>
-          </button> */}
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
+    {/* </section> */}
+  
 
     </div>
   );

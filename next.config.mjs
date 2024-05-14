@@ -23,8 +23,17 @@ const nextConfig = { images: {
       pathname: '**'},
 
       { protocol: 'https',
-      hostname: 'https://vercel.com',
-      pathname: '**'}
+      hostname: 'vercel.com',
+      pathname: '**'},
+     
+    { protocol: 'https',
+      hostname: 'images.unsplash.com',
+      pathname: '**'
+    },
+    { protocol: 'https',
+      hostname: 'cecred.com',
+      pathname: '**'
+    }
     ]
   },};
 
